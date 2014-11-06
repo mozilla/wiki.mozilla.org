@@ -1,0 +1,107 @@
+[submodule "core"]
+	path = core
+	url = https://git.wikimedia.org/git/mediawiki/core.git
+[submodule "extensions/Bugzilla"]
+	path = extensions/Bugzilla
+	url = https://github.com/mozilla/mediawiki-bugzilla.git
+	branch = master
+[submodule "extensions/ConfirmAccount"]
+	path = extensions/ConfirmAccount
+	url = https://git.wikimedia.org/git/mediawiki/extensions/ConfirmAccount.git
+	branch = REL1_23
+[submodule "extensions/ConfirmEdit"]
+	path = extensions/ConfirmEdit
+	url = https://git.wikimedia.org/git/mediawiki/extensions/ConfirmEdit.git
+	branch = master
+[submodule "extensions/DataValues"]
+	path = extensions/DataValues
+	url = https://github.com/DataValues/DataValues.git
+	branch = master
+[submodule "extensions/Gadgets"]
+	path = extensions/Gadgets
+	url = https://git.wikimedia.org/git/mediawiki/extensions/Gadgets.git
+	branch = master
+[submodule "extensions/googleAnalytics"]
+	path = extensions/googleAnalytics
+	url = https://git.wikimedia.org/git/mediawiki/extensions/googleAnalytics.git
+	branch = REL1_19
+[submodule "extensions/ImageMap"]
+	path = extensions/ImageMap
+	url = https://git.wikimedia.org/git/mediawiki/extensions/ImageMap.git
+	branch = REL1_19
+[submodule "extensions/Interwiki"]
+	path = extensions/Interwiki
+	url = https://git.wikimedia.org/git/mediawiki/extensions/Interwiki.git
+	branch = master
+[submodule "extensions/LabeledSectionTransclusion"]
+	path = extensions/LabeledSectionTransclusion
+	url = https://git.wikimedia.org/git/mediawiki/extensions/LabeledSectionTransclusion.git
+	branch = REL1_19
+[submodule "extensions/mediawiki-semantic-html"]
+	path = extensions/mediawiki-semantic-html
+	url = https://github.com/BenWard/mediawiki-semantic-html.git
+	branch = master
+[submodule "extensions/NoTitle"]
+	path = extensions/NoTitle
+	url = https://github.com/AABoyles/NoTitle.git
+	branch = master
+[submodule "extensions/Nuke"]
+	path = extensions/Nuke
+	url = https://git.wikimedia.org/git/mediawiki/extensions/Nuke.git
+	branch = REL1_19
+[submodule "extensions/OggHandler"]
+	path = extensions/OggHandler
+	url = https://git.wikimedia.org/git/mediawiki/extensions/OggHandler.git
+	branch = REL1_19
+[submodule "extensions/ParserFunctions"]
+	path = extensions/ParserFunctions
+	url = https://git.wikimedia.org/git/mediawiki/extensions/ParserFunctions.git
+	branch = REL1_19
+[submodule "extensions/Renameuser"]
+	path = extensions/Renameuser
+	url = https://git.wikimedia.org/git/mediawiki/extensions/Renameuser.git
+	branch = REL1_19
+[submodule "extensions/RSS"]
+	path = extensions/RSS
+	url = https://git.wikimedia.org/git/mediawiki/extensions/RSS.git
+	branch = master
+[submodule "extensions/Sandstone"]
+	path = extensions/Sandstone
+	url = https://github.com/christi3k/mw-sandstone.git
+	branch = master
+[submodule "extensions/SemanticForms"]
+	path = extensions/SemanticForms
+	url = https://git.wikimedia.org/git/mediawiki/extensions/SemanticForms.git
+	branch = REL1_19
+[submodule "extensions/SemanticWatchlist"]
+	path = extensions/SemanticWatchlist
+	url = https://github.com/SemanticMediaWiki/SemanticWatchlist.git
+	branch = master
+[submodule "extensions/SimpleAntiSpam"]
+	path = extensions/SimpleAntiSpam
+	url = https://git.wikimedia.org/git/mediawiki/extensions/SimpleAntiSpam.git
+	branch = REL1_19
+[submodule "extensions/Smartsheet-MediaWiki-Extension"]
+	path = extensions/Smartsheet-MediaWiki-Extension
+	url = https://github.com/bensternthal/Smartsheet-MediaWiki-Extension.git
+	branch = master
+[submodule "extensions/SpamBlacklist"]
+	path = extensions/SpamBlacklist
+	url = https://git.wikimedia.org/git/mediawiki/extensions/SpamBlacklist.git
+	branch = REL1_23
+[submodule "extensions/SubPageList"]
+	path = extensions/SubPageList
+	url = https://git.wikimedia.org/git/mediawiki/extensions/SubPageList.git
+	branch = 1.0.x
+[submodule "extensions/SyntaxHighlighter"]
+	path = extensions/SyntaxHighlighter
+	url = git://github.com/seongjaelee/SyntaxHighlighter.git
+	branch = master
+[submodule "extensions/UrlGetParameters"]
+	path = extensions/UrlGetParameters
+	url = https://git.wikimedia.org/git/mediawiki/extensions/UrlGetParameters.git
+	branch = REL1_19
+[submodule "extensions/WikiEditor"]
+	path = extensions/WikiEditor
+	url = https://git.wikimedia.org/git/mediawiki/extensions/WikiEditor.git
+	branch = REL1_19

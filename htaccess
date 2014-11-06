@@ -1,0 +1,45 @@
+  AddType image/svg+xml .svg
+
+  RewriteEngine On
+
+  # Rewrite the old UseMod URLs to the new MediaWiki ones
+  RewriteRule ^/AdminWiki(/.*|$) https://intranet.mozilla.org/%{QUERY_STRING} [R=permanent,L]
+
+  RewriteRule ^/PluginFutures(/.*|$) https://intranet.mozilla.org/PluginFutures$1 [R=permanent,L]
+
+  # This is for the ECMAScript 4 working group
+  # https://bugzilla.mozilla.org/show_bug.cgi?id=324452
+  RewriteRule ^/ECMA(/.*|$) https://intranet.mozilla.org/ECMA$1 [R=permanent,L]
+
+  # Old Wikis that have been moved into the public wiki
+  RewriteRule ^/Mozilla2\.0([/\?].*|$) /wiki/Mozilla2:Home_Page? [R,L]
+  RewriteRule ^/GeckoDev([/\?].*|$) /wiki/GeckoDev:Home_Page? [R,L]
+  RewriteRule ^/XULDev([/\?].*|$) /wiki/XUL:Home_Page? [R,L]
+  RewriteRule ^/Calendar([/\?].*|$) /wiki/Calendar:Home_Page? [R,L]
+  RewriteRule ^/DocShell([/\?].*|$) /wiki/DocShell:Home_Page? [R,L]
+  RewriteRule ^/SVG([/\?].*|$) /wiki/SVG:Home_Page? [R,L]
+  RewriteRule ^/SVGDev([/\?].*|$) /wiki/SVGDev:Home_Page? [R,L]
+  RewriteRule ^/mozwiki https://wiki.mozilla.org/ [R,L]
+
+  ###
+  ### The following rewrites are for PublicWiki, to make top-level page names work.
+  ### This section MUST be last to let all the other wikis keep working.
+  ###
+
+  # The following rules are only for backwards compatibility 
+  # (so that old links to your site keep working). You should leave them out in a new install.
+  # Redirect old /wiki/ urls
+  RewriteRule ^/wiki/(.*)$ https://wiki.mozilla.org/$1 [R,L]
+  RewriteRule ^/wiki$ https://wiki.mozilla.org/index.php [R,L]
+  # end backward compatibility rules, the following ones are important
+
+ # Don't rewrite requests for files in MediaWiki subdirectories,
+  # MediaWiki PHP files, HTTP error documents, favicon.ico, or robots.txt
+  RewriteCond %{REQUEST_URI} !^/(images|skins|extensions|resources)/
+  RewriteCond %{REQUEST_URI} !^/(redirect|index|opensearch_desc|api|load|thumb).php
+  RewriteCond %{REQUEST_URI} !^/error/(40(1|3|4)|500).html
+  RewriteCond %{REQUEST_URI} !^/favicon.ico
+  RewriteCond %{REQUEST_URI} !^/robots.txt
+
+  # Rewrite http://wiki.domain.tld/article properly, this is the main rule
+  RewriteRule ^/(.*)$ /data/www/wiki.mozilla.org/wiki/index.php?title=$1 [L,QSA]
