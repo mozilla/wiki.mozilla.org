@@ -1,0 +1,7 @@
+#!/bin/sh
+# This file is for use on the generic cluster only
+
+# This is really just a hook to the deploy script
+/data/genericrhel6-dev/deploy wiki.mozilla.org
+
+issue-multi-command genericrhel6 service httpd graceful

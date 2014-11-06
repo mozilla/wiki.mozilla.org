@@ -16,10 +16,10 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 
 if ( getenv('SECRETS_SET') == 'YES' ) {
-    require_once('env_secrets.php');
+    require_once('../env_secrets.php');
 }
 else {
-    require_once('secrets.php');
+    require_once('../secrets.php');
 }
 
 ## Uncomment this to disable output compression
