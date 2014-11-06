@@ -105,3 +105,10 @@
 	path = extensions/WikiEditor
 	url = https://git.wikimedia.org/git/mediawiki/extensions/WikiEditor.git
 	branch = REL1_19
+[submodule "extensions/SemanticMediaWiki"]
+	path = extensions/SemanticMediaWiki
+	url = https://github.com/SemanticMediaWiki/SemanticMediaWiki.git
+	branch = master
+[submodule "extensions/Validator"]
+	path = extensions/Validator
+	url = https://git.wikimedia.org/git/mediawiki/extensions/Validator.git
