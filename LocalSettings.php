@@ -15,11 +15,20 @@ if ( !defined( 'MEDIAWIKI' ) ) {
     exit;
 }
 
+# Source the secrets settings file
+# If environment variables are set we will use a secrets file that
+# will pick them up. If not then you are responsible for creating
+# this file. there is a secrets.php-dist file for your convienence.
 if ( getenv('SECRETS_SET') == 'YES' ) {
     require_once('../env_secrets.php');
 }
 else {
     require_once('../secrets.php');
+}
+
+# If a debug.php file exists then lets pull it in.
+if ( file_exists('debug.php') ) {
+    require_once('debug.php');
 }
 
 ## Uncomment this to disable output compression
