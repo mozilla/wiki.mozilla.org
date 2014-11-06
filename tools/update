@@ -2,7 +2,7 @@
 # This file is for use on the generic cluster only
 # This is really just a hook to the deploy script
 
-if hostname != 'genericadm.private.phx1.mozilla.com'; then
+if [ $(hostname) != 'genericadm.private.phx1.mozilla.com' ]; then
     echo "You probably don't want to run this here."
     exit 0
 fi
