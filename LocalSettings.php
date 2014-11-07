@@ -103,8 +103,8 @@ $wgMemCachedServers = array();
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
 $wgEnableUploads = true;
-$wgUploadDirectory = "{$IP}/../images"
-$wgUploadPath = "{$IP}/../images"
+$wgUploadDirectory = "$IP/../images";
+$wgUploadPath = "$IP/../images";
 
 # InstantCommons allows wiki to use images from http://commons.wikimedia.org
 $wgUseInstantCommons = false;
@@ -513,7 +513,7 @@ $wgMimeDetectorCommand= "file -bi"; #use external mime detector (Linux)
 
 $wgUseSquid = true;
 #$wgSquidServers = array('10.8.81.215','10.8.81.216','10.8.81.217','10.8.81.218','10.8.81.219');
-$wgSquidServers = $SECRETS_wgSquidServers
+$wgSquidServers = $SECRETS_wgSquidServers;
 
 $wgCacheDirectory = "/tmp/wikimo-cache";
 
