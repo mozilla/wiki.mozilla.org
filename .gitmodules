@@ -13,10 +13,6 @@
 	path = extensions/ConfirmEdit
 	url = https://git.wikimedia.org/git/mediawiki/extensions/ConfirmEdit.git
 	branch = master
-[submodule "extensions/DataValues"]
-	path = extensions/DataValues
-	url = https://github.com/DataValues/DataValues.git
-	branch = master
 [submodule "extensions/Gadgets"]
 	path = extensions/Gadgets
 	url = https://git.wikimedia.org/git/mediawiki/extensions/Gadgets.git
