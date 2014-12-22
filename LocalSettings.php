@@ -27,8 +27,8 @@ else {
 }
 
 # If a debug.php file exists then lets pull it in.
-if ( file_exists('debug.php') ) {
-    require_once('debug.php');
+if ( file_exists('../debug.php') ) {
+    require_once('../debug.php');
 }
 
 ## Uncomment this to disable output compression
@@ -77,11 +77,11 @@ $wgEnotifWatchlist = true; # UPO
 $wgEmailAuthentication = true;
 
 ## Database settings
-$wgDBtype = "mysql";
-$wgDBserver         = $SECRETS_wgDBserver;
-$wgDBname           = $SECRETS_wgDBname;
-$wgDBuser           = $SECRETS_wgDBuser;
-$wgDBpassword       = $SECRETS_wgDBpassword;
+$wgDBtype     = "mysql";
+$wgDBserver   = $SECRETS_wgDBserver;
+$wgDBname     = $SECRETS_wgDBname;
+$wgDBuser     = $SECRETS_wgDBuser;
+$wgDBpassword = $SECRETS_wgDBpassword;
 
 # MySQL specific settings
 #$wgDBprefix = "wikimo_";
@@ -446,12 +446,37 @@ require( "$IP/../extensions/OggHandler/OggHandler.php" );
 $smwgNamespaceIndex = 132;
 $smwgQMaxSize = 40;
 $smwgQMaxDepth = 20;
-require_once( "$IP/../extensions/DataValues/DataValues.php" );
+
+# The ParamProcessor extension wants to be installed with composer.
+#+ In order to install it manually we must explicatly include everything in its /src directory.
+#+ In future we might consider converting to using composer for all extensions.
+#+ ParamProcessor is required by the Validator extension.
+require_once( "$IP/../extensions/ParamProcessor/src/Processor.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/IParam.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/ParamDefinitionFactory.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/Param.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/ProcessingErrorHandler.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/ProcessingResult.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/Settings.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/IParamDefinition.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/Options.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/ParamDefinition.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/ProcessedParam.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/ProcessingError.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/Processor.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/TopologicalSort.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/Definition/DimensionParam.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/Definition/StringParam.php" );
+
+# All of the DataValues extension conponents are required by SemanticMediaWiki.
+require_once( "$IP/../extensions/DataValues/Common/Common.php" );
+require_once( "$IP/../extensions/DataValues/DataValues/DataValues.php" );
+require_once( "$IP/../extensions/DataValues/Interfaces/Interfaces.php" );
+require_once( "$IP/../extensions/DataValues/Validators/Validators.php" );
 require_once( "$IP/../extensions/Validator/Validator.php" );
 include_once("$IP/../extensions/SemanticMediaWiki/SemanticMediaWiki.php");
 enableSemantics('wiki-dev.allizom.org');
 include_once("$IP/../extensions/SemanticForms/SemanticForms.php");
-
 ##
 # ask API feature will be available at api.php?action=<$wgSMWAskAPI_ActionName>
 # Default it 'ask'
@@ -468,7 +493,7 @@ require_once( "$IP/../extensions/UrlGetParameters/UrlGetParameters.php" );
 require_once("$IP/../extensions/NoTitle/NoTitle.php");
 
 # Bug 677659
-require_once("{$IP}/extensions/CreateBox/CreateBox.php");
+require_once("{$IP}/../extensions/CreateBox/CreateBox.php");
 
 # Bug 675064
 require_once( "$IP/../extensions/SemanticWatchlist/SemanticWatchlist.php" );

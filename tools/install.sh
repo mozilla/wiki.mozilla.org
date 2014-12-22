@@ -18,6 +18,7 @@ popd
 
 if [ $(hostname) == 'genericadm.private.phx1.mozilla.com' ]; then
     ln -s update ../
+    ln -s /mnt/netapp_dev/wiki-dev.allizom.org/images/ ../
 fi
 
 # eof
