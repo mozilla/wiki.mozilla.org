@@ -451,19 +451,18 @@ $smwgQMaxDepth = 20;
 #+ In order to install it manually we must explicatly include everything in its /src directory.
 #+ In future we might consider converting to using composer for all extensions.
 #+ ParamProcessor is required by the Validator extension.
-require_once( "$IP/../extensions/ParamProcessor/src/Processor.php" );
 require_once( "$IP/../extensions/ParamProcessor/src/IParam.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/ParamDefinitionFactory.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/Param.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/ProcessingErrorHandler.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/ProcessingResult.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/Settings.php" );
 require_once( "$IP/../extensions/ParamProcessor/src/IParamDefinition.php" );
 require_once( "$IP/../extensions/ParamProcessor/src/Options.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/Param.php" );
 require_once( "$IP/../extensions/ParamProcessor/src/ParamDefinition.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/ParamDefinitionFactory.php" );
 require_once( "$IP/../extensions/ParamProcessor/src/ProcessedParam.php" );
 require_once( "$IP/../extensions/ParamProcessor/src/ProcessingError.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/ProcessingErrorHandler.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/ProcessingResult.php" );
 require_once( "$IP/../extensions/ParamProcessor/src/Processor.php" );
+require_once( "$IP/../extensions/ParamProcessor/src/Settings.php" );
 require_once( "$IP/../extensions/ParamProcessor/src/TopologicalSort.php" );
 require_once( "$IP/../extensions/ParamProcessor/src/Definition/DimensionParam.php" );
 require_once( "$IP/../extensions/ParamProcessor/src/Definition/StringParam.php" );
