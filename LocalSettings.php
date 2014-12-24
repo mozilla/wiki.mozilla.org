@@ -103,8 +103,6 @@ $wgMemCachedServers = array();
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
 $wgEnableUploads = true;
-$wgUploadDirectory = "$IP/../images";
-$wgUploadPath = "$IP/../images";
 
 # InstantCommons allows wiki to use images from http://commons.wikimedia.org
 $wgUseInstantCommons = false;
@@ -223,9 +221,19 @@ $wgGroupPermissions['autoconfirmed']['minoredit']           = false;
 $wgGroupPermissions['autoconfirmed']['writeapi']            = true;
 
 // members of confirm group
+$wgGroupPermissions['confirm']['createpage']                = true;
+$wgGroupPermissions['confirm']['createtalk']                = true;
+$wgGroupPermissions['confirm']['move']                      = true;
+$wgGroupPermissions['confirm']['movefile']                  = true;
+$wgGroupPermissions['confirm']['move-subpages']             = true;
 $wgGroupPermissions['confirm']['move-rootuserpages']        = true;
+$wgGroupPermissions['confirm']['upload']                    = true;
+$wgGroupPermissions['confirm']['reupload']                  = true;
+$wgGroupPermissions['confirm']['reupload-own']              = true;
 $wgGroupPermissions['confirm']['reupload-shared']           = true;
 $wgGroupPermissions['confirm']['editsemiprotected']         = true;
+$wgGroupPermissions['confirm']['patrolmarks']               = true;
+$wgGroupPermissions['confirm']['purge']                     = true;
 $wgGroupPermissions['confirm']['writeapi']                  = true;
 $wgGroupPermissions['confirm']['autoconfirmed']             = true;
 $wgGroupPermissions['confirm']['confirm']                   = true;
@@ -414,7 +422,7 @@ $wgNamespacesToBeSearchedDefault = array(
 # Enable subpages in all namespaces
 $wgNamespacesWithSubpages = array_fill(0, 200, true);
 
-require_once( "$IP/../extensions/SpamBlacklist/SpamBlacklist.php" );
+require_once("$IP/../extensions/SpamBlacklist/SpamBlacklist.php");
 $wgSpamBlacklistFiles = array(
 //          database    title
         "DB: $wgDBname Spam_blacklist",
@@ -441,7 +449,7 @@ require_once("$IP/../extensions/ParserFunctions/ParserFunctions.php");
 require_once("$IP/../extensions/ImageMap/ImageMap.php");
 
 $wgFFmpegLocation = '/usr/bin/ffmpeg';
-require( "$IP/../extensions/OggHandler/OggHandler.php" );
+require("$IP/../extensions/OggHandler/OggHandler.php");
 
 $smwgNamespaceIndex = 132;
 $smwgQMaxSize = 40;
@@ -451,28 +459,28 @@ $smwgQMaxDepth = 20;
 #+ In order to install it manually we must explicatly include everything in its /src directory.
 #+ In future we might consider converting to using composer for all extensions.
 #+ ParamProcessor is required by the Validator extension.
-require_once( "$IP/../extensions/ParamProcessor/src/IParam.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/IParamDefinition.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/Options.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/Param.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/ParamDefinition.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/ParamDefinitionFactory.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/ProcessedParam.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/ProcessingError.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/ProcessingErrorHandler.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/ProcessingResult.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/Processor.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/Settings.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/TopologicalSort.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/Definition/DimensionParam.php" );
-require_once( "$IP/../extensions/ParamProcessor/src/Definition/StringParam.php" );
+require_once("$IP/../extensions/ParamProcessor/src/IParam.php");
+require_once("$IP/../extensions/ParamProcessor/src/IParamDefinition.php");
+require_once("$IP/../extensions/ParamProcessor/src/Options.php");
+require_once("$IP/../extensions/ParamProcessor/src/Param.php");
+require_once("$IP/../extensions/ParamProcessor/src/ParamDefinition.php");
+require_once("$IP/../extensions/ParamProcessor/src/ParamDefinitionFactory.php");
+require_once("$IP/../extensions/ParamProcessor/src/ProcessedParam.php");
+require_once("$IP/../extensions/ParamProcessor/src/ProcessingError.php");
+require_once("$IP/../extensions/ParamProcessor/src/ProcessingErrorHandler.php");
+require_once("$IP/../extensions/ParamProcessor/src/ProcessingResult.php");
+require_once("$IP/../extensions/ParamProcessor/src/Processor.php");
+require_once("$IP/../extensions/ParamProcessor/src/Settings.php");
+require_once("$IP/../extensions/ParamProcessor/src/TopologicalSort.php");
+require_once("$IP/../extensions/ParamProcessor/src/Definition/DimensionParam.php");
+require_once("$IP/../extensions/ParamProcessor/src/Definition/StringParam.php");
 
 # All of the DataValues extension conponents are required by SemanticMediaWiki.
-require_once( "$IP/../extensions/DataValues/Common/Common.php" );
-require_once( "$IP/../extensions/DataValues/DataValues/DataValues.php" );
-require_once( "$IP/../extensions/DataValues/Interfaces/Interfaces.php" );
-require_once( "$IP/../extensions/DataValues/Validators/Validators.php" );
-require_once( "$IP/../extensions/Validator/Validator.php" );
+require_once("$IP/../extensions/DataValues/Common/Common.php");
+require_once("$IP/../extensions/DataValues/DataValues/DataValues.php");
+require_once("$IP/../extensions/DataValues/Interfaces/Interfaces.php");
+require_once("$IP/../extensions/DataValues/Validators/Validators.php");
+require_once("$IP/../extensions/Validator/Validator.php");
 include_once("$IP/../extensions/SemanticMediaWiki/SemanticMediaWiki.php");
 enableSemantics('wiki-dev.allizom.org');
 include_once("$IP/../extensions/SemanticForms/SemanticForms.php");
@@ -483,10 +491,10 @@ include_once("$IP/../extensions/SemanticForms/SemanticForms.php");
 global $wgSMWAskAPI_ActionName;
 $wgSMWAskAPI_ActionName = 'ask';
 
-require_once( "$IP/../extensions/SMWAskAPI/SMWAskAPI.php" );
+require_once("$IP/../extensions/SMWAskAPI/SMWAskAPI.php");
 
 # Bug 638134
-require_once( "$IP/../extensions/UrlGetParameters/UrlGetParameters.php" );
+require_once("$IP/../extensions/UrlGetParameters/UrlGetParameters.php");
 
 # Bug 674544
 require_once("$IP/../extensions/NoTitle/NoTitle.php");
@@ -495,7 +503,7 @@ require_once("$IP/../extensions/NoTitle/NoTitle.php");
 require_once("{$IP}/../extensions/CreateBox/CreateBox.php");
 
 # Bug 675064
-require_once( "$IP/../extensions/SemanticWatchlist/SemanticWatchlist.php" );
+require_once("$IP/../extensions/SemanticWatchlist/SemanticWatchlist.php");
 
 # Bug 721366 and 731672
 require_once("$IP/../extensions/Bugzilla/Bugzilla.php");
@@ -504,7 +512,7 @@ require_once("$IP/../extensions/Bugzilla/Bugzilla.php");
 require_once("$IP/../extensions/mediawiki-semantic-html/SemanticHTML.php");
 
 # Bug 772192 & 838391
-require_once( "$IP/../extensions/Smartsheet-MediaWiki-Extension/SmartsheetIframe.php");
+require_once("$IP/../extensions/Smartsheet-MediaWiki-Extension/SmartsheetIframe.php");
 
 require_once("$IP/../extensions/Nuke/Nuke.php");
 
@@ -520,14 +528,14 @@ $wgReCaptchaPublicKey = $SECRETS_wgReCaptchaPublicKey;
 $wgReCaptchaPrivateKey = $SECRETS_wgReCaptchaPrivateKey;
 
 # bug 832030
-require_once( "$IP/../extensions/googleAnalytics/googleAnalytics.php" );
+require_once("$IP/../extensions/googleAnalytics/googleAnalytics.php");
 $wgGoogleAnalyticsAccount = $SECRETS_wgGoogleAnalyticsAccount;
 
 # bug 860214
-require_once( "$IP/../extensions/SimpleAntiSpam/SimpleAntiSpam.php" );
+require_once("$IP/../extensions/SimpleAntiSpam/SimpleAntiSpam.php");
 
 # bug 855309
-require_once( "$IP/../extensions/SubPageList/SubPageList.php" );
+require_once("$IP/../extensions/SubPageList/SubPageList.php");
 
 $wgAllowExternalImages  = true;
 
@@ -547,7 +555,7 @@ $wgFileExtensions   = array( 'gz', 'tar', 'png', 'gif', 'jpg', 'jpeg', 'ppt', 'p
 $wgAllowTitlesInSVG = true;
 
 // Don't convert, just serve and let the browser render/save/whatever
-$wgSVGConverter = false;
+$wgSVGConverter = 'rsvg';
 
 $wgWhitelistRead = array( 'Main Page', 'Special:Userlogin', 'Special:Userlogout', '-', 'MediaWiki:Monobook.css', 'MediaWiki:Monobook.js' );
 
@@ -570,7 +578,7 @@ $wgBugzillaTable = array(
   'lengthMenu' => '[10, 25, 50, 100, 400]', //default length set; example options [[5, 10, 15, 25, 50, 100 , -1], [5, 10, 15, 25, 50, 100, "All"]]]
 );
 
-require_once( "$IP/../extensions/RSS/RSS.php" );
+require_once("$IP/../extensions/RSS/RSS.php");
 $wgRSSUrlWhitelist = array( 'http://benjamin.smedbergs.us/weekly-updates.fcgi/project/firefox/feed',
                             'http://blog.wikimedia.org/feed/',
                             'https://blog.mozilla.org/feed/',
@@ -581,7 +589,7 @@ $wgRSSUrlWhitelist = array( 'http://benjamin.smedbergs.us/weekly-updates.fcgi/pr
                           );
 
 # bug 1008487
-require_once( "$IP/../extensions/ConfirmAccount/ConfirmAccount.php" );
+require_once("$IP/../extensions/ConfirmAccount/ConfirmAccount.php");
 #$wgConfirmAccountRequestFormItems = array(
 #    # Let users make names other than their "real name"
 #    'UserName'        => array( 'enabled' => true ),
@@ -637,13 +645,13 @@ $wgRevokePermissions['inactive']['reupload']      = true;
 $wgRevokePermissions['inactive']['reupload-own']  = true;
 
 // Bug 1065007
-require_once "$IP/../extensions/Gadgets/Gadgets.php";
+require_once("$IP/../extensions/Gadgets/Gadgets.php");
 
 // Bug 1074949
-require_once "$IP/../extensions/Interwiki/Interwiki.php";
+require_once("$IP/../extensions/Interwiki/Interwiki.php");
 
 // Bug 1077182
-require_once( "$IP/../extensions/Sandstone/Sandstone.php" );
+require_once("$IP/../extensions/Sandstone/Sandstone.php");
 
 // Bug 1082298
 $wgPFEnableStringFunctions = true;
