@@ -85,10 +85,6 @@
 	path = extensions/SpamBlacklist
 	url = https://git.wikimedia.org/git/mediawiki/extensions/SpamBlacklist.git
 	branch = REL1_23
-[submodule "extensions/SubPageList"]
-	path = extensions/SubPageList
-	url = https://git.wikimedia.org/git/mediawiki/extensions/SubPageList.git
-	branch = 1.0.x
 [submodule "extensions/SyntaxHighlighter"]
 	path = extensions/SyntaxHighlighter
 	url = git://github.com/seongjaelee/SyntaxHighlighter.git

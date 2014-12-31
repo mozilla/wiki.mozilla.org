@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "19e76213b1558a6e0a65eb0222fd10f5",
+    "hash": "13f526b58d400579a67380956d46bb06",
     "packages": [
         {
             "name": "composer/installers",
@@ -335,6 +335,61 @@
             "time": "2014-10-09 19:10:23"
         },
         {
+            "name": "mediawiki/parser-hooks",
+            "version": "1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JeroenDeDauw/ParserHooks.git",
+                "reference": "a088e150ab8876c1b4b204f3b7930231d1c0113a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JeroenDeDauw/ParserHooks/zipball/a088e150ab8876c1b4b204f3b7930231d1c0113a",
+                "reference": "a088e150ab8876c1b4b204f3b7930231d1c0113a",
+                "shasum": ""
+            },
+            "require": {
+                "mediawiki/validator": "~2.0,>=2.0.4",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "ParserHooks.php"
+                ],
+                "psr-4": {
+                    "ParserHooks\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen De Dauw",
+                    "email": "jeroendedauw@gmail.com",
+                    "homepage": "http://jeroendedauw.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Adds a OOP and declarative parser hook interface on top of MediaWiki",
+            "homepage": "https://github.com/JeroenDeDauw/ParserHooks/blob/master/README.md",
+            "keywords": [
+                "mediawiki",
+                "parser function",
+                "parser hook",
+                "parserhooks",
+                "tag extension"
+            ],
+            "time": "2014-07-05 20:09:43"
+        },
+        {
             "name": "mediawiki/semantic-media-wiki",
             "version": "2.0",
             "source": {
@@ -403,6 +458,60 @@
                 "wiki"
             ],
             "time": "2014-08-04 14:56:06"
+        },
+        {
+            "name": "mediawiki/sub-page-list",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JeroenDeDauw/SubPageList.git",
+                "reference": "c45ac10c4b5e24a2c33f008703b81bdb6a19f8d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JeroenDeDauw/SubPageList/zipball/c45ac10c4b5e24a2c33f008703b81bdb6a19f8d6",
+                "reference": "c45ac10c4b5e24a2c33f008703b81bdb6a19f8d6",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": ">=1.0.1",
+                "mediawiki/parser-hooks": "~1.3",
+                "php": ">=5.3.0"
+            },
+            "type": "mediawiki-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "SubPageList.php"
+                ],
+                "psr-4": {
+                    "SubPageList\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen De Dauw",
+                    "email": "jeroendedauw@gmail.com",
+                    "homepage": "http://jeroendedauw.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "SubPageList is a lightweight extension to display lists of subpages",
+            "homepage": "https://github.com/JeroenDeDauw/SubPageList/blob/master/README.md",
+            "keywords": [
+                "SubPage",
+                "SubPageList",
+                "mediawiki"
+            ],
+            "time": "2014-06-25 22:11:07"
         },
         {
             "name": "mediawiki/validator",

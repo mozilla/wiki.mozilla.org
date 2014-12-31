@@ -2,7 +2,8 @@
     "name": "mozilla/wiki.mozilla.org",
     "description": "Composer resources for wiki.m.o",
     "require": {
-        "mediawiki/semantic-media-wiki": "~2.0"
+        "mediawiki/semantic-media-wiki": "~2.0",
+        "mediawiki/sub-page-list": "~1.1"
     },
     "license": "Mozilla Public License Version 2.0",
     "authors": [
