@@ -1,0 +1,2 @@
+# Lets not haul around unnecessary data which is pulled in with composer
+/vendor/

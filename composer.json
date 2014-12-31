@@ -1,0 +1,14 @@
+{
+    "name": "mozilla/wiki.mozilla.org",
+    "description": "Composer resources for wiki.m.o",
+    "require": {
+        "mediawiki/semantic-media-wiki": "~2.0"
+    },
+    "license": "Mozilla Public License Version 2.0",
+    "authors": [
+        {
+            "name": "jd",
+            "email": "jcrowe@mozilla.com"
+        }
+    ]
+}

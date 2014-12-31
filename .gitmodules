@@ -101,25 +101,3 @@
 	path = extensions/WikiEditor
 	url = https://git.wikimedia.org/git/mediawiki/extensions/WikiEditor.git
 	branch = REL1_19
-[submodule "extensions/SemanticMediaWiki"]
-	path = extensions/SemanticMediaWiki
-	url = https://github.com/SemanticMediaWiki/SemanticMediaWiki.git
-	branch = master
-[submodule "extensions/Validator"]
-	path = extensions/Validator
-	url = https://git.wikimedia.org/git/mediawiki/extensions/Validator.git
-[submodule "extensions/DataValues/DataValues"]
-	path = extensions/DataValues/DataValues
-	url = https://github.com/DataValues/DataValues.git
-[submodule "extensions/DataValues/Common"]
-	path = extensions/DataValues/Common
-	url = https://github.com/DataValues/Common.git
-[submodule "extensions/DataValues/Interfaces"]
-	path = extensions/DataValues/Interfaces
-	url = https://github.com/DataValues/Interfaces.git
-[submodule "extensions/DataValues/Validators"]
-	path = extensions/DataValues/Validators
-	url = https://github.com/DataValues/Validators.git
-[submodule "extensions/ParamProcessor"]
-	path = extensions/ParamProcessor
-	url = https://github.com/JeroenDeDauw/ParamProcessor.git
