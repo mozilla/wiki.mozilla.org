@@ -37,10 +37,6 @@
 	path = extensions/mediawiki-semantic-html
 	url = https://github.com/BenWard/mediawiki-semantic-html.git
 	branch = master
-[submodule "extensions/NoTitle"]
-	path = extensions/NoTitle
-	url = https://github.com/AABoyles/NoTitle.git
-	branch = master
 [submodule "extensions/Nuke"]
 	path = extensions/Nuke
 	url = https://git.wikimedia.org/git/mediawiki/extensions/Nuke.git
