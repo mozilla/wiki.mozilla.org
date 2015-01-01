@@ -93,3 +93,6 @@
 	path = extensions/WikiEditor
 	url = https://git.wikimedia.org/git/mediawiki/extensions/WikiEditor.git
 	branch = REL1_19
+[submodule "extensions/NoTitle"]
+	path = extensions/NoTitle
+	url = https://git.wikimedia.org/git/mediawiki/extensions/NoTitle.git
