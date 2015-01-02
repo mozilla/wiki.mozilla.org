@@ -96,3 +96,6 @@
 [submodule "extensions/NoTitle"]
 	path = extensions/NoTitle
 	url = https://git.wikimedia.org/git/mediawiki/extensions/NoTitle.git
+[submodule "assets/fonts/Fira"]
+	path = assets/fonts/Fira
+	url = https://github.com/mozilla/Fira.git
