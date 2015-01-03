@@ -1,2 +1,9 @@
 # Lets not haul around unnecessary data which is pulled in with composer
 /vendor/
+
+# These extensions are installed through composer
+/extensions/SemanticMediaWiki/
+/extensions/SubPageList/
+/extensions/Validator/
+
+
