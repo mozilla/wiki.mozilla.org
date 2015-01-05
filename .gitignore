@@ -1,3 +1,7 @@
+# This is the local environment config and should never make it into git
+#+ Which could be a security riks (expose passwords)
+secrets.php
+
 # Lets not haul around unnecessary data which is pulled in with composer
 /vendor/
 
