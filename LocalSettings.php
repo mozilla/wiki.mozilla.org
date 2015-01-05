@@ -123,6 +123,9 @@ $wgShellLocale = "en_US.utf8";
 ## this, if it's not already uncommented:
 #$wgHashedUploadDirectory = false;
 
+## The file system path of the folder where uploaded files will be stored.
+$wgUploadDirectory = "$IP/../images";
+
 ## Set $wgCacheDirectory to a writable directory on the web server
 ## to make your wiki go slightly faster. The directory should not
 ## be publically accessible from the web.
