@@ -1,6 +1,6 @@
 <?php
 
-$SECRETS_wgServer                 = "http://".getenv('SECRETS_wgServer');
+$SECRETS_wgServer                 = getenv('SECRETS_wgServer');
 $SECRETS_wgDBserver               = getenv('SECRETS_wgDBserver');
 $SECRETS_wgDBname                 = getenv('SECRETS_wgDBname');
 $SECRETS_wgDBuser                 = getenv('SECRETS_wgDBuser');
@@ -11,3 +11,4 @@ $SECRETS_wgReCaptchaPublicKey     = getenv('SECRETS_wgReCaptchaPublicKey');
 $SECRETS_wgReCaptchaPrivateKey    = getenv('SECRETS_wgReCaptchaPrivateKey');
 $SECRETS_wgGoogleAnalyticsAccount = getenv('SECRETS_wgGoogleAnalyticsAccount');
 $SECRETS_wgSquidServers           = getenv('SECRETS_wgSquidServers');
+$SECRETS_wgMemCachedServers       = getenv('SECRETS_wgMemCachedServers');

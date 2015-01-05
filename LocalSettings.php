@@ -93,12 +93,17 @@ $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 $wgDBmysql5 = false;
 
 ## Shared memory settings
-#$wgMainCacheType = CACHE_MEMCACHED;
-#$wgUseMemCached = true;
-#$wgMemCachedServers = array( 'memcache1.webapp.phx1.mozilla.com:11211', 'memcache2.webapp.phx1.mozilla.com:11211');
-#$wgSessionsInMemcached = true;
-$wgMainCacheType = CACHE_NONE;
-$wgMemCachedServers = array();
+# This should be initilized as an array if you need it:
+#+ $wgMemCachedServers = array('192.168.1.1', '192.168.1.2');
+if (!empty($SECRETS_wgMemCachedServers)) {
+    $wgMainCacheType = CACHE_MEMCACHED;
+    $wgUseMemCached = true;
+    $wgMemCachedServers = $SECRETS_wgMemCachedServers;
+    $wgSessionsInMemcached = true;
+} else {
+    $wgMainCacheType = CACHE_NONE;
+    $wgMemCachedServers = array();
+}
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
@@ -519,9 +524,12 @@ $wgAllowExternalImages  = true;
 $wgMimeDetectorCommand= "file -bi"; #use external mime detector (Linux)
 #################################
 
-$wgUseSquid = true;
-#$wgSquidServers = array('10.8.81.215','10.8.81.216','10.8.81.217','10.8.81.218','10.8.81.219');
-$wgSquidServers = $SECRETS_wgSquidServers;
+# This should be initilized as an array if you need it:
+#+ $wgSquidServers = array('192.168.1.1', '192.168.1.2');
+if (!empty($SECRETS_wgSquidServers)) {
+    $wgUseSquid = true;
+    $wgSquidServers = $SECRETS_wgSquidServers;
+}
 
 $wgCacheDirectory = "/tmp/wikimo-cache";
 
