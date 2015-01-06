@@ -53,12 +53,15 @@ if [ $(hostname) == 'genericadm.private.phx1.mozilla.com' ]; then
     if [ $(pwd | grep -c "wiki-dev.allizom.org") == 1 ]; then
         ln -s /mnt/netapp_dev/wiki-dev.allizom.org/images/ ./
         ln -s /mnt/netapp_dev/wiki-dev.allizom.org/Bugzilla_charts/ ./extensions/Bugzilla/
+        ln -s /mnt/netapp_dev/wiki-dev.allizom.org/php_sessions ./
     elif [ $(pwd | grep -c "wiki.allizom.org") == 1 ]; then
         ln -s /mnt/netapp_stage/wiki.allizom.org/images/ ./
         ln -s /mnt/netapp_stage/wiki.allizom.org/Bugzilla_charts/ ./extensions/Bugzilla/
+        ln -s /mnt/netapp_stage/wiki.allizom.org/php_sessions ./
     elif [ $(pwd | grep -c "wiki.mozilla.org") == 1 ]; then
-        ln -s /mnt/netapp_dev/wiki.mozilla.org/images/ ./
-        ln -s /mnt/netapp_dev/wiki.mozilla.org/Bugzilla_charts/ ./extensions/Bugzilla/
+        ln -s /mnt/netapp/wiki.mozilla.org/images/ ./
+        ln -s /mnt/netapp/wiki.mozilla.org/Bugzilla_charts/ ./extensions/Bugzilla/
+        ln -s /mnt/netapp/wiki.mozilla.org/php_sessions ./
     else
         echo "ERROR: Could not determine install path"
         exit 1
