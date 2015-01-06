@@ -30,7 +30,9 @@ php tools/composer.phar install
 
 # Symlink the settings file. Doing this here helps keep the core submodule
 #+ (and my development work-flow) cleaner
-ln -s $(pwd)/LocalSettings.php $(pwd)/core
+cd core
+ln -s ../LocalSettings.php ./
+cd ../
 
 # TODO
 # Might wish to move the rewrites from the Apache Vhost file to an htaccess file
@@ -38,7 +40,9 @@ ln -s $(pwd)/LocalSettings.php $(pwd)/core
 
 # This font is used by the Sandstone extension and I am symlinking it here
 #+ until we find a better way to handle it
-ln -s $(pwd)/assets/fonts $(pwd)/core/skins/common/fonts
+cd core/skins/common
+ln -s ../../../assets/fonts ./
+cd ../../../
 
 # Set up symlinks for static assets.
 #
