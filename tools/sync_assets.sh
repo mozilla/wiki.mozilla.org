@@ -50,8 +50,8 @@ sync_database (){
     # Dump the production database and load it into the instance database
     echo "Syncing MySql database..."
     DUMP_FILE="$PROD_DBNAME_$(date +%Y%m%d_%T).sql"
-    mysqldump --opt --defaults-file=.PROD_DBPASSWORD --host=$PROD_DBSLAVE --user=$PROD_DBUSER $PROD_DBNAME |\
-    mysql -C --defaults-file=.DBPASSWORD --host=$DBSERVER --user=$DBUSER $DBNAME
+    mysqldump --defaults-file=.PROD_DBPASSWORD --opt --host=$PROD_DBSLAVE --user=$PROD_DBUSER $PROD_DBNAME |\
+    mysql --defaults-file=.DBPASSWORD -C --host=$DBSERVER --user=$DBUSER $DBNAME
 
     # Clean up
     rm -f .PROD_DBPASSWORD .DBPASSWORD
