@@ -1,10 +1,11 @@
 wiki.mozilla.org
 ================
 
-This is the deployment repository for the wiki.mozilla.org project. To find out more about this project please visit the [About](https://wiki-dev.allizom.org/MozillaWiki:About) page. To get involved with the project visit the [Team](https://wiki-dev.allizom.org/MozillaWiki:Team) page.
+This is the deployment repository for the [wiki.mozilla.org](https://wiki-dev.allizom.org) project. To find out more about this project please visit the [About](https://wiki-dev.allizom.org/MozillaWiki:About) page. To get involved with the project visit the [Team](https://wiki-dev.allizom.org/MozillaWiki:Team) page.
 
 ## Install
 If you wish to have a local install of wiki.m.o including posts and content you will need to get the following datasets:
+
 1. A copy of the production database*
 2. A copy of the images directory
 3. A copy of the extesnions/Bugzilla/charts directory**
@@ -13,6 +14,7 @@ If you wish to have a local install of wiki.m.o including posts and content you 
 ** This should not be the case. This extension should store its data in the images folder or in the temp file location as appropriate.
 
 Once you have a copy of the aforementioned datasets you need to:
+
 1. clone this repository
 2. create a secrets.php file (see below)
 3. run the install.sh script (found in the tools directroy)
@@ -32,7 +34,7 @@ git push
 ```
 
 ## Extensions
-We are installing extensions in three separate ways
+We are installing extensions in three separate ways.
 ### The Subversion model
 A few (two) extensions are available through Subversion only. These extensions are included fully. To update them you need to navigate into the extension's folder and issue an `svn up`. Then simply follow your usual procedure for committing upstream.
 ### The git submodule model
@@ -41,6 +43,7 @@ The majority of extensions are installed as git submodules. Simply follow normal
 - `git checkout TAG`
 - navagate to top level
 - `git add path/to/submodule`
+
 ### The Composer model
 Extensions installed with composer need to be updated using the `php tools/composer.phar` command. For information on usage of this command see the [Composer Documentation](https://getcomposer.org/doc/). There are several things to note about using Composer in conjunction with MediaWiki.
 - While Composer normally installs in a directory named vendor, they are also duplicated on install to the extensions directory. These should not be checked into git and as such need to be added to the .gitignore file.
