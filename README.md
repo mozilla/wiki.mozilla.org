@@ -1,7 +1,7 @@
 wiki.mozilla.org
 ================
 
-This is the deployment repository for the [wiki.mozilla.org](https://wiki-dev.allizom.org) project. To find out more about this project please visit the [About](https://wiki-dev.allizom.org/MozillaWiki:About) page. To get involved with the project visit the [Team](https://wiki-dev.allizom.org/MozillaWiki:Team) page.
+This is the deployment repository for the [wiki.mozilla.org](https://wiki.mozilla.org) project. To find out more about this project please visit the [About](https://wiki.mozilla.org/MozillaWiki:About) page. To get involved with the project visit the [Team](https://wiki.mozilla.org/MozillaWiki:Team) page.
 
 ## Install
 If you wish to have a local install of wiki.m.o including posts and content you will need to get the following datasets:
@@ -11,6 +11,7 @@ If you wish to have a local install of wiki.m.o including posts and content you 
 3. A copy of the extesnions/Bugzilla/charts directory**
 
 \* There is talk of generating a sanitized (remove PII) database for convenience.
+
 ** This should not be the case. This extension should store its data in the images folder or in the temp file location as appropriate.
 
 Once you have a copy of the aforementioned datasets you need to:
@@ -46,7 +47,7 @@ The majority of extensions are installed as git submodules. Simply follow normal
 
 ### The Composer model
 Extensions installed with composer need to be updated using the `php tools/composer.phar` command. For information on usage of this command see the [Composer Documentation](https://getcomposer.org/doc/). There are several things to note about using Composer in conjunction with MediaWiki.
-- While Composer normally installs in a directory named vendor, they are also duplicated on install to the extensions directory. These should not be checked into git and as such need to be added to the .gitignore file.
+- While Composer normally installs in a directory named `vendor`, they are also duplicated on install to the `extensions` directory. These should not be checked into git and as such need to be added to the `.gitignore` file.
 - You need to be sure to `git add composer.lock` file whenever you make changes to the `composer.json` manually or with the `composer.phar` command. This will avoid errors when setting up a fresh install.
 - Composer automatically handles dependency resolution. Therefore you should not add any dependent extensions to the extensions directory.
 - Extensions installed with Composer are automatically loaded through the `vendor/autoload.php` file and do not need to be included in the `LocalSettings.php` file.
