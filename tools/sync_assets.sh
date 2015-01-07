@@ -69,7 +69,9 @@ if [ $(hostname) == 'genericadm.private.phx1.mozilla.com' ]; then
         rsync -avz /mnt/netapp/wiki.mozilla.org/Bugzilla_charts/ /mnt/netapp_dev/wiki-dev.allizom.org/Bugzilla_charts/
         sync_database
     elif [ $(pwd | grep -c "wiki.allizom.org") == 1 ]; then
+        echo "Syncing images directory..."
         rsync -avz /mnt/netapp/wiki.mozilla.org/images/ /mnt/netapp_stage/wiki.allizom.org/images/
+        echo "Syncing Bugzilla charts directory..."
         rsync -avz /mnt/netapp/wiki.mozilla.org/Bugzilla_charts/ /mnt/netapp_stage/wiki.allizom.org/Bugzilla_charts/
         sync_database
     elif [ $(pwd | grep -c "wiki.mozilla.org") == 1 ]; then
