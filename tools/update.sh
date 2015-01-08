@@ -21,7 +21,9 @@ git submodule update --recursive
 php tools/composer.phar update
 
 # Run the maintenance script for any database migrations
-php core/maintenance/update.php --quick
+cd core
+php maintenance/update.php --quick
+cd ../
 
 # Call the deploy script if necessary and reload Apache
 if [ $(hostname) == 'genericadm.private.phx1.mozilla.com' ]; then
