@@ -29,10 +29,10 @@ if [ $(hostname) == 'genericadm.private.phx1.mozilla.com' ]; then
         /data/genericrhel6-dev/deploy wiki-dev.allizom.org
         issue-multi-command genericrhel6-dev service httpd graceful
     elif  [ $(pwd | grep -c "wiki.allizom.org") == 1 ]; then
-        /data/genericrhel6-dev/deploy wiki.allizom.org
+        /data/genericrhel6-stage/deploy wiki.allizom.org
         issue-multi-command genericrhel6-stage service httpd graceful
     elif  [ $(pwd | grep -c "wiki.mozilla.org") == 1 ]; then
-        /data/genericrhel6-dev/deploy wiki.mozilla.org
+        /data/genericrhel6/deploy wiki.mozilla.org
         issue-multi-command genericrhel6 service httpd graceful
     else
         echo "ERROR: Could not match deployment environment"
