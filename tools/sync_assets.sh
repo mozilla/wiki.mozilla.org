@@ -15,24 +15,16 @@
 #+ based on the directory you are sitting in ($(pwd))
 sync_database (){
     # Grab the MySql settings for production
-    #PROD_FILE='/data/genericrhel6/src/wiki.mozilla.org/secrets.php'
-    PROD_FILE='/data/genericrhel6/src/wiki.mozilla.org/wiki/LocalSettings.php'
+    PROD_FILE='/data/genericrhel6/src/wiki.mozilla.org/secrets.php'
     if [ ! -f $PROD_FILE ]; then
         echo "ERROR: Could not find production settings file"
         exit 1
     fi
     PROD_DBSLAVE='generic-ro-zeus.db.phx1.mozilla.com'
-# Comment out new way until the git deployment is running in prod, then
-#+ uncomment these and delete the current ones (ask jd any questions)
-#+ Also the PROD_FILE variable above
-#    PROD_DBSERVER=$(cat $PROD_FILE | grep wgDBserver | cut -d "'" -f 2)
-#    PROD_DBNAME=$(cat $PROD_FILE | grep wgDBname | cut -d "'" -f 2)
-#    PROD_DBUSER=$(cat $PROD_FILE | grep wgDBuser | cut -d "'" -f 2)
-#    PROD_DBPASSWORD=$(cat $PROD_FILE | grep wgDBpassword | cut -d "'" -f 2)
-    PROD_DBSERVER=$(cat $PROD_FILE | grep \'host\' | cut -d "\"" -f 2)
-    PROD_DBNAME=$(cat $PROD_FILE | grep \'dbname\' | cut -d "\"" -f 2)
-    PROD_DBUSER=$(cat $PROD_FILE | grep \'user\' | grep -v Group | cut -d "\"" -f 2)
-    PROD_DBPASSWORD=$(cat $PROD_FILE | grep \'password\' | cut -d "\"" -f 2)
+    PROD_DBSERVER=$(cat $PROD_FILE | grep wgDBserver | cut -d "'" -f 2)
+    PROD_DBNAME=$(cat $PROD_FILE | grep wgDBname | cut -d "'" -f 2)
+    PROD_DBUSER=$(cat $PROD_FILE | grep wgDBuser | cut -d "'" -f 2)
+    PROD_DBPASSWORD=$(cat $PROD_FILE | grep wgDBpassword | cut -d "'" -f 2)
     echo -e "[client]\npassword=$PROD_DBPASSWORD" > .PROD_DBPASSWORD
 
     # Grab MySql settings for this instance {dev|stage}
