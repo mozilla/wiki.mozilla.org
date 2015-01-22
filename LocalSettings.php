@@ -560,11 +560,6 @@ $wgShowSQLErrors = false;
 
 $wgRCMaxAge = 31536000; // one year
 
-$wgBugzillaTable = array(
-  'pageSize' => 10, //default pagination count
-  'lengthMenu' => '[10, 25, 50, 100, 400]', //default length set; example options [[5, 10, 15, 25, 50, 100 , -1], [5, 10, 15, 25, 50, 100, "All"]]]
-);
-
 require_once("$IP/../extensions/RSS/RSS.php");
 $wgRSSUrlWhitelist = array( 'http://benjamin.smedbergs.us/weekly-updates.fcgi/project/firefox/feed',
                             'http://blog.wikimedia.org/feed/',
