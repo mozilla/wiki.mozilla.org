@@ -467,6 +467,7 @@ $smwgQMaxSize = 40;
 $smwgQMaxDepth = 20;
 
 enableSemantics('wiki-dev.allizom.org');
+$smwgEnabledEditPageHelp = false;
 include_once("$IP/../extensions/SemanticForms/SemanticForms.php");
 ##
 # ask API feature will be available at api.php?action=<$wgSMWAskAPI_ActionName>
