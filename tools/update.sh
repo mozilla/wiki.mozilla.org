@@ -15,7 +15,7 @@
 git pull
 
 # Pull in any updates to submodules
-git submodule update --recursive
+git submodule update --init --recursive
 
 # Update any extensions installed through Composer
 php tools/composer.phar update
