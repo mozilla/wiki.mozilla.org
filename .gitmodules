@@ -99,3 +99,6 @@
 [submodule "assets/fonts/Fira"]
 	path = assets/fonts/Fira
 	url = https://github.com/mozilla/Fira.git
+[submodule "extensions/Widgets"]
+	path = extensions/Widgets
+	url = https://github.com/MozillaWiki/mediawiki-widgets.git

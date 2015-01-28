@@ -639,4 +639,6 @@ require_once("$IP/../extensions/Sandstone/Sandstone.php");
 // Bug 1082298
 $wgPFEnableStringFunctions = true;
 
+require_once("$IP/../extensions/Widgets/Widgets.php");
+
 // EOF
