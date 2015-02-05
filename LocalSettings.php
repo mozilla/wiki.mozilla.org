@@ -516,9 +516,6 @@ $wgReCaptchaPrivateKey = $SECRETS_wgReCaptchaPrivateKey;
 require_once("$IP/../extensions/googleAnalytics/googleAnalytics.php");
 $wgGoogleAnalyticsAccount = $SECRETS_wgGoogleAnalyticsAccount;
 
-# bug 860214
-require_once("$IP/../extensions/SimpleAntiSpam/SimpleAntiSpam.php");
-
 # bug 855309
 require_once("$IP/../extensions/SubPageList/SubPageList.php");
 
