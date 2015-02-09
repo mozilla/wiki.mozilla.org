@@ -68,11 +68,6 @@
 	path = extensions/SemanticForms
 	url = https://git.wikimedia.org/git/mediawiki/extensions/SemanticForms.git
 	branch = wmf/1.25wmf15
-[submodule "extensions/SemanticWatchlist"]
-	path = extensions/SemanticWatchlist
-	url = https://github.com/SemanticMediaWiki/SemanticWatchlist.git
-	branch = master
-	update = none
 [submodule "extensions/Smartsheet-MediaWiki-Extension"]
 	path = extensions/Smartsheet-MediaWiki-Extension
 	url = https://github.com/bensternthal/Smartsheet-MediaWiki-Extension.git
