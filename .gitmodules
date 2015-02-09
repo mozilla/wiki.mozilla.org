@@ -23,7 +23,6 @@
 	path = extensions/googleAnalytics
 	url = https://git.wikimedia.org/git/mediawiki/extensions/googleAnalytics.git
 	branch = REL1_23
-	update = none
 [submodule "extensions/ImageMap"]
 	path = extensions/ImageMap
 	url = https://git.wikimedia.org/git/mediawiki/extensions/ImageMap.git
