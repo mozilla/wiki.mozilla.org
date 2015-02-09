@@ -1,6 +1,8 @@
 [submodule "core"]
 	path = core
 	url = https://git.wikimedia.org/git/mediawiki/core.git
+	branch = REL1_23
+	update = none
 [submodule "extensions/Bugzilla"]
 	path = extensions/Bugzilla
 	url = https://github.com/mozilla/mediawiki-bugzilla.git
@@ -12,27 +14,28 @@
 [submodule "extensions/ConfirmEdit"]
 	path = extensions/ConfirmEdit
 	url = https://git.wikimedia.org/git/mediawiki/extensions/ConfirmEdit.git
-	branch = master
+	branch = REL1_23
 [submodule "extensions/Gadgets"]
 	path = extensions/Gadgets
 	url = https://git.wikimedia.org/git/mediawiki/extensions/Gadgets.git
-	branch = master
+	branch = REL1_23
 [submodule "extensions/googleAnalytics"]
 	path = extensions/googleAnalytics
 	url = https://git.wikimedia.org/git/mediawiki/extensions/googleAnalytics.git
-	branch = REL1_19
+	branch = REL1_23
+	update = none
 [submodule "extensions/ImageMap"]
 	path = extensions/ImageMap
 	url = https://git.wikimedia.org/git/mediawiki/extensions/ImageMap.git
-	branch = REL1_19
+	branch = REL1_23
 [submodule "extensions/Interwiki"]
 	path = extensions/Interwiki
 	url = https://git.wikimedia.org/git/mediawiki/extensions/Interwiki.git
-	branch = master
+	branch = wmf/1.25wmf7
 [submodule "extensions/LabeledSectionTransclusion"]
 	path = extensions/LabeledSectionTransclusion
 	url = https://git.wikimedia.org/git/mediawiki/extensions/LabeledSectionTransclusion.git
-	branch = REL1_19
+	branch = REL1_23
 [submodule "extensions/mediawiki-semantic-html"]
 	path = extensions/mediawiki-semantic-html
 	url = https://github.com/BenWard/mediawiki-semantic-html.git
@@ -40,23 +43,23 @@
 [submodule "extensions/Nuke"]
 	path = extensions/Nuke
 	url = https://git.wikimedia.org/git/mediawiki/extensions/Nuke.git
-	branch = REL1_19
+	branch = REL1_23
 [submodule "extensions/OggHandler"]
 	path = extensions/OggHandler
 	url = https://git.wikimedia.org/git/mediawiki/extensions/OggHandler.git
-	branch = REL1_19
+	branch = REL1_23
 [submodule "extensions/ParserFunctions"]
 	path = extensions/ParserFunctions
 	url = https://git.wikimedia.org/git/mediawiki/extensions/ParserFunctions.git
-	branch = REL1_19
+	branch = REL1_23
 [submodule "extensions/Renameuser"]
 	path = extensions/Renameuser
 	url = https://git.wikimedia.org/git/mediawiki/extensions/Renameuser.git
-	branch = REL1_19
+	branch = REL1_23
 [submodule "extensions/RSS"]
 	path = extensions/RSS
 	url = https://git.wikimedia.org/git/mediawiki/extensions/RSS.git
-	branch = master
+	branch = REL1_23
 [submodule "extensions/Sandstone"]
 	path = extensions/Sandstone
 	url = https://github.com/christi3k/mw-sandstone.git
@@ -64,11 +67,12 @@
 [submodule "extensions/SemanticForms"]
 	path = extensions/SemanticForms
 	url = https://git.wikimedia.org/git/mediawiki/extensions/SemanticForms.git
-	branch = REL1_19
+	branch = wmf/1.25wmf15
 [submodule "extensions/SemanticWatchlist"]
 	path = extensions/SemanticWatchlist
 	url = https://github.com/SemanticMediaWiki/SemanticWatchlist.git
 	branch = master
+	update = none
 [submodule "extensions/Smartsheet-MediaWiki-Extension"]
 	path = extensions/Smartsheet-MediaWiki-Extension
 	url = https://github.com/bensternthal/Smartsheet-MediaWiki-Extension.git
@@ -84,17 +88,20 @@
 [submodule "extensions/UrlGetParameters"]
 	path = extensions/UrlGetParameters
 	url = https://git.wikimedia.org/git/mediawiki/extensions/UrlGetParameters.git
-	branch = REL1_19
+	branch = REL1_23
 [submodule "extensions/WikiEditor"]
 	path = extensions/WikiEditor
 	url = https://git.wikimedia.org/git/mediawiki/extensions/WikiEditor.git
-	branch = REL1_19
+	branch = REL1_23
 [submodule "extensions/NoTitle"]
 	path = extensions/NoTitle
 	url = https://git.wikimedia.org/git/mediawiki/extensions/NoTitle.git
+	branch = REL1_23
 [submodule "assets/fonts/Fira"]
 	path = assets/fonts/Fira
 	url = https://github.com/mozilla/Fira.git
+	branch = master
 [submodule "extensions/Widgets"]
 	path = extensions/Widgets
 	url = https://github.com/MozillaWiki/mediawiki-widgets.git
+	branch = REL1_23
