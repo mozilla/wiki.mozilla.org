@@ -3,7 +3,8 @@
     "description": "Composer resources for wiki.m.o",
     "require": {
         "mediawiki/semantic-media-wiki": "~2.0",
-        "mediawiki/sub-page-list": "~1.1"
+        "mediawiki/sub-page-list": "~1.1",
+        "mediawiki/semantic-watchlist": "~1.0"
     },
     "license": "MPL-2.0",
     "authors": [

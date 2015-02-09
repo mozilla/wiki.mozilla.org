@@ -7,7 +7,6 @@ secrets.php
 
 # These extensions are installed through composer
 /extensions/SemanticMediaWiki/
+/extensions/SemanticWatchlist/
 /extensions/SubPageList/
 /extensions/Validator/
-
-

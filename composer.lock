@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b95f893f6ea040fe34361f791354afe7",
+    "hash": "b6cd189d288355ead0756e884c9ac78f",
     "packages": [
         {
             "name": "composer/installers",
@@ -458,6 +458,59 @@
                 "wiki"
             ],
             "time": "2014-08-04 14:56:06"
+        },
+        {
+            "name": "mediawiki/semantic-watchlist",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SemanticMediaWiki/SemanticWatchlist.git",
+                "reference": "de74a54baa586cc300152bc0ce304a89c059b932"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SemanticMediaWiki/SemanticWatchlist/zipball/de74a54baa586cc300152bc0ce304a89c059b932",
+                "reference": "de74a54baa586cc300152bc0ce304a89c059b932",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "1.*,>=1.0.1",
+                "mediawiki/semantic-media-wiki": "~1.9|~2.0",
+                "php": ">=5.3.0"
+            },
+            "type": "mediawiki-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "SemanticWatchlist.php"
+                ],
+                "psr-4": {
+                    "SWL\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen De Dauw",
+                    "email": "jeroendedauw@gmail.com"
+                }
+            ],
+            "description": "A Semantic MediaWiki extension that allows users to use a watchlist for semantic properties.",
+            "homepage": "https://semantic-mediawiki.org/wiki/Extension:SemanticWatchlist",
+            "keywords": [
+                "SMW",
+                "Semantic MediaWiki",
+                "mediawiki",
+                "wiki"
+            ],
+            "time": "2015-01-31 11:42:30"
         },
         {
             "name": "mediawiki/sub-page-list",
