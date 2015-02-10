@@ -2,11 +2,13 @@
 	path = core
 	url = https://git.wikimedia.org/git/mediawiki/core.git
 	branch = REL1_23
-	update = none
+  update = none
+  ignore = untracked
 [submodule "extensions/Bugzilla"]
 	path = extensions/Bugzilla
 	url = https://github.com/mozilla/mediawiki-bugzilla.git
 	branch = master
+  ignore = untracked
 [submodule "extensions/ConfirmAccount"]
 	path = extensions/ConfirmAccount
 	url = https://git.wikimedia.org/git/mediawiki/extensions/ConfirmAccount.git
