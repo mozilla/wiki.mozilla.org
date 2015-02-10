@@ -76,7 +76,7 @@ then
     echo "Symlink to assets/fonts already exists. Skipping."
   fi
 else
-  echo "assets/font directory missing. Cannot create symblink."
+  echo "assets/font directory missing. Cannot create symlink."
 fi
 
 
@@ -121,7 +121,7 @@ else
         echo "Symlink to ${CURRENT_PWD}/php_sessions already exists. Skipping."
       fi
     else
-      echo "${PARENT_DIR}/php_sessions does not exist. Skiping symlink creation."
+      echo "${PARENT_DIR}/php_sessions does not exist. Skipping symlink creation."
     fi
     if [ -e "${PARENT_DIR}/images" ]
     then
@@ -134,7 +134,7 @@ else
         echo "Symlink to ${CURRENT_PWD}/images already exists. Skipping."
       fi
     else
-      echo "${PARENT_DIR}/images does not exist. Skiping symlink creation."
+      echo "${PARENT_DIR}/images does not exist. Skipping symlink creation."
     fi
     if [ -e "${PARENT_DIR}/charts" ]
     then
@@ -147,11 +147,13 @@ else
         echo "Symlink to ${CURRENT_PWD}/extensions/Bugzilla/charts already exists. Skipping."
       fi
     else
-      echo "${PARENT_DIR}/charts does not exist. Skiping symlink creation."
+      echo "${PARENT_DIR}/charts does not exist. Skipping symlink creation."
     fi
 
     #chown -R www-data:www-data $(pwd)
-    # let's try chaning the group instead
+    # let's try changing the group instead
+    # Note: for this to work, you'll need to be owner of the checkout directory
+    # AND your user must belong to www-data group
     chgrp -R www-data ${CURRENT_PWD}
 fi
 
