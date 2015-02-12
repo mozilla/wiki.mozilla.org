@@ -10,3 +10,5 @@ secrets.php
 /extensions/SemanticWatchlist/
 /extensions/SubPageList/
 /extensions/Validator/
+images
+php_sessions
