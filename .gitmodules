@@ -2,7 +2,6 @@
 	path = core
 	url = https://git.wikimedia.org/git/mediawiki/core.git
 	branch = REL1_23
-	update = none
 	ignore = untracked
 [submodule "extensions/Bugzilla"]
 	path = extensions/Bugzilla
