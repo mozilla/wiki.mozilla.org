@@ -37,10 +37,6 @@
 	path = extensions/LabeledSectionTransclusion
 	url = https://git.wikimedia.org/git/mediawiki/extensions/LabeledSectionTransclusion.git
 	branch = REL1_23
-[submodule "extensions/mediawiki-semantic-html"]
-	path = extensions/mediawiki-semantic-html
-	url = https://github.com/BenWard/mediawiki-semantic-html.git
-	branch = master
 [submodule "extensions/Nuke"]
 	path = extensions/Nuke
 	url = https://git.wikimedia.org/git/mediawiki/extensions/Nuke.git

@@ -493,9 +493,6 @@ require_once("$IP/../extensions/SemanticWatchlist/SemanticWatchlist.php");
 # Bug 721366 and 731672
 require_once("$IP/../extensions/Bugzilla/Bugzilla.php");
 
-# Bug 716749
-require_once("$IP/../extensions/mediawiki-semantic-html/SemanticHTML.php");
-
 # Bug 772192 & 838391
 require_once("$IP/../extensions/Smartsheet-MediaWiki-Extension/SmartsheetIframe.php");
 
