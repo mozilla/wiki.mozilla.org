@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b6cd189d288355ead0756e884c9ac78f",
+    "hash": "4debc3f81dcebe8bdabaa157e509b492",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.0.19",
+            "version": "v1.0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "89d77bfbee79e16653f7162c86e602cc188471db"
+                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/89d77bfbee79e16653f7162c86e602cc188471db",
-                "reference": "89d77bfbee79e16653f7162c86e602cc188471db",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
+                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
                 "shasum": ""
             },
             "replace": {
@@ -59,9 +59,11 @@
                 "Hurad",
                 "MODX Evo",
                 "OXID",
+                "SMF",
                 "Thelia",
                 "WolfCMS",
                 "agl",
+                "aimeos",
                 "annotatecms",
                 "bitrix",
                 "cakephp",
@@ -97,7 +99,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-11-29 01:29:17"
+            "time": "2015-02-18 17:17:01"
         },
         {
             "name": "data-values/common",
@@ -221,16 +223,16 @@
         },
         {
             "name": "data-values/interfaces",
-            "version": "0.1.4",
+            "version": "0.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DataValues/Interfaces.git",
-                "reference": "38a04aede894929d822001e5e8851f4a08454a89"
+                "reference": "f563e6a55547046070e3d79b5662b620005558d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DataValues/Interfaces/zipball/38a04aede894929d822001e5e8851f4a08454a89",
-                "reference": "38a04aede894929d822001e5e8851f4a08454a89",
+                "url": "https://api.github.com/repos/DataValues/Interfaces/zipball/f563e6a55547046070e3d79b5662b620005558d8",
+                "reference": "f563e6a55547046070e3d79b5662b620005558d8",
                 "shasum": ""
             },
             "require": {
@@ -271,7 +273,7 @@
                 "valuevalidators",
                 "wikidata"
             ],
-            "time": "2014-04-14 08:17:48"
+            "time": "2015-02-14 02:37:02"
         },
         {
             "name": "data-values/validators",
@@ -391,16 +393,16 @@
         },
         {
             "name": "mediawiki/semantic-media-wiki",
-            "version": "2.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SemanticMediaWiki/SemanticMediaWiki.git",
-                "reference": "b788a34b6e8d08ab4cec5f45e8a46a43c81fdb91"
+                "reference": "2dc7c00ae362848c0134ce9325582ca98298a502"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SemanticMediaWiki/SemanticMediaWiki/zipball/b788a34b6e8d08ab4cec5f45e8a46a43c81fdb91",
-                "reference": "b788a34b6e8d08ab4cec5f45e8a46a43c81fdb91",
+                "url": "https://api.github.com/repos/SemanticMediaWiki/SemanticMediaWiki/zipball/2dc7c00ae362848c0134ce9325582ca98298a502",
+                "reference": "2dc7c00ae362848c0134ce9325582ca98298a502",
                 "shasum": ""
             },
             "require": {
@@ -414,7 +416,7 @@
             "type": "mediawiki-extension",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -457,7 +459,7 @@
                 "mediawiki",
                 "wiki"
             ],
-            "time": "2014-08-04 14:56:06"
+            "time": "2015-01-19 19:32:37"
         },
         {
             "name": "mediawiki/semantic-watchlist",
@@ -514,16 +516,16 @@
         },
         {
             "name": "mediawiki/sub-page-list",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JeroenDeDauw/SubPageList.git",
-                "reference": "c45ac10c4b5e24a2c33f008703b81bdb6a19f8d6"
+                "reference": "5acf4be54c1217b35934ef1a2ab698d28168ba57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JeroenDeDauw/SubPageList/zipball/c45ac10c4b5e24a2c33f008703b81bdb6a19f8d6",
-                "reference": "c45ac10c4b5e24a2c33f008703b81bdb6a19f8d6",
+                "url": "https://api.github.com/repos/JeroenDeDauw/SubPageList/zipball/5acf4be54c1217b35934ef1a2ab698d28168ba57",
+                "reference": "5acf4be54c1217b35934ef1a2ab698d28168ba57",
                 "shasum": ""
             },
             "require": {
@@ -534,7 +536,7 @@
             "type": "mediawiki-extension",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -564,7 +566,7 @@
                 "SubPageList",
                 "mediawiki"
             ],
-            "time": "2014-06-25 22:11:07"
+            "time": "2015-01-31 20:15:41"
         },
         {
             "name": "mediawiki/validator",
