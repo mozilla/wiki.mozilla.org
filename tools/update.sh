@@ -17,8 +17,9 @@ git pull
 # Pull in any updates to submodules
 git submodule update --init --recursive
 
-# Update any extensions installed through Composer
-php tools/composer.phar update
+# install any extensions managed by Composer
+# to update, run php tools/composer.phar update prior to deployment
+php tools/composer.phar install
 
 # Run the maintenance script for any database migrations
 cd core
