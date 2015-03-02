@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4debc3f81dcebe8bdabaa157e509b492",
+    "hash": "d344a2e3753547ed0af8519929ec328b",
     "packages": [
         {
             "name": "composer/installers",
@@ -335,6 +335,47 @@
                 "wikidata"
             ],
             "time": "2014-10-09 19:10:23"
+        },
+        {
+            "name": "mediawiki/graph-viz",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://gerrit.wikimedia.org/r/p/mediawiki/extensions/GraphViz.git",
+                "reference": "dd0d73ac2f88d74abb6129959c38f3ef26400c92"
+            },
+            "require": {
+                "composer/installers": "1.*,>=1.0.1",
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "mediawiki/image-map": "The ImageMap extension is required and is bundled with MediaWiki.  See https://www.mediawiki.org/wiki/Extension:ImageMap"
+            },
+            "type": "mediawiki-extension",
+            "autoload": {
+                "files": [
+                    "GraphViz.php"
+                ],
+                "classmap": [
+                    "GraphRenderParms.php",
+                    "GraphViz_body.php",
+                    "UploadLocalFile.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Online DOT graph renderer and message sequence chart renderer",
+            "homepage": "https://www.mediawiki.org/wiki/Extension:GraphViz",
+            "keywords": [
+                "Mscgen",
+                "dot",
+                "graphviz",
+                "mediawiki",
+                "wiki"
+            ],
+            "time": "2015-01-24 23:59:21"
         },
         {
             "name": "mediawiki/parser-hooks",
