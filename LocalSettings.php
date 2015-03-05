@@ -544,9 +544,6 @@ $wgWhitelistRead = array( 'Main Page', 'Special:Userlogin', 'Special:Userlogout'
 $wgAutoConfirmAge =  5 * 3600 * 24; // 5 days to pass isNewbie()
 $wgAutoConfirmCount = 10;   // and have ten edits
 
-$wgShowExceptionDetails = false;
-$wgShowSQLErrors = false;
-
 # use these for maintenance
 #$wgReadOnly = 'Wiki.mozilla.org is undergoing maintenance until 9AM PDT, no file uploads will work until then';
 #$wgSiteNotice = 'Wiki.mozilla.org is undergoing maintenance until 9AM PDT, no file uploads will work until then';
