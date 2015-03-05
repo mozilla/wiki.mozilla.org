@@ -242,6 +242,7 @@ $wgGroupPermissions['confirm']['reupload-shared']           = true;
 $wgGroupPermissions['confirm']['editsemiprotected']         = true;
 $wgGroupPermissions['confirm']['patrolmarks']               = true;
 $wgGroupPermissions['confirm']['autopatrol']                = true;
+$wgGroupPermissions['confirm']['patrol']                    = true;
 $wgGroupPermissions['confirm']['purge']                     = true;
 $wgGroupPermissions['confirm']['writeapi']                  = true;
 $wgGroupPermissions['confirm']['autoconfirmed']             = true;
