@@ -635,4 +635,5 @@ $wgPFEnableStringFunctions = true;
 
 require_once("$IP/../extensions/Widgets/Widgets.php");
 
+require_once "$IP/../extensions/TitleBlacklist/TitleBlacklist.php";
 // EOF
