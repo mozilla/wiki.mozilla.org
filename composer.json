@@ -4,7 +4,8 @@
     "require": {
         "mediawiki/semantic-media-wiki": "~2.1.0",
         "mediawiki/sub-page-list": "~1.1.2",
-        "mediawiki/semantic-watchlist": "~1.0.0"
+        "mediawiki/semantic-watchlist": "~1.0.0",
+        "mediawiki/graph-viz": "1.5.1"
     },
     "license": "MPL-2.0",
     "authors": [

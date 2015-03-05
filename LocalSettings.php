@@ -124,7 +124,7 @@ $wgShellLocale = "en_US.utf8";
 #$wgHashedUploadDirectory = false;
 
 ## The file system path of the folder where uploaded files will be stored.
-$wgUploadDirectory = "$IP/../images";
+$wgUploadDirectory = $SECRETS_wgUploadDirectory;
 
 ## Set $wgCacheDirectory to a writable directory on the web server
 ## to make your wiki go slightly faster. The directory should not
@@ -636,5 +636,6 @@ require_once("$IP/../extensions/Sandstone/Sandstone.php");
 $wgPFEnableStringFunctions = true;
 
 require_once("$IP/../extensions/Widgets/Widgets.php");
+require_once("$IP/../extensions/GraphViz/GraphViz.php");
 
 // EOF

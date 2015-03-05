@@ -10,5 +10,8 @@ secrets.php
 /extensions/SemanticWatchlist/
 /extensions/SubPageList/
 /extensions/Validator/
+/extensions/GraphViz/
+
+# these assest are not in version control
 images
 php_sessions
