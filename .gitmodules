@@ -96,3 +96,7 @@
 	path = extensions/Widgets
 	url = https://github.com/MozillaWiki/mediawiki-widgets.git
 	branch = REL1_23
+[submodule "extensions/TitleBlacklist"]
+	path = extensions/TitleBlacklist
+	url = https://git.wikimedia.org/git/mediawiki/extensions/TitleBlacklist.git
+	branch = REL1_23
