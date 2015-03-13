@@ -1,0 +1,28 @@
+{
+    "name": "wiki.mozilla.org",
+    "description": "Official public wiki of the Mozilla Project.",
+    "repository": {
+        "url": "https://github.com/mozilla/wiki.mozilla.org",
+        "license": "MPL 2.0"
+    },
+    "participate": {
+        "home": "https://wiki.mozilla.org/MozillaWiki:Team",
+        "docs": "https://github.com/mozilla/wiki.mozilla.org#install",
+        "irc": "irc://irc.mozilla.org/#wiki",
+        "irc-contacts": ["ckoehler", "GPHemsley"]
+    },
+    "bugs": {
+        "list": "https://bugzilla.mozilla.org/buglist.cgi?product=Websites&component=wiki.mozilla.org&resolution=---",
+        "report": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&component=wiki.mozilla.org"
+    },
+    "urls": {
+        "prod": "https://wiki.mozilla.org/",
+        "stage": "https://wiki.allizom.org/",
+        "dev": "https://wiki-dev.allizom.org/"
+    },
+    "keywords": [
+        "mediawiki",
+        "wiki",
+        "php"
+    ]
+}
