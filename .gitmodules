@@ -100,3 +100,6 @@
 	path = extensions/TitleBlacklist
 	url = https://git.wikimedia.org/git/mediawiki/extensions/TitleBlacklist.git
 	branch = REL1_23
+[submodule "extensions/ImportFromEtherpad"]
+	path = extensions/ImportFromEtherpad
+	url = https://github.com/christi3k/ImportFromEtherpad.git
