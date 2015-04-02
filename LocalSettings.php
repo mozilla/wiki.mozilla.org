@@ -636,4 +636,20 @@ require_once("$IP/../extensions/Widgets/Widgets.php");
 require_once("$IP/../extensions/GraphViz/GraphViz.php");
 $wgGraphVizSettings->defaultImageType = 'svg';
 
-// EOF
+require_once "$IP/../extensions/TitleBlacklist/TitleBlacklist.php";
+
+require_once "$IP/../extensions/ImportFromEtherpad/ImportFromEtherpad.php";
+// note: these content regexes are pandoc 1.12.x specific and will need to be modified for 1.13.x
+$wgImportFromEtherpadSettings->contentRegexs[] = array("\[https?:\/\/wiki\.mozilla\.org\/Category:(.+?) https?:\/\/wiki\.mozilla\.org\/Category:(.+?)\]","[[:Category:$1]]");
+$wgImportFromEtherpadSettings->contentRegexs[] = array("\[https?:\/\/wiki\.mozilla\.org\/(.+?) https?:\/\/wiki\.mozilla\.org\/(.+?)\]","[[$1]]");
+$wgImportFromEtherpadSettings->contentRegexs[] = array("\[https?:\/\/bugzilla\.mozilla\.org\/show_bug\.cgi\?id=(.+?) https?:\/\/bugzilla\.mozilla\.org\/show_bug\.cgi\?id=(.+?)\]","{{bug|$1}}");
+
+// add new rules to top of regex stack
+array_unshift($wgImportFromEtherpadSettings->hostRegexs, 
+  array('wiki\.etherpad\.mozilla\.org','MozillaWiki:'), 
+  array('remo\.etherpad\.mozilla\.org','ReMo/'), 
+  array('pad\.webmaker\.org','Webmaker/'), 
+  array('(\w+).etherpad\.mozilla\.org','$1/')
+);
+
+$wgImportFromEtherpadSettings->pathRegexs[] = array('(\w+)\s+(\d+)\s+(\d+)\s+(\d+)','$1 $2-$3-$4');
