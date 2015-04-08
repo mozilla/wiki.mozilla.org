@@ -639,17 +639,28 @@ $wgGraphVizSettings->defaultImageType = 'svg';
 require_once "$IP/../extensions/TitleBlacklist/TitleBlacklist.php";
 
 require_once "$IP/../extensions/ImportFromEtherpad/ImportFromEtherpad.php";
-// note: these content regexes are pandoc 1.12.x specific and will need to be modified for 1.13.x
+
+// these regexs replace strings in the converted mediawiki content
+$wgImportFromEtherpadSettings->contentRegexs[] = array("\n\n","\n");
+$wgImportFromEtherpadSettings->contentRegexs[] = array("<br \/>\n<br \/>","\n");
+$wgImportFromEtherpadSettings->contentRegexs[] = array("\x{00a0}+","");
 $wgImportFromEtherpadSettings->contentRegexs[] = array("\[https?:\/\/wiki\.mozilla\.org\/Category:(.+?) https?:\/\/wiki\.mozilla\.org\/Category:(.+?)\]","[[:Category:$1]]");
 $wgImportFromEtherpadSettings->contentRegexs[] = array("\[https?:\/\/wiki\.mozilla\.org\/(.+?) https?:\/\/wiki\.mozilla\.org\/(.+?)\]","[[$1]]");
+$wgImportFromEtherpadSettings->contentRegexs[] = array("https?:\/\/wiki\.mozilla\.org\/Category:(.+?)\s","[[:Category:$1]] ");
+//$wgImportFromEtherpadSettings->contentRegexs[] = array("https?:\/\/wiki\.mozilla\.org\/(.+?)\s","[[$1]] ");
 $wgImportFromEtherpadSettings->contentRegexs[] = array("\[https?:\/\/bugzilla\.mozilla\.org\/show_bug\.cgi\?id=(.+?) https?:\/\/bugzilla\.mozilla\.org\/show_bug\.cgi\?id=(.+?)\]","{{bug|$1}}");
+//$wgImportFromEtherpadSettings->contentRegexs[] = array("https?:\/\/bugzilla\.mozilla\.org\/show_bug\.cgi\?id=(.+?)\s","{{bug|$1}} ");
 
 // add new rules to top of regex stack
 array_unshift($wgImportFromEtherpadSettings->hostRegexs, 
-  array('wiki\.etherpad\.mozilla\.org','MozillaWiki:'), 
+  array('wiki\.etherpad\.mozilla\.org',''), 
   array('remo\.etherpad\.mozilla\.org','ReMo/'), 
+  array('releng\.etherpad\.mozilla\.org','RelEng/'), 
   array('pad\.webmaker\.org','Webmaker/'), 
   array('(\w+).etherpad\.mozilla\.org','$1/')
 );
 
 $wgImportFromEtherpadSettings->pathRegexs[] = array('(\w+)\s+(\d+)\s+(\d+)\s+(\d+)','$1 $2-$3-$4');
+
+$wgImportFromEtherpadSettings->nsRegexs[] = array('wiki\.etherpad\.mozilla\.org','4');
+// EOF
