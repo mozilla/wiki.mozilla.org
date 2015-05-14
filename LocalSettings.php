@@ -377,8 +377,6 @@ $wgExtraNamespaces =
         101 => "Mozilla2_Talk",
         102 => "Calendar",
         103 => "Calendar_Talk",
-        104 => "DocShell",
-        105 => "DocShell_Talk",
         106 => "Gecko",
         107 => "Gecko_Talk",
         108 => "PluginFutures",
@@ -393,18 +391,10 @@ $wgExtraNamespaces =
         117 => "Update_Talk",
         118 => "SVGDev",
         119 => "SVGDev_Talk",
-        120 => "Specifications",
-        121 => "Specifications_Talk",
         122 => "Bugzilla",
         123 => "Bugzilla_Talk",
-        124 => "DOM",
-        125 => "DOM_Talk",
-        126 => "Tinderbox",
-        127 => "Tinderbox_Talk",
         128 => "MailNews",
         129 => "MailNews_Talk",
-        130 => "Minimo",
-        131 => "Minimo_Talk"
         # 132 - 141 - Semantic MediaWiki extension
     );
 
