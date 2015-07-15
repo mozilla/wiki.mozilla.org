@@ -16,7 +16,6 @@
   RewriteRule ^/GeckoDev([/\?].*|$) /wiki/GeckoDev:Home_Page? [R,L]
   RewriteRule ^/XULDev([/\?].*|$) /wiki/XUL:Home_Page? [R,L]
   RewriteRule ^/Calendar([/\?].*|$) /wiki/Calendar:Home_Page? [R,L]
-  RewriteRule ^/DocShell([/\?].*|$) /wiki/DocShell:Home_Page? [R,L]
   RewriteRule ^/SVG([/\?].*|$) /wiki/SVG:Home_Page? [R,L]
   RewriteRule ^/SVGDev([/\?].*|$) /wiki/SVGDev:Home_Page? [R,L]
   RewriteRule ^/mozwiki https://wiki.mozilla.org/ [R,L]
