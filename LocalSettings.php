@@ -633,6 +633,9 @@ $wgMFAutodetectMobileView = true;
 $wgMobileFrontendLogo = "$wgStylePath/../assets/logos/$SECRETS_wgMobileFrontendLogo";
 $wgMobileUrlTemplate = 'm.%h0.%h1.%h2';
 
+// must disable jquery table on legacy mediawiki-bugzilla extension for mobile editing to work
+$wgBugzillaJqueryTable = false;
+
 require_once "$IP/../extensions/ImportFromEtherpad/ImportFromEtherpad.php";
 
 // these regexs replace strings in the converted mediawiki content
