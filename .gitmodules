@@ -103,3 +103,9 @@
 [submodule "extensions/ImportFromEtherpad"]
 	path = extensions/ImportFromEtherpad
 	url = https://github.com/christi3k/ImportFromEtherpad.git
+[submodule "extensions/MobileFrontend"]
+	path = extensions/MobileFrontend
+	url = https://git.wikimedia.org/git/mediawiki/extensions/MobileFrontend.git
+[submodule "extensions/Mantle"]
+	path = extensions/Mantle
+	url = https://git.wikimedia.org/git/mediawiki/extensions/Mantle.git
