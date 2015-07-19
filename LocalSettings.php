@@ -626,6 +626,13 @@ require_once("$IP/../extensions/Widgets/Widgets.php");
 require_once("$IP/../extensions/GraphViz/GraphViz.php");
 $wgGraphVizSettings->defaultImageType = 'svg';
 
+require_once("$IP/../extensions/Mantle/Mantle.php");
+require_once("$IP/../extensions/MobileFrontend/MobileFrontend.php");
+
+$wgMFAutodetectMobileView = true;
+$wgMobileFrontendLogo = "$wgStylePath/../assets/logos/$SECRETS_wgMobileFrontendLogo";
+$wgMobileUrlTemplate = 'm.%h0.%h1.%h2';
+
 require_once "$IP/../extensions/ImportFromEtherpad/ImportFromEtherpad.php";
 
 // these regexs replace strings in the converted mediawiki content
