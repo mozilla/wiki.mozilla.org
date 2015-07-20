@@ -641,6 +641,7 @@ require_once "$IP/../extensions/ImportFromEtherpad/ImportFromEtherpad.php";
 // these regexs replace strings in the converted mediawiki content
 $wgImportFromEtherpadSettings->contentRegexs[] = array("\n\n","\n");
 $wgImportFromEtherpadSettings->contentRegexs[] = array("<br \/>\n<br \/>","\n");
+$wgImportFromEtherpadSettings->contentRegexs[] = array("(?!^)<br \/>\n\n","\n\n");
 $wgImportFromEtherpadSettings->contentRegexs[] = array("\x{00a0}+","");
 $wgImportFromEtherpadSettings->contentRegexs[] = array("\[https?:\/\/wiki\.mozilla\.org\/Category:(.+?) https?:\/\/wiki\.mozilla\.org\/Category:(.+?)\]","[[:Category:$1]]");
 $wgImportFromEtherpadSettings->contentRegexs[] = array("\[https?:\/\/wiki\.mozilla\.org\/(.+?) https?:\/\/wiki\.mozilla\.org\/(.+?)\]","[[$1]]");
