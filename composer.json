@@ -2,7 +2,7 @@
     "name": "mozilla/wiki.mozilla.org",
     "description": "Composer resources for wiki.m.o",
     "require": {
-        "mediawiki/semantic-media-wiki": "~2.1.0",
+        "mediawiki/semantic-media-wiki": "~2.3",
         "mediawiki/sub-page-list": "~1.1.2",
         "mediawiki/semantic-watchlist": "~1.0.0",
         "mediawiki/graph-viz": "1.5.1"
