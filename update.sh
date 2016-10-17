@@ -92,7 +92,7 @@ echo "grabbing any changes via git pull"
 git pull
 
 echo
-echo "writing the submodule paths to the .git/confif file via git submodule init"
+echo "writing the submodule paths to the .git/config file via git submodule init"
 git submodule init
 
 # the following command required --init to make extensions/Widgets recurse and checkout smarty/
