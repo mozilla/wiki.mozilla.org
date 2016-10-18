@@ -1,0 +1,26 @@
+{    
+    "name": "Mozilla Wiki",
+    "description": "Mozilla public wiki space.",
+    "repository": {
+        "url": "https://github.com/mozilla/wiki.mozilla.org",
+        "license": "Mozilla Public License Version 2.0"
+    },
+    "bugs": {
+        "list": "https://github.com/mozilla/wiki.mozilla.org/issues",
+        "report": "https://github.com/mozilla/wiki.mozilla.org/issues"
+    },
+   "participate": {
+    "irc": "irc://irc.mozilla.org/#wiki",
+    "irc-contacts": [
+        "webops"
+    ]
+   },
+    "urls": {
+        "prod": "https://wiki.mozilla.org"
+    },
+    "keywords": [
+        "wiki",
+        "mozillawiki",
+        "wikimo"
+    ]
+}
