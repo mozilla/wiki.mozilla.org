@@ -633,6 +633,64 @@
             "time": "2015-01-31 20:15:41"
         },
         {
+            "name": "mediawiki/validator",
+            "version": "2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JeroenDeDauw/Validator.git",
+                "reference": "d016211021c2811ad74581c40f169d96928fac8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JeroenDeDauw/Validator/zipball/d016211021c2811ad74581c40f169d96928fac8a",
+                "reference": "d016211021c2811ad74581c40f169d96928fac8a",
+                "shasum": ""
+            },
+            "require": {
+                "param-processor/param-processor": "~1.1",
+                "php": ">=5.3.0"
+            },
+            "type": "mediawiki-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Validator.php"
+                ],
+                "psr-4": {
+                    "ParamProcessor\\": "src/ParamProcessor/"
+                },
+                "classmap": [
+                    "src/legacy/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen De Dauw",
+                    "email": "jeroendedauw@gmail.com",
+                    "homepage": "http://jeroendedauw.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "MediaWiki wrapper for the ParamProcessor library",
+            "homepage": "https://github.com/JeroenDeDauw/Validator",
+            "keywords": [
+                "ParamProcessor",
+                "SMW",
+                "Semantic MediaWiki",
+                "mediawiki",
+                "validator"
+            ],
+            "time": "2016-04-04 00:44:24"
+        },
+        {
             "name": "onoi/blob-store",
             "version": "1.2.0",
             "source": {
