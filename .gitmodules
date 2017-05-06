@@ -1,7 +1,7 @@
 [submodule "core"]
 	path = core
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/core.git
-	branch = REL1_23
+	branch = REL1_27
 	ignore = untracked
 [submodule "extensions/Bugzilla"]
 	path = extensions/Bugzilla
@@ -11,23 +11,23 @@
 [submodule "extensions/ConfirmAccount"]
 	path = extensions/ConfirmAccount
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ConfirmAccount.git
-	branch = REL1_23
+	branch = REL1_27
 [submodule "extensions/ConfirmEdit"]
 	path = extensions/ConfirmEdit
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ConfirmEdit.git
-	branch = REL1_23
+	branch = REL1_27
 [submodule "extensions/Gadgets"]
 	path = extensions/Gadgets
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Gadgets.git
-	branch = REL1_23
+	branch = REL1_27
 [submodule "extensions/googleAnalytics"]
 	path = extensions/googleAnalytics
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/googleAnalytics.git
-	branch = REL1_23
+	branch = REL1_27
 [submodule "extensions/ImageMap"]
 	path = extensions/ImageMap
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ImageMap.git
-	branch = REL1_23
+	branch = REL1_27
 [submodule "extensions/Interwiki"]
 	path = extensions/Interwiki
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Interwiki.git
@@ -35,27 +35,27 @@
 [submodule "extensions/LabeledSectionTransclusion"]
 	path = extensions/LabeledSectionTransclusion
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/LabeledSectionTransclusion.git
-	branch = REL1_23
+	branch = REL1_27
 [submodule "extensions/Nuke"]
 	path = extensions/Nuke
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Nuke.git
-	branch = REL1_23
+	branch = REL1_27
 [submodule "extensions/OggHandler"]
 	path = extensions/OggHandler
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/OggHandler.git
-	branch = REL1_23
+	branch = REL1_27
 [submodule "extensions/ParserFunctions"]
 	path = extensions/ParserFunctions
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ParserFunctions.git
-	branch = REL1_23
+	branch = REL1_27
 [submodule "extensions/Renameuser"]
 	path = extensions/Renameuser
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Renameuser.git
-	branch = REL1_23
+	branch = REL1_27
 [submodule "extensions/RSS"]
 	path = extensions/RSS
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RSS.git
-	branch = REL1_23
+	branch = REL1_27
 [submodule "extensions/Sandstone"]
 	path = extensions/Sandstone
 	url = https://github.com/christi3k/mw-sandstone.git
@@ -71,7 +71,7 @@
 [submodule "extensions/SpamBlacklist"]
 	path = extensions/SpamBlacklist
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SpamBlacklist.git
-	branch = REL1_23
+	branch = REL1_27
 [submodule "extensions/SyntaxHighlighter"]
 	path = extensions/SyntaxHighlighter
 	url = git://github.com/seongjaelee/SyntaxHighlighter.git
@@ -79,23 +79,23 @@
 [submodule "extensions/UrlGetParameters"]
 	path = extensions/UrlGetParameters
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UrlGetParameters.git
-	branch = REL1_23
+	branch = REL1_27
 [submodule "extensions/WikiEditor"]
 	path = extensions/WikiEditor
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/WikiEditor.git
-	branch = REL1_23
+	branch = REL1_27
 [submodule "extensions/NoTitle"]
 	path = extensions/NoTitle
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/NoTitle.git
-	branch = REL1_23
+	branch = REL1_27
 [submodule "assets/fonts/Fira"]
 	path = assets/fonts/Fira
 	url = https://github.com/mozilla/Fira.git
 	branch = master
 [submodule "extensions/Widgets"]
 	path = extensions/Widgets
-	url = https://github.com/MozillaWiki/mediawiki-widgets.git
-	branch = REL1_23
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Widgets.git
+	branch = REL1_27
 [submodule "extensions/ImportFromEtherpad"]
 	path = extensions/ImportFromEtherpad
 	url = https://github.com/christi3k/ImportFromEtherpad.git
