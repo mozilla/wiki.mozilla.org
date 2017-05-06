@@ -20,15 +20,15 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 # will pick them up. If not then you are responsible for creating
 # this file. there is a secrets.php-dist file for your convienence.
 if ( getenv('SECRETS_SET') == 'YES' ) {
-    require_once('../env_secrets.php');
+    require_once("$IP/../env_secrets.php");
 }
 else {
-    require_once('../secrets.php');
+    require_once("$IP/../secrets.php");
 }
 
 # If a debug.php file exists then lets pull it in.
-if ( file_exists('../debug.php') ) {
-    require_once('../debug.php');
+if ( file_exists("$IP/../debug.php") ) {
+    require_once("$IP/../debug.php");
 }
 
 ## Uncomment this to disable output compression
@@ -42,10 +42,10 @@ $wgMetaNamespace = "MozillaWiki";
 ## For more information on customizing the URLs
 ## (like /w/index.php/Page_title to /wiki/Page_title) please see:
 ## https://www.mediawiki.org/wiki/Manual:Short_URL
-$wgScript = "/index.php";
-$wgArticlePath = "/$1";
-$wgUsePathInfo = false;
-$wgScriptPath = "";
+$wgScriptPath = '';
+$wgArticlePath = '/$1';
+$wgScript = $wgScriptPath . '/index.php';
+$wgUsePathInfo = true;
 $wgScriptExtension = ".php";
 
 ## The protocol and server name to use in fully-qualified URLs
@@ -55,13 +55,15 @@ $wgServer = $SECRETS_wgServer;
 ## The relative URL path to the skins directory
 $wgStylePath = "$wgScriptPath/skins";
 
+$wgUploadPath = "{$wgScriptPath}/images";
+
 ## The relative URL path to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
 #$wgLogo = "$wgStylePath/common/images/$SECRETS_wgLogo";
-$wgLogo = "$wgStylePath/../assets/logos/$SECRETS_wgLogo";
+$wgLogo = "$wgStylePath/assets/logos/$SECRETS_wgLogo";
 
 # The relative URL path to the favicon
-$wgFavicon = "$wgStylePath/../assets/favicon.ico";
+$wgFavicon = "$wgStylePath/common/assets/favicon.ico";
 
 ## UPO means: this is also a user preference option
 
@@ -143,6 +145,8 @@ $wgUpgradeKey = $SECRETS_wgUpgradeKey;
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'cologneblue', 'monobook', 'vector':
 $wgDefaultSkin = "vector";
+wfLoadSkin( 'Vector' );
+
 ## Do not use these skins
 $wgSkipSkins = array( 'cavendish', 'chick', 'standard', 'cologneblue', 'modern', 'myskin', 'nostalgia', 'sandstone', 'simple', 'gmo' );
 
@@ -425,15 +429,15 @@ $wgNamespacesWithSubpages = array_fill(0, 200, true);
 # This require pulls in all extensions (including dependancies) that have been installed with composer
 require_once("$IP/../vendor/autoload.php");
 
-require_once("$IP/../extensions/SpamBlacklist/SpamBlacklist.php");
+wfLoadExtension( 'SpamBlacklist' );
 $wgSpamBlacklistFiles = array(
 //          database    title
         "DB: $wgDBname Spam_blacklist",
 );
 
-require_once("$IP/../extensions/SyntaxHighlighter/SyntaxHighlighter.php");
+wfLoadExtension( 'SyntaxHighlight' );
 
-require_once("$IP/../extensions/WikiEditor/WikiEditor.php");
+wfLoadExtension( 'WikiEditor' );
 # Enables use of WikiEditor by default but still allow users to disable it in preferences
 $wgDefaultUserOptions['usebetatoolbar'] = 1;
 $wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
@@ -444,23 +448,22 @@ $wgDefaultUserOptions['wikieditor-preview'] = 1;
 // bug 1080898
 $wgDefaultUserOptions['forceeditsummary'] = true;
 
-#require_once("$IP/../extensions/Urchin/Urchin.php");
-require_once("$IP/../extensions/LabeledSectionTransclusion/lst.php");
-require_once("$IP/../extensions/LabeledSectionTransclusion/lsth.php");
-require_once("$IP/../extensions/Renameuser/SpecialRenameuser.php");
-require_once("$IP/../extensions/ParserFunctions/ParserFunctions.php");
-require_once("$IP/../extensions/ImageMap/ImageMap.php");
+wfLoadExtension( 'LabeledSectionTransclusion' );
+wfLoadExtension( 'Renameuser' );
+wfLoadExtension( 'ParserFunctions' );
+wfLoadExtension( 'ImageMap' );
 
 $wgFFmpegLocation = '/usr/bin/ffmpeg';
-require("$IP/../extensions/OggHandler/OggHandler.php");
+require_once("$IP/extensions/OggHandler/OggHandler.php");
 
 $smwgNamespaceIndex = 132;
 $smwgQMaxSize = 40;
 $smwgQMaxDepth = 20;
 
-enableSemantics('wiki-dev.allizom.org');
+require_once("$IP/extensions/SemanticMediaWiki/SemanticMediaWiki.php");
+#enableSemantics('wiki-dev.allizom.org');
 $smwgEnabledEditPageHelp = false;
-include_once("$IP/../extensions/SemanticForms/SemanticForms.php");
+wfLoadExtension( 'PageForms' );
 ##
 # ask API feature will be available at api.php?action=<$wgSMWAskAPI_ActionName>
 # Default it 'ask'
@@ -468,45 +471,45 @@ include_once("$IP/../extensions/SemanticForms/SemanticForms.php");
 global $wgSMWAskAPI_ActionName;
 $wgSMWAskAPI_ActionName = 'ask';
 
-require_once("$IP/../extensions/SMWAskAPI/SMWAskAPI.php");
+require_once("$IP/extensions/SMWAskAPI/SMWAskAPI.php");
 
 # Bug 638134
-require_once("$IP/../extensions/UrlGetParameters/UrlGetParameters.php");
+require_once("$IP/extensions/UrlGetParameters/UrlGetParameters.php");
 
 # Bug 674544
-require_once("$IP/../extensions/NoTitle/NoTitle.php");
+require_once("$IP/extensions/NoTitle/NoTitle.php");
 
 # Bug 677659
-require_once("{$IP}/../extensions/CreateBox/CreateBox.php");
+#require_once("{$IP}/../extensions/CreateBox/CreateBox.php");
+wfLoadExtension( 'InputBox' );
 
 # Bug 675064
-require_once("$IP/../extensions/SemanticWatchlist/SemanticWatchlist.php");
+#require_once("$IP/extensions/SemanticWatchlist/SemanticWatchlist.php");
 
 # Bug 721366 and 731672
-require_once("$IP/../extensions/Bugzilla/Bugzilla.php");
+require_once("$IP/extensions/Bugzilla/Bugzilla.php");
 
 # Bug 772192 & 838391
-require_once("$IP/../extensions/Smartsheet-MediaWiki-Extension/SmartsheetIframe.php");
+require_once("$IP/extensions/Smartsheet-MediaWiki-Extension/SmartsheetIframe.php");
 
-require_once("$IP/../extensions/Nuke/Nuke.php");
+wfLoadExtension( 'Nuke' );
 
-require_once("$IP/../extensions/ConfirmEdit/ConfirmEdit.php");
+wfLoadExtensions( [ 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ] );
 $wgCaptchaTriggers['edit']          = false;
 $wgCaptchaTriggers['create']        = false;
 $wgCaptchaTriggers['addurl']        = false;
 $wgCaptchaTriggers['createaccount'] = true;
 $wgCaptchaTriggers['badlogin']      = true;
-require_once("$IP/../extensions/ConfirmEdit/ReCaptcha.php");
-$wgCaptchaClass = 'ReCaptcha';
-$wgReCaptchaPublicKey = $SECRETS_wgReCaptchaPublicKey;
-$wgReCaptchaPrivateKey = $SECRETS_wgReCaptchaPrivateKey;
+$wgCaptchaClass = 'ReCaptchaNoCaptcha';
+$wgReCaptchaSiteKey = $SECRETS_wgReCaptchaPublicKey;
+$wgReCaptchaSecretKey = $SECRETS_wgReCaptchaPrivateKey;
 
 # bug 832030
-require_once("$IP/../extensions/googleAnalytics/googleAnalytics.php");
+require_once("$IP/extensions/googleAnalytics/googleAnalytics.php");
 $wgGoogleAnalyticsAccount = $SECRETS_wgGoogleAnalyticsAccount;
 
 # bug 855309
-require_once("$IP/../extensions/SubPageList/SubPageList.php");
+require_once("$IP/extensions/SubPageList/SubPageList.php");
 
 $wgAllowExternalImages  = true;
 
@@ -521,7 +524,8 @@ if (!empty($SECRETS_wgSquidServers)) {
     $wgSquidServers = $SECRETS_wgSquidServers;
 }
 
-$wgCacheDirectory = "/tmp/wikimo-cache";
+#survive reboots
+$wgCacheDirectory = "/var/tmp/wikimo-cache";
 
 $wgShowIPinHeader = false;
 $wgFileExtensions   = array( 'gz', 'tar', 'png', 'gif', 'jpg', 'jpeg', 'ppt', 'pdf', 'doc', 'xls', 'zip', 'ics', 'mp3', 'ogg', 'odt', 'odp', 'svg', 'odt', 'ods', 'odg', 'webm' );
@@ -544,7 +548,7 @@ $wgAutoConfirmCount = 10;   // and have ten edits
 
 $wgRCMaxAge = 31536000; // one year
 
-require_once("$IP/../extensions/RSS/RSS.php");
+require_once("$IP/extensions/RSS/RSS.php");
 $wgRSSUrlWhitelist = array( 'http://benjamin.smedbergs.us/weekly-updates.fcgi/project/firefox/feed',
                             'http://blog.wikimedia.org/feed/',
                             'https://blog.mozilla.org/feed/',
@@ -555,7 +559,7 @@ $wgRSSUrlWhitelist = array( 'http://benjamin.smedbergs.us/weekly-updates.fcgi/pr
                           );
 
 # bug 1008487
-require_once("$IP/../extensions/ConfirmAccount/ConfirmAccount.php");
+require_once("$IP/extensions/ConfirmAccount/ConfirmAccount.php");
 #$wgConfirmAccountRequestFormItems = array(
 #    # Let users make names other than their "real name"
 #    'UserName'        => array( 'enabled' => true ),
@@ -583,6 +587,7 @@ $wgAllowAccountRequestFiles = false;
 $wgAccountRequestThrottle = 50;
 #$wgConfirmAccountContact = 'wikimo-admins@mozilla.org';
 $wgConfirmAccountSaveInfo = false;
+$wgConfirmAccountCaptchas = true;
 
 # Need to set this explicitly to match the value in php.ini
 # Otherwise, pages w/ semanticwiki bits barf
@@ -611,23 +616,20 @@ $wgRevokePermissions['inactive']['reupload']      = true;
 $wgRevokePermissions['inactive']['reupload-own']  = true;
 
 // Bug 1065007
-require_once("$IP/../extensions/Gadgets/Gadgets.php");
+require_once("$IP/extensions/Gadgets/Gadgets.php");
 
 // Bug 1074949
-require_once("$IP/../extensions/Interwiki/Interwiki.php");
+wfLoadExtension( 'Interwiki' );
 
 // Bug 1077182
-require_once("$IP/../extensions/Sandstone/Sandstone.php");
+require_once("$IP/extensions/Sandstone/Sandstone.php");
 
 // Bug 1082298
 $wgPFEnableStringFunctions = true;
 
-require_once("$IP/../extensions/Widgets/Widgets.php");
-require_once("$IP/../extensions/GraphViz/GraphViz.php");
-$wgGraphVizSettings->defaultImageType = 'svg';
+require_once("$IP/extensions/Widgets/Widgets.php");
 
-require_once("$IP/../extensions/Mantle/Mantle.php");
-require_once("$IP/../extensions/MobileFrontend/MobileFrontend.php");
+wfLoadExtension( 'MobileFrontend' );
 
 $wgMFAutodetectMobileView = true;
 $wgMobileFrontendLogo = "$wgStylePath/../assets/logos/$SECRETS_wgMobileFrontendLogo";
@@ -636,7 +638,7 @@ $wgMobileUrlTemplate = 'm.%h0.%h1.%h2';
 // must disable jquery table on legacy mediawiki-bugzilla extension for mobile editing to work
 $wgBugzillaJqueryTable = false;
 
-require_once "$IP/../extensions/ImportFromEtherpad/ImportFromEtherpad.php";
+require_once("$IP/extensions/ImportFromEtherpad/ImportFromEtherpad.php");
 
 // these regexs replace strings in the converted mediawiki content
 $wgImportFromEtherpadSettings->contentRegexs[] = array("\n\n","\n");
@@ -650,15 +652,25 @@ $wgImportFromEtherpadSettings->contentRegexs[] = array("\[https?:\/\/bugzilla\.m
 //$wgImportFromEtherpadSettings->contentRegexs[] = array("https?:\/\/bugzilla\.mozilla\.org\/show_bug\.cgi\?id=(.+?)\s","{{bug|$1}} ");
 
 // add new rules to top of regex stack
-array_unshift($wgImportFromEtherpadSettings->hostRegexs, 
-  array('wiki\.etherpad\.mozilla\.org',''), 
-  array('remo\.etherpad\.mozilla\.org','ReMo/'), 
-  array('releng\.etherpad\.mozilla\.org','RelEng/'), 
-  array('pad\.webmaker\.org','Webmaker/'), 
+$old_settings = [];
+if ( isset( $wgImportFromEtherpadSettings->hostRegexs ) ) {
+    $old_settings = (array)$wgImportFromEtherpadSettings->hostRegexs;
+}
+array_unshift( $old_settings,
+  array('wiki\.etherpad\.mozilla\.org',''),
+  array('remo\.etherpad\.mozilla\.org','ReMo/'),
+  array('releng\.etherpad\.mozilla\.org','RelEng/'),
+  array('pad\.webmaker\.org','Webmaker/'),
   array('(\w+).etherpad\.mozilla\.org','$1/')
 );
+$wgImportFromEtherpadSettings->hostRegexs = $old_settings;
 
 $wgImportFromEtherpadSettings->pathRegexs[] = array('(\w+)\s+(\d+)\s+(\d+)\s+(\d+)','$1 $2-$3-$4');
 
 $wgImportFromEtherpadSettings->nsRegexs[] = array('wiki\.etherpad\.mozilla\.org','4');
+
+@$wgGraphVizSettings->defaultImageType = 'svg';
+
+# speed up a little and avoid some cli perm errors
+$wgLocalisationCacheConf['manualRecache'] = true;
 // EOF
