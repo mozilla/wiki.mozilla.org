@@ -72,9 +72,9 @@
 	path = extensions/SpamBlacklist
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SpamBlacklist.git
 	branch = REL1_27
-[submodule "extensions/SyntaxHighlight"]
-	path = extensions/SyntaxHighlight
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SyntaxHighlight_GeSHi.git
+[submodule "extensions/SyntaxHighlighter"]
+	path = extensions/SyntaxHighlighter
+	url = git://github.com/seongjaelee/SyntaxHighlighter.git
 	branch = master
 [submodule "extensions/UrlGetParameters"]
 	path = extensions/UrlGetParameters
