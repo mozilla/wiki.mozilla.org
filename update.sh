@@ -114,8 +114,8 @@ echo "linking LocalSettings.php into core submodule"
 link core/LocalSettings.php ../LocalSettings.php
 
 echo
-echo "linking to fonts submodule"
-link core/skins/common/fonts ../../../assets/fonts
+echo "linking to assets"
+link core/skins/common/assets ../../../assets
 
 echo
 echo "linking images"
