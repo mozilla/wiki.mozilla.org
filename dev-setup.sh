@@ -65,6 +65,10 @@ if_debug() {
 	fi
 }
 
+echo -n "Verifying pre-requisites: ..."
+php -r 'if ( function_exists( "imagepng" ) ) { echo " GD"; } else { echo " Install GD extension for PHP"; sleep(30); }'
+echo
+
 echo
 echo "grabbing any changes via git pull"
 git pull
