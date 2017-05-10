@@ -49,7 +49,11 @@ link() {
 link_subdirs() {
     dir="$1"
 
+<<<<<<< HEAD
     for subdir in $dir/*; do
+=======
+    for $subdir in $dir/*; do
+>>>>>>> Set up so skins are submodules
         extname=`basename $subdir`
         echo "  Linking $extname"
         link core/$dir/$extname ../../$dir/$extname
@@ -68,7 +72,6 @@ if_debug() {
 echo -n "Verifying pre-requisites: ..."
 php -r 'if ( function_exists( "imagepng" ) ) { echo " GD"; } else { echo " Install GD extension for PHP"; sleep(30); }'
 echo
-
 echo
 echo "grabbing any changes via git pull"
 git pull
@@ -111,8 +114,13 @@ link core/composer.local.json ../composer.json
 
 # The following link command "dirty" the checkout
 echo
+<<<<<<< HEAD
 echo "linking to assets"
 link core/skins/common/assets ../../../assets
+=======
+echo "linking to fonts submodule"
+link core/skins/common/fonts ../../../assets/fonts
+>>>>>>> Set up so skins are submodules
 
 if hash php 2> /dev/null; then
    echo

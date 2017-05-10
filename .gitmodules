@@ -72,9 +72,9 @@
 	path = extensions/SpamBlacklist
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SpamBlacklist.git
 	branch = REL1_27
-[submodule "extensions/SyntaxHighlighter"]
-	path = extensions/SyntaxHighlighter
-	url = git://github.com/seongjaelee/SyntaxHighlighter.git
+[submodule "extensions/SyntaxHighlight"]
+	path = extensions/SyntaxHighlight
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SyntaxHighlight_GeSHi.git
 	branch = master
 [submodule "extensions/UrlGetParameters"]
 	path = extensions/UrlGetParameters
@@ -110,8 +110,4 @@
 [submodule "skins/Vector"]
 	path = skins/Vector
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/skins/Vector
-	branch = REL1_27
-[submodule "skins/GraphViz"]
-	path = extensions/GraphViz
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/GraphViz.git
 	branch = REL1_27

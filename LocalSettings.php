@@ -52,8 +52,11 @@ $wgMetaNamespace = "MozillaWiki";
 ## https://www.mediawiki.org/wiki/Manual:Short_URL
 $wgScriptPath = '';
 $wgArticlePath = '/$1';
-$wgScript = '/index.php';
 $wgUsePathInfo = false;
+$wgScriptPath = $SECRETS_wgScriptPath;
+$wgArticlePath = $SECRETS_wgArticlePath;
+$wgScript = $wgScriptPath . '/index.php';
+$wgUsePathInfo = true;
 $wgScriptExtension = ".php";
 
 ## The protocol and server name to use in fully-qualified URLs
@@ -468,8 +471,8 @@ $smwgNamespaceIndex = 132;
 $smwgQMaxSize = 40;
 $smwgQMaxDepth = 20;
 
-require_once("$IP/extensions/SemanticMediaWiki/SemanticMediaWiki.php");
-#enableSemantics('wiki-dev.allizom.org');
+require_once("$IP/../extensions/SemanticMediaWiki/SemanticMediaWiki.php");
+enableSemantics('wiki-dev.allizom.org');
 $smwgEnabledEditPageHelp = false;
 wfLoadExtension( 'PageForms' );
 ##
@@ -492,7 +495,7 @@ require_once("$IP/extensions/NoTitle/NoTitle.php");
 wfLoadExtension( 'InputBox' );
 
 # Bug 675064
-#require_once("$IP/extensions/SemanticWatchlist/SemanticWatchlist.php");
+#require_once("$IP/../extensions/SemanticWatchlist/SemanticWatchlist.php");
 
 # Bug 721366 and 731672
 require_once("$IP/extensions/Bugzilla/Bugzilla.php");
@@ -635,9 +638,9 @@ require_once("$IP/extensions/Sandstone/Sandstone.php");
 // Bug 1082298
 $wgPFEnableStringFunctions = true;
 
-require_once("$IP/extensions/Widgets/Widgets.php");
+require_once("$IP/../extensions/Widgets/Widgets.php");
 
-wfLoadExtension( 'MobileFrontend' );
+require_once("$IP/../extensions/MobileFrontend/MobileFrontend.php");
 
 $wgMFAutodetectMobileView = true;
 $wgMobileFrontendLogo = "$wgStylePath/../assets/logos/$SECRETS_wgMobileFrontendLogo";
