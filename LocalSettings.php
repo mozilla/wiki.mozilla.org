@@ -667,4 +667,7 @@ $wgImportFromEtherpadSettings->pathRegexs[] = array('(\w+)\s+(\d+)\s+(\d+)\s+(\d
 $wgImportFromEtherpadSettings->nsRegexs[] = array('wiki\.etherpad\.mozilla\.org','4');
 
 @$wgGraphVizSettings->defaultImageType = 'svg';
+
+# speed up a little and avoid some cli perm errors
+$wgLocalisationCacheConf['manualRecache'] = true;
 // EOF
