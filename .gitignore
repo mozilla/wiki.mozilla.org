@@ -15,3 +15,8 @@ secrets.php
 # these assest are not in version control
 images
 php_sessions
+
+# emacs
+\#.*#
+*~
+.tramp_history

@@ -2,16 +2,28 @@
     "name": "mozilla/wiki.mozilla.org",
     "description": "Composer resources for wiki.m.o",
     "require": {
-        "mediawiki/semantic-media-wiki": "~2.3",
-        "mediawiki/sub-page-list": "~1.1.2",
-        "mediawiki/semantic-watchlist": "~1.0.0",
-        "mediawiki/graph-viz": "1.5.1"
+        "mediawiki/semantic-media-wiki": "~2.5",
+        "mediawiki/sub-page-list": "*",
+        "mediawiki/semantic-watchlist": "*",
+        "mediawiki/graph-viz": "*"
     },
     "license": "MPL-2.0",
     "authors": [
         {
             "name": "jd",
             "email": "jcrowe@mozilla.com"
+        },
+        {
+            "name": "Mark A. Hershberger",
+            "email": "mah@nichework.com"
         }
-    ]
+    ],
+    "extra": {
+	"merge-plugin": {
+	    "include": [
+		"extensions/SyntaxHighlight/composer.json",
+		"extensions/Widgets/composer.json"
+	    ]
+	}
+    }
 }

@@ -42,10 +42,10 @@ $wgMetaNamespace = "MozillaWiki";
 ## For more information on customizing the URLs
 ## (like /w/index.php/Page_title to /wiki/Page_title) please see:
 ## https://www.mediawiki.org/wiki/Manual:Short_URL
-$wgScript = "/index.php";
-$wgArticlePath = "/$1";
-$wgUsePathInfo = false;
-$wgScriptPath = "";
+$wgScriptPath = $SECRETS_wgScriptPath;
+$wgArticlePath = $SECRETS_wgArticlePath;
+$wgScript = $wgScriptPath . '/index.php';
+$wgUsePathInfo = true;
 $wgScriptExtension = ".php";
 
 ## The protocol and server name to use in fully-qualified URLs
@@ -431,7 +431,7 @@ $wgSpamBlacklistFiles = array(
         "DB: $wgDBname Spam_blacklist",
 );
 
-require_once("$IP/../extensions/SyntaxHighlighter/SyntaxHighlighter.php");
+wfLoadExtension( 'SyntaxHighlight' );
 
 require_once("$IP/../extensions/WikiEditor/WikiEditor.php");
 # Enables use of WikiEditor by default but still allow users to disable it in preferences
@@ -458,9 +458,10 @@ $smwgNamespaceIndex = 132;
 $smwgQMaxSize = 40;
 $smwgQMaxDepth = 20;
 
+require_once("$IP/../extensions/SemanticMediaWiki/SemanticMediaWiki.php");
 enableSemantics('wiki-dev.allizom.org');
 $smwgEnabledEditPageHelp = false;
-include_once("$IP/../extensions/SemanticForms/SemanticForms.php");
+wfLoadExtension( 'PageForms' );
 ##
 # ask API feature will be available at api.php?action=<$wgSMWAskAPI_ActionName>
 # Default it 'ask'
@@ -477,10 +478,11 @@ require_once("$IP/../extensions/UrlGetParameters/UrlGetParameters.php");
 require_once("$IP/../extensions/NoTitle/NoTitle.php");
 
 # Bug 677659
-require_once("{$IP}/../extensions/CreateBox/CreateBox.php");
+#require_once("{$IP}/../extensions/CreateBox/CreateBox.php");
+wfLoadExtension( 'InputBox' );
 
 # Bug 675064
-require_once("$IP/../extensions/SemanticWatchlist/SemanticWatchlist.php");
+#require_once("$IP/../extensions/SemanticWatchlist/SemanticWatchlist.php");
 
 # Bug 721366 and 731672
 require_once("$IP/../extensions/Bugzilla/Bugzilla.php");
@@ -623,10 +625,7 @@ require_once("$IP/../extensions/Sandstone/Sandstone.php");
 $wgPFEnableStringFunctions = true;
 
 require_once("$IP/../extensions/Widgets/Widgets.php");
-require_once("$IP/../extensions/GraphViz/GraphViz.php");
-$wgGraphVizSettings->defaultImageType = 'svg';
 
-require_once("$IP/../extensions/Mantle/Mantle.php");
 require_once("$IP/../extensions/MobileFrontend/MobileFrontend.php");
 
 $wgMFAutodetectMobileView = true;
@@ -650,15 +649,22 @@ $wgImportFromEtherpadSettings->contentRegexs[] = array("\[https?:\/\/bugzilla\.m
 //$wgImportFromEtherpadSettings->contentRegexs[] = array("https?:\/\/bugzilla\.mozilla\.org\/show_bug\.cgi\?id=(.+?)\s","{{bug|$1}} ");
 
 // add new rules to top of regex stack
-array_unshift($wgImportFromEtherpadSettings->hostRegexs, 
-  array('wiki\.etherpad\.mozilla\.org',''), 
-  array('remo\.etherpad\.mozilla\.org','ReMo/'), 
-  array('releng\.etherpad\.mozilla\.org','RelEng/'), 
-  array('pad\.webmaker\.org','Webmaker/'), 
+$old_settings = [];
+if ( isset( $wgImportFromEtherpadSettings->hostRegexs ) ) {
+    $old_settings = (array)$wgImportFromEtherpadSettings->hostRegexs;
+}
+array_unshift( $old_settings,
+  array('wiki\.etherpad\.mozilla\.org',''),
+  array('remo\.etherpad\.mozilla\.org','ReMo/'),
+  array('releng\.etherpad\.mozilla\.org','RelEng/'),
+  array('pad\.webmaker\.org','Webmaker/'),
   array('(\w+).etherpad\.mozilla\.org','$1/')
 );
+$wgImportFromEtherpadSettings->hostRegexs = $old_settings;
 
 $wgImportFromEtherpadSettings->pathRegexs[] = array('(\w+)\s+(\d+)\s+(\d+)\s+(\d+)','$1 $2-$3-$4');
 
 $wgImportFromEtherpadSettings->nsRegexs[] = array('wiki\.etherpad\.mozilla\.org','4');
+
+@$wgGraphVizSettings->defaultImageType = 'svg';
 // EOF

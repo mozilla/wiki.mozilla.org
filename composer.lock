@@ -4,21 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1a5a3f620ce954fd924f2a647c3ee1ee",
-    "content-hash": "8126e74b72a8b469656cc1bc0f6cccb8",
+    "content-hash": "966bdf59a83fd3c6888a8af05d8bc547",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.0.25",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e"
+                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
-                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
+                "url": "https://api.github.com/repos/composer/installers/zipball/79ad876c7498c0bbfe7eed065b8651c93bfd6045",
+                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045",
                 "shasum": ""
             },
             "require": {
@@ -60,32 +59,43 @@
             "keywords": [
                 "Craft",
                 "Dolibarr",
+                "Eliasis",
                 "Hurad",
                 "ImageCMS",
+                "Kanboard",
                 "MODX Evo",
                 "Mautic",
+                "Maya",
                 "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
                 "SMF",
                 "Thelia",
                 "WolfCMS",
                 "agl",
                 "aimeos",
                 "annotatecms",
+                "attogram",
                 "bitrix",
                 "cakephp",
                 "chef",
+                "cockpit",
                 "codeigniter",
                 "concrete5",
                 "croogo",
                 "dokuwiki",
                 "drupal",
                 "elgg",
+                "expressionengine",
                 "fuelphp",
                 "grav",
                 "installer",
+                "itop",
                 "joomla",
                 "kohana",
                 "laravel",
+                "lavalite",
                 "lithium",
                 "magento",
                 "mako",
@@ -96,16 +106,19 @@
                 "piwik",
                 "ppi",
                 "puppet",
+                "reindex",
                 "roundcube",
                 "shopware",
                 "silverstripe",
+                "sydes",
                 "symfony",
                 "typo3",
                 "wordpress",
+                "yawik",
                 "zend",
                 "zikula"
             ],
-            "time": "2016-04-13 19:46:30"
+            "time": "2017-04-24T06:37:16+00:00"
         },
         {
             "name": "data-values/common",
@@ -166,7 +179,7 @@
                 "valuevalidators",
                 "wikidata"
             ],
-            "time": "2015-08-14 10:15:07"
+            "time": "2015-08-14T10:15:07+00:00"
         },
         {
             "name": "data-values/data-values",
@@ -225,20 +238,20 @@
                 "wikibase",
                 "wikidata"
             ],
-            "time": "2014-09-26 07:02:27"
+            "time": "2014-09-26T07:02:27+00:00"
         },
         {
             "name": "data-values/interfaces",
-            "version": "0.2.1",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DataValues/Interfaces.git",
-                "reference": "2bed9fff899b3bf9c522497f9bd875f326eb1ef0"
+                "reference": "aca19f44a3ea23efc5172ee9cb33a8f297b1ad43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DataValues/Interfaces/zipball/2bed9fff899b3bf9c522497f9bd875f326eb1ef0",
-                "reference": "2bed9fff899b3bf9c522497f9bd875f326eb1ef0",
+                "url": "https://api.github.com/repos/DataValues/Interfaces/zipball/aca19f44a3ea23efc5172ee9cb33a8f297b1ad43",
+                "reference": "aca19f44a3ea23efc5172ee9cb33a8f297b1ad43",
                 "shasum": ""
             },
             "require": {
@@ -279,7 +292,7 @@
                 "valuevalidators",
                 "wikidata"
             ],
-            "time": "2016-01-13 18:44:31"
+            "time": "2016-07-15T10:58:24+00:00"
         },
         {
             "name": "data-values/validators",
@@ -340,7 +353,7 @@
                 "valueparsers",
                 "wikidata"
             ],
-            "time": "2014-10-09 19:10:23"
+            "time": "2014-10-09T19:10:23+00:00"
         },
         {
             "name": "mediawiki/graph-viz",
@@ -381,7 +394,7 @@
                 "mediawiki",
                 "wiki"
             ],
-            "time": "2015-01-24 23:59:21"
+            "time": "2015-01-24T23:59:21+00:00"
         },
         {
             "name": "mediawiki/parser-hooks",
@@ -435,32 +448,37 @@
                 "parserhooks",
                 "tag extension"
             ],
-            "time": "2016-03-05 15:47:04"
+            "time": "2016-03-05T15:47:04+00:00"
         },
         {
             "name": "mediawiki/semantic-media-wiki",
-            "version": "2.3.1",
+            "version": "2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SemanticMediaWiki/SemanticMediaWiki.git",
-                "reference": "f7543bcb7ad1b08c1924d65aeea9e353d5953381"
+                "reference": "568d058ea68859d134654a959001ba0739c781e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SemanticMediaWiki/SemanticMediaWiki/zipball/f7543bcb7ad1b08c1924d65aeea9e353d5953381",
-                "reference": "f7543bcb7ad1b08c1924d65aeea9e353d5953381",
+                "url": "https://api.github.com/repos/SemanticMediaWiki/SemanticMediaWiki/zipball/568d058ea68859d134654a959001ba0739c781e3",
+                "reference": "568d058ea68859d134654a959001ba0739c781e3",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "1.*,>=1.0.1",
+                "ext-mbstring": "*",
                 "mediawiki/parser-hooks": "~1.4",
-                "onoi/blob-store": "~1.1",
+                "onoi/blob-store": "~1.2",
                 "onoi/cache": "~1.2",
-                "onoi/callback-container": "~1.0",
+                "onoi/callback-container": "~2.0",
                 "onoi/event-dispatcher": "~1.0",
                 "onoi/http-request": "~1.1",
                 "onoi/message-reporter": "~1.0",
-                "php": ">=5.3.0",
+                "onoi/shared-resources": "~0.3",
+                "onoi/tesa": "~0.1",
+                "param-processor/param-processor": "~1.2",
+                "php": ">=5.5.0",
+                "psr/log": "~1.0",
                 "serialization/serialization": "~3.2"
             },
             "replace": {
@@ -471,26 +489,24 @@
                 "squizlabs/php_codesniffer": "~2.1"
             },
             "suggest": {
-                "mediawiki/semantic-forms": "Easy creation of forms to add semantic data",
                 "mediawiki/semantic-result-formats": "Additional result formats for SMW queries"
             },
             "type": "mediawiki-extension",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3.x-dev"
+                    "dev-master": "2.5.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "SMW\\": "src/"
+                    "SMW\\": "src/",
+                    "SMW\\Maintenance\\": "maintenance/"
                 },
                 "files": [
                     "SemanticMediaWiki.php"
                 ],
                 "classmap": [
-                    "SemanticMediaWiki.hooks.php",
-                    "includes/",
-                    "languages/SMW_Language.php"
+                    "includes/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -511,19 +527,19 @@
                 },
                 {
                     "name": "James Hong Kong",
-                    "homepage": "https://semantic-mediawiki.org/wiki/User:MWJames",
+                    "homepage": "https://www.semantic-mediawiki.org/wiki/User:MWJames",
                     "role": "Core developer"
                 }
             ],
             "description": "MediaWiki extension that lets you store and query structured data within wiki pages",
-            "homepage": "https://semantic-mediawiki.org/wiki/",
+            "homepage": "https://www.semantic-mediawiki.org/wiki/",
             "keywords": [
                 "SMW",
                 "Semantic MediaWiki",
                 "mediawiki",
                 "wiki"
             ],
-            "time": "2016-01-04 11:25:45"
+            "time": "2017-04-22T01:52:01+00:00"
         },
         {
             "name": "mediawiki/semantic-watchlist",
@@ -576,7 +592,7 @@
                 "mediawiki",
                 "wiki"
             ],
-            "time": "2015-01-31 11:42:30"
+            "time": "2015-01-31T11:42:30+00:00"
         },
         {
             "name": "mediawiki/sub-page-list",
@@ -630,78 +646,20 @@
                 "SubPageList",
                 "mediawiki"
             ],
-            "time": "2015-01-31 20:15:41"
-        },
-        {
-            "name": "mediawiki/validator",
-            "version": "2.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/JeroenDeDauw/Validator.git",
-                "reference": "d016211021c2811ad74581c40f169d96928fac8a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/JeroenDeDauw/Validator/zipball/d016211021c2811ad74581c40f169d96928fac8a",
-                "reference": "d016211021c2811ad74581c40f169d96928fac8a",
-                "shasum": ""
-            },
-            "require": {
-                "param-processor/param-processor": "~1.1",
-                "php": ">=5.3.0"
-            },
-            "type": "mediawiki-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "Validator.php"
-                ],
-                "psr-4": {
-                    "ParamProcessor\\": "src/ParamProcessor/"
-                },
-                "classmap": [
-                    "src/legacy/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Jeroen De Dauw",
-                    "email": "jeroendedauw@gmail.com",
-                    "homepage": "http://jeroendedauw.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "MediaWiki wrapper for the ParamProcessor library",
-            "homepage": "https://github.com/JeroenDeDauw/Validator",
-            "keywords": [
-                "ParamProcessor",
-                "SMW",
-                "Semantic MediaWiki",
-                "mediawiki",
-                "validator"
-            ],
-            "time": "2016-04-04 00:44:24"
+            "time": "2015-01-31T20:15:41+00:00"
         },
         {
             "name": "onoi/blob-store",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/onoi/blob-store.git",
-                "reference": "84fd128ad11c3c55ebde8bc5d4db2e443885b09a"
+                "reference": "c3e1f15214977e904fc0e91e0480175a464977ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/onoi/blob-store/zipball/84fd128ad11c3c55ebde8bc5d4db2e443885b09a",
-                "reference": "84fd128ad11c3c55ebde8bc5d4db2e443885b09a",
+                "url": "https://api.github.com/repos/onoi/blob-store/zipball/c3e1f15214977e904fc0e91e0480175a464977ce",
+                "reference": "c3e1f15214977e904fc0e91e0480175a464977ce",
                 "shasum": ""
             },
             "require": {
@@ -733,7 +691,7 @@
             "keywords": [
                 "messages"
             ],
-            "time": "2016-03-19 11:52:49"
+            "time": "2016-07-09T17:32:53+00:00"
         },
         {
             "name": "onoi/cache",
@@ -778,29 +736,30 @@
             "keywords": [
                 "cache"
             ],
-            "time": "2015-06-02 08:52:45"
+            "time": "2015-06-02T08:52:45+00:00"
         },
         {
             "name": "onoi/callback-container",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/onoi/callback-container.git",
-                "reference": "e0379fcf8947e2c2b5dd0260df5336846937c47f"
+                "reference": "cf2f4dda1b2479bc786985fdb5554af528d03e52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/onoi/callback-container/zipball/e0379fcf8947e2c2b5dd0260df5336846937c47f",
-                "reference": "e0379fcf8947e2c2b5dd0260df5336846937c47f",
+                "url": "https://api.github.com/repos/onoi/callback-container/zipball/cf2f4dda1b2479bc786985fdb5554af528d03e52",
+                "reference": "cf2f4dda1b2479bc786985fdb5554af528d03e52",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": ">=5.5",
+                "psr/log": "~1.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
@@ -818,12 +777,12 @@
                     "homepage": "https://github.com/mwjames"
                 }
             ],
-            "description": "A simple callback container registry library",
+            "description": "A very simple callback container/builder library",
             "homepage": "https://github.com/onoi/callback-container",
             "keywords": [
-                "cache"
+                "container"
             ],
-            "time": "2015-09-08 13:27:53"
+            "time": "2017-02-18T10:46:46+00:00"
         },
         {
             "name": "onoi/event-dispatcher",
@@ -868,20 +827,20 @@
                 "events",
                 "listener"
             ],
-            "time": "2015-03-25 23:19:55"
+            "time": "2015-03-25T23:19:55+00:00"
         },
         {
             "name": "onoi/http-request",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/onoi/http-request.git",
-                "reference": "e6b704d95763d8cffa484f8790dc283aa3aa05b4"
+                "reference": "a7cf33bae82cffe570086fc06d6617e802c0cc74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/onoi/http-request/zipball/e6b704d95763d8cffa484f8790dc283aa3aa05b4",
-                "reference": "e6b704d95763d8cffa484f8790dc283aa3aa05b4",
+                "url": "https://api.github.com/repos/onoi/http-request/zipball/a7cf33bae82cffe570086fc06d6617e802c0cc74",
+                "reference": "a7cf33bae82cffe570086fc06d6617e802c0cc74",
                 "shasum": ""
             },
             "require": {
@@ -918,20 +877,20 @@
                 "curl",
                 "http request"
             ],
-            "time": "2015-11-23 14:04:14"
+            "time": "2017-01-14T16:25:41+00:00"
         },
         {
             "name": "onoi/message-reporter",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/onoi/message-reporter.git",
-                "reference": "910bf7e57f86a4f0393c85444dbeb040243da1fb"
+                "reference": "72a30b7ae393fed978bf6928a2e2440b1c0c0e93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/onoi/message-reporter/zipball/910bf7e57f86a4f0393c85444dbeb040243da1fb",
-                "reference": "910bf7e57f86a4f0393c85444dbeb040243da1fb",
+                "url": "https://api.github.com/repos/onoi/message-reporter/zipball/72a30b7ae393fed978bf6928a2e2440b1c0c0e93",
+                "reference": "72a30b7ae393fed978bf6928a2e2440b1c0c0e93",
                 "shasum": ""
             },
             "require": {
@@ -965,20 +924,109 @@
             "keywords": [
                 "messages"
             ],
-            "time": "2016-04-13 02:38:41"
+            "time": "2016-08-02T04:16:55+00:00"
         },
         {
-            "name": "param-processor/param-processor",
-            "version": "1.2.3",
+            "name": "onoi/shared-resources",
+            "version": "0.4.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/JeroenDeDauw/ParamProcessor.git",
-                "reference": "da11318d947935851e4820d5e1ba0d2fd906999a"
+                "url": "https://github.com/onoi/shared-resources.git",
+                "reference": "322273a7462eb0c15305dde9207138f00a387080"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JeroenDeDauw/ParamProcessor/zipball/da11318d947935851e4820d5e1ba0d2fd906999a",
-                "reference": "da11318d947935851e4820d5e1ba0d2fd906999a",
+                "url": "https://api.github.com/repos/onoi/shared-resources/zipball/322273a7462eb0c15305dde9207138f00a387080",
+                "reference": "322273a7462eb0c15305dde9207138f00a387080",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "1.*,>=1.0.1",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Resources.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "mwjames",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Shareable and common resource modules",
+            "homepage": "https://github.com/onoi/common-resources",
+            "keywords": [
+                "mediawiki"
+            ],
+            "time": "2017-04-23T15:14:49+00:00"
+        },
+        {
+            "name": "onoi/tesa",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/onoi/tesa.git",
+                "reference": "c8a07ca8738cf6d644e83d10ba2cb1ef93dffa7d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/onoi/tesa/zipball/c8a07ca8738cf6d644e83d10ba2cb1ef93dffa7d",
+                "reference": "c8a07ca8738cf6d644e83d10ba2cb1ef93dffa7d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3.2",
+                "wikimedia/cdb": "~1.0",
+                "wikimedia/textcat": "~1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Onoi\\Tesa\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "mwjames",
+                    "homepage": "https://github.com/mwjames"
+                }
+            ],
+            "description": "A simple library to sanitize text elements",
+            "homepage": "https://github.com/onoi/tesa",
+            "keywords": [
+                "transliteration"
+            ],
+            "time": "2016-08-07T10:40:08+00:00"
+        },
+        {
+            "name": "param-processor/param-processor",
+            "version": "1.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JeroenDeDauw/ParamProcessor.git",
+                "reference": "28965e968a4e6f246d60467a9eabe090031a2d95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JeroenDeDauw/ParamProcessor/zipball/28965e968a4e6f246d60467a9eabe090031a2d95",
+                "reference": "28965e968a4e6f246d60467a9eabe090031a2d95",
                 "shasum": ""
             },
             "require": {
@@ -986,12 +1034,18 @@
                 "data-values/data-values": "~1.0|~0.1.1",
                 "data-values/interfaces": "~0.2.0|~0.1.4",
                 "data-values/validators": "~0.1.1",
-                "php": ">=5.3.0"
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "ockcyp/covers-validator": "~0.4",
+                "phpmd/phpmd": "~2.1",
+                "phpunit/phpunit": "~5.4|~4.8",
+                "squizlabs/php_codesniffer": "~2.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2.x-dev"
+                    "dev-master": "1.3.x-dev"
                 }
             },
             "autoload": {
@@ -1027,7 +1081,54 @@
                 "mediawiki",
                 "validator"
             ],
-            "time": "2016-04-04 00:55:56"
+            "time": "2017-03-26T00:20:55+00:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2016-10-10T12:19:37+00:00"
         },
         {
             "name": "serialization/serialization",
@@ -1083,7 +1184,105 @@
                 "unserialization",
                 "wikidata"
             ],
-            "time": "2014-08-19 01:53:31"
+            "time": "2014-08-19T01:53:31+00:00"
+        },
+        {
+            "name": "wikimedia/cdb",
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wikimedia/cdb.git",
+                "reference": "d49d96232f045311dc1f21bf0d7e40adf82a1f1d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wikimedia/cdb/zipball/d49d96232f045311dc1f21bf0d7e40adf82a1f1d",
+                "reference": "d49d96232f045311dc1f21bf0d7e40adf82a1f1d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "jakub-onderka/php-parallel-lint": "0.9",
+                "mediawiki/mediawiki-codesniffer": "0.5.0",
+                "phpunit/phpunit": "4.6.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Kinzler"
+                },
+                {
+                    "name": "Tim Starling",
+                    "email": "tstarling@wikimedia.org"
+                },
+                {
+                    "name": "Chad Horohoe",
+                    "email": "chad@wikimedia.org"
+                },
+                {
+                    "name": "Ori Livneh",
+                    "email": "ori@wikimedia.org"
+                }
+            ],
+            "description": "Constant Database (CDB) wrapper library for PHP. Provides pure-PHP fallback when dba_* functions are absent.",
+            "homepage": "https://www.mediawiki.org/wiki/CDB",
+            "time": "2016-05-29T07:39:26+00:00"
+        },
+        {
+            "name": "wikimedia/textcat",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wikimedia/wikimedia-textcat.git",
+                "reference": "17818e14cf31c99f43a3c9bdd09a4d6e2914883f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wikimedia/wikimedia-textcat/zipball/17818e14cf31c99f43a3c9bdd09a4d6e2914883f",
+                "reference": "17818e14cf31c99f43a3c9bdd09a4d6e2914883f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "jakub-onderka/php-parallel-lint": "0.9",
+                "mediawiki/mediawiki-codesniffer": "0.5.0",
+                "phpunit/phpunit": "4.6.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "TextCat": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Stanislav Malyshev",
+                    "email": "smalyshev@wikimedia.org"
+                },
+                {
+                    "name": "Trey Jones",
+                    "email": "tjones@wikimedia.org"
+                }
+            ],
+            "description": "PHP port of the TextCat language guesser utility, see http://odur.let.rug.nl/~vannoord/TextCat/.",
+            "time": "2017-01-23T16:52:10+00:00"
         }
     ],
     "packages-dev": [],
