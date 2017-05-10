@@ -681,5 +681,5 @@ $wgImportFromEtherpadSettings->nsRegexs[] = array('wiki\.etherpad\.mozilla\.org'
 @$wgGraphVizSettings->defaultImageType = 'svg';
 
 # speed up a little and avoid some cli perm errors
-#$wgLocalisationCacheConf['manualRecache'] = true;
+$wgLocalisationCacheConf['manualRecache'] = true;
 // EOF
