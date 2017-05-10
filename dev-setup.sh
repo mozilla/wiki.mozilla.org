@@ -49,7 +49,7 @@ link() {
 link_subdirs() {
     dir="$1"
 
-    for $subdir in $dir/*; do
+    for subdir in $dir/*; do
         extname=`basename $subdir`
         echo "  Linking $extname"
         link core/$dir/$extname ../../$dir/$extname
@@ -107,8 +107,8 @@ link core/composer.local.json ../composer.json
 
 # The following link command "dirty" the checkout
 echo
-echo "linking to fonts submodule"
-link core/skins/common/fonts ../../../assets/fonts
+echo "linking to assets"
+link core/skins/common/assets ../../../assets
 
 if hash php 2> /dev/null; then
    echo
