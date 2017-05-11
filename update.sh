@@ -127,7 +127,7 @@ link php_sessions $NETAPP/php_sessions
 
 echo
 echo "linking to Bugzilla charts on netapp filer"
-link extensions/Bugzilla/Bugzilla_charts $NETAPP/Bugzilla_charts/
+link extensions/Bugzilla/charts $NETAPP/Bugzilla_charts/
 
 if hash php 2> /dev/null; then
     echo "install any extensions managed by Composer"
