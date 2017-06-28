@@ -1,11 +1,12 @@
 {
   "variables": {
     "builders": [
+      "amazon-ebs-amazon-linux",
       "amazon-ebs-ubuntu"
     ],
-    "project_description": "wiki",
-    "project_name": "wiki",
-    "project_version": "v1.5.0-dev_{{env `GIT_COMMIT_SHA`}}",
-    "source_ami_project_version": "v1.5.0"
+    "project_description": "Skeleton nubis module for testing nubis-builder",
+    "project_name": "nubis-skel-eziegenhorn",
+    "project_version": "v1.6.0-dev_{{env `GIT_COMMIT_SHA`}}",
+    "source_ami_project_version": "v1.6.0-dev"
   }
 }

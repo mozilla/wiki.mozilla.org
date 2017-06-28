@@ -33,5 +33,3 @@ nubis/terraform/.terraform
 nubis/terraform/terraform.tfvars
 nubis/builder/artifacts/*-dev/
 nubis/builder/artifacts/AMIs.json
-# ignore debug.php
-/debug.php
