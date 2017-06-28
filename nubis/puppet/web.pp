@@ -11,7 +11,7 @@ class { 'apache::mod::proxy_http': }
 apache::vhost { $project_name:
     port               => 80,
     default_vhost      => true,
-    docroot            => '/var/www/wiki.mozilla.org',
+    docroot            => "/var/www/$project_name",
     docroot_owner      => 'root',
     docroot_group      => 'root',
     block              => ['scm'],
