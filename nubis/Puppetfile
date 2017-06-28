@@ -1,5 +1,0 @@
-forge "https://forgeapi.puppetlabs.com"
-
-mod 'nubis/nubis_apache',
-    :git => 'https://github.com/nubisproject/nubis-puppet-apache',
-    :ref => 'v0.1.7'
