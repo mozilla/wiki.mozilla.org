@@ -1,6 +1,9 @@
 # Install mysql client libraries
 include mysql::client
 
+package { "apache2":
+  ensure => latest
+}
 package { "php5-mysql":
   ensure => '5.5.9+dfsg-1ubuntu4.21'
 }
