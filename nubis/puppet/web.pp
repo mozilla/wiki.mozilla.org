@@ -39,7 +39,6 @@ apache::vhost { $project_name:
       'set Strict-Transport-Security "max-age=31536000"',
     ],
 
-#        rewrite_cond => ['%{HTTP:X-Forwarded-Proto} =http'],
     rewrites           => [
       {
         #    RewriteRule ^/AdminWiki(/.*|$) https://intranet.mozilla.org/%{QUERY_STRING} [R=permanent,L]
@@ -92,51 +91,33 @@ apache::vhost { $project_name:
         rewrite_rule => ['^/mozwiki https://wiki.mozilla.org/ [R,L]'],
       },
       {
-        comment      => '',
-        rewrite_rule => [''],
+        #    RewriteRule ^/wiki/(.*)$ https://wiki.mozilla.org/$1 [R,L]
+        comment      => 'Redirect old /wiki/ urls',
+        rewrite_rule => ['^/wiki/(.*)$ https://wiki.mozilla.org/$1 [R,L]'],
       },
       {
-        comment      => '',
-        rewrite_rule => [''],
+        #    RewriteRule ^/wiki$ https://wiki.mozilla.org/index.php [R,L]
+        comment      => 'Redirect old /wiki/ urls',
+        rewrite_rule => ['^/wiki$ https://wiki.mozilla.org/index.php [R,L]'],
       },
       {
-        comment      => '',
-        rewrite_rule => [''],
-      },
-      {
-        comment      => '',
-        rewrite_rule => [''],
-      },
-      {
-        comment      => '',
-        rewrite_rule => [''],
+        #    RewriteCond %{REQUEST_URI} !^/(assets|extensions|images|skins|resources)/
+        #    RewriteCond %{REQUEST_URI} !^/(redirect|index|opensearch_desc|api|load|thumb).php
+        #    RewriteCond %{REQUEST_URI} !^/error/(40(1|3|4)|500).html
+        #    RewriteCond %{REQUEST_URI} !^/favicon.ico
+        #    RewriteCond %{REQUEST_URI} !^/robots.txt
+        #    RewriteRule ^/(.*)$ /data/www/wiki.mozilla.org/core/index.php?title=$1 [L,QSA]
+        comment      => 'Do not rewrite requests for files in MediaWiki subdirectories, MediaWiki PHP files, HTTP error documents, favicon.ico, or robots.txt',
+        rewrite_cond => ['%{REQUEST_URI} !^/(assets|extensions|images|skins|resources)/'],
+        rewrite_cond => ['%{REQUEST_URI} !^/(redirect|index|opensearch_desc|api|load|thumb).php'],
+        rewrite_cond => ['%{REQUEST_URI} !^/error/(40(1|3|4)|500).html'],
+        rewrite_cond => ['%{REQUEST_URI} !^/favicon.ico'],
+        rewrite_cond => ['%{REQUEST_URI} !^/robots.txt'],
+        # Rewrite http://wiki.domain.tld/article properly, this is the main rule
+        rewrite_rule => ['^/(.*)$ /data/www/wiki.mozilla.org/core/index.php?title=$1 [L,QSA]'],
       },
     ],
 
 
-#
-#    ###
-#    ### The following rewrites are for PublicWiki, to make top-level page names work.
-#    ### This section MUST be last to let all the other wikis keep working.
-#    ###
-#
-#    # The following rules are only for backwards compatibility
-#    # (so that old links to your site keep working). You should leave them out in a new install.
-#    # Redirect old /wiki/ urls
-#    RewriteRule ^/wiki/(.*)$ https://wiki.mozilla.org/$1 [R,L]
-#    RewriteRule ^/wiki$ https://wiki.mozilla.org/index.php [R,L]
-#    # end backward compatibility rules, the following ones are important
-#
-#
-#    # Don't rewrite requests for files in MediaWiki subdirectories,
-#    # MediaWiki PHP files, HTTP error documents, favicon.ico, or robots.txt
-#    RewriteCond %{REQUEST_URI} !^/(assets|extensions|images|skins|resources)/
-#    RewriteCond %{REQUEST_URI} !^/(redirect|index|opensearch_desc|api|load|thumb).php
-#    RewriteCond %{REQUEST_URI} !^/error/(40(1|3|4)|500).html
-#    RewriteCond %{REQUEST_URI} !^/favicon.ico
-#    RewriteCond %{REQUEST_URI} !^/robots.txt
-#
-#    # Rewrite http://wiki.domain.tld/article properly, this is the main rule
-#    RewriteRule ^/(.*)$ /data/www/wiki.mozilla.org/core/index.php?title=$1 [L,QSA]
 }
 
