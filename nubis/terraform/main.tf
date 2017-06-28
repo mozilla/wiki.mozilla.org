@@ -46,5 +46,5 @@ module "cache" {
   environment            = "${var.environment}"
   account                = "${var.account}"
   service_name           = "${var.service_name}"
-  client_security_groups = "${module.worker.security_group},"
+  client_security_groups = "${module.worker.security_group}"
 }
