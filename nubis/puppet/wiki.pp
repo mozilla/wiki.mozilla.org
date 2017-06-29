@@ -40,3 +40,7 @@ package { 'librsvg2-bin':
 package { 'imagemagick':
   ensure => '8:6.7.7.10-6ubuntu3.7'
 }
+
+package { 'libapache2-mod-php5':
+  ensure => latest;
+}
