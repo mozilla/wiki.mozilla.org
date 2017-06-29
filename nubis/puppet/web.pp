@@ -63,7 +63,7 @@ apache::vhost { $project_name:
       {
         #    RewriteRule ^/GeckoDev([/\?].*|$) /wiki/GeckoDev:Home_Page? [R,L]
         comment      => 'Old Wiki that has been moved into the public wiki',
-        rewrite_rule => [''],
+        rewrite_rule => ['^/GeckoDev([/\?].*|$) /wiki/GeckoDev:Home_Page? [R,L]'],
       },
       {
         #    RewriteRule ^/XULDev([/\?].*|$) /wiki/XUL:Home_Page? [R,L]
