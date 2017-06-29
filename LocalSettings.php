@@ -16,7 +16,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 
 # Source the nubis secrets file
-require_once('/etc/nubis-configuration/wiki.mozilla.org')
+require_once('/etc/nubis-config/wiki.mozilla.org')
 #$SECRETS_wgServer                 = '';
 #$SECRETS_wgLogo                   = 'mozilla-wiki-logo-alt-135px.png';
 #$SECRETS_wgDBserver               = '{{ getv "/config/Database/Server" }}';
