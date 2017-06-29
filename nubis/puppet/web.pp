@@ -1,4 +1,7 @@
 class { 'nubis_apache':
+    # One-time initial setup script to e.g. create DB schemas
+    update_script_source => 'puppet://nubis/files/wiki_setup.sh'
+
     # Changing the Apache mpm is necessary for the Apache PHP module
     mpm_module_type => 'prefork',
 }
