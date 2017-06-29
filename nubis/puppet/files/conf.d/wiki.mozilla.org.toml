@@ -1,0 +1,10 @@
+[template]
+src = "wiki.mozilla.org.tmpl"
+dest = "/var/www/wiki.mozilla.org/LocalSettings.php"
+prefix = "/%%PROJECT%%-%%ENVIRONMENT%%/%%ENVIRONMENT%%"
+
+keys = [
+    "/config"
+]
+
+#reload_cmd = "/etc/init.d/apache2 restart"

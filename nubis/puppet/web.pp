@@ -11,6 +11,11 @@ class { 'apache::mod::rewrite': }
 class { 'apache::mod::proxy': }
 class { 'apache::mod::proxy_http': }
 
+include nubis_configuration
+nubis::configuration{ $project_name:
+  format  => 'php',
+}
+
 apache::vhost { $project_name:
     port               => 80,
     default_vhost      => true,
