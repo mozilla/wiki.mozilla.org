@@ -15,16 +15,34 @@ if ( !defined( 'MEDIAWIKI' ) ) {
     exit;
 }
 
-# Source the secrets settings file
-# If environment variables are set we will use a secrets file that
-# will pick them up. If not then you are responsible for creating
-# this file. there is a secrets.php-dist file for your convienence.
-if ( getenv('SECRETS_SET') == 'YES' ) {
-    require_once('../env_secrets.php');
-}
-else {
-    require_once('../secrets.php');
-}
+# Source the nubis secrets file
+require_once('/etc/nubis-configuration/wiki.mozilla.org')
+#$SECRETS_wgServer                 = '';
+#$SECRETS_wgLogo                   = 'mozilla-wiki-logo-alt-135px.png';
+#$SECRETS_wgDBserver               = '{{ getv "/config/Database/Server" }}';
+#$SECRETS_wgDBname                 = '{{ getv "/config/Database/Name" }}';
+#$SECRETS_wgDBuser                 = '{{ getv "/config/Database/User" }}';
+#$SECRETS_wgDBpassword             = '{{ getv "/config/Database/Password" }}';
+#$SECRETS_wgSecretKey              = '{{ getv "/config/Database/SecretKey" }}';
+#$SECRETS_wgUpgradeKey             = '{{ getv "/config/Database/UpgradeKey" }}';
+#$SECRETS_wgReCaptchaPublicKey     = '{{ getv "/config/Database/ReCatchpaPublicKey" }}';
+#$SECRETS_wgReCaptchaPrivateKey    = '{{ getv "/config/Database/ReCatchpaPrivateKey" }}';
+#$SECRETS_wgGoogleAnalyticsAccount = 'UA-35433268-22';
+##$SECRETS_wgSquidServers           = array('192.168.1.1', '192.168.1.2');
+##$SECRETS_wgMemCachedServers       = array();
+#$SECRETS_wgUploadDirectory       = "/var/www/wiki.mozilla.org/images";
+#$SECRETS_wgMobileFrontendLogo     = "mozilla-wiki-logomark-35px.png";
+
+## Source the secrets settings file
+## If environment variables are set we will use a secrets file that
+## will pick them up. If not then you are responsible for creating
+## this file. there is a secrets.php-dist file for your convienence.
+#if ( getenv('SECRETS_SET') == 'YES' ) {
+#    require_once('../env_secrets.php');
+#}
+#else {
+#    require_once('../secrets.php');
+#}
 
 # If a debug.php file exists then lets pull it in.
 if ( file_exists('../debug.php') ) {
