@@ -9,6 +9,10 @@ nubis::storage { $project_name:
 ### puppet-nubis-storage
 
 # Link to our mountpoints
+file { '/var/www/${project_name}':
+  ensure => 'directory',
+  force  => true,
+}
 file { '/var/www/${project_name}/images':
   ensure => 'link',
   force  => true,
