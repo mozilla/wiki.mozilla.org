@@ -129,6 +129,16 @@ echo
 echo "linking to Bugzilla charts on netapp filer"
 link extensions/Bugzilla/charts $NETAPP/Bugzilla_charts/
 
+echo
+echo "applying local patches"
+for patch in `cd patches; find . -type f -name "*.patch"`; do
+    patchdir=`dirname $patch`
+    pwd=`pwd`
+    cd $patchdir && echo in $patchdir
+    git am $pwd/$patch
+    cd $pwd
+done
+
 if hash php 2> /dev/null; then
     echo "install any extensions managed by Composer"
     echo "to update, run php tools/composer.phar update prior to deployment"
