@@ -95,6 +95,10 @@ echo
 echo "writing the submodule paths to the .git/config file via git submodule init"
 git submodule init
 
+echo
+echo "make sure submodule repos are in sync with upstream via git submodule sync"
+git submodule sync
+
 # the following command required --init to make extensions/Widgets recurse and checkout smarty/
 echo
 echo "updating submodules in parallel using JOBS=$JOBS"
@@ -129,15 +133,18 @@ echo
 echo "linking to Bugzilla charts on netapp filer"
 link extensions/Bugzilla/charts $NETAPP/Bugzilla_charts/
 
-echo
-echo "applying local patches"
-for patch in `cd patches; find . -type f -name "*.patch"`; do
-    patchdir=`dirname $patch`
-    pwd=`pwd`
-    cd $patchdir && echo in $patchdir
-    git am $pwd/$patch
-    cd $pwd
-done
+patches=`cd patches; find . -type f -name "*.patch"`
+if [ -n "$patches" ]; then
+    echo
+    echo "applying local patches"
+    for patch in ; do
+        patchdir=`dirname $patch`
+        pwd=`pwd`
+        cd $patchdir && echo in $patchdir
+        git am $pwd/$patch
+        cd $pwd
+    done
+fi
 
 if hash php 2> /dev/null; then
     echo "install any extensions managed by Composer"
