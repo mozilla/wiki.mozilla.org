@@ -89,7 +89,7 @@
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/NoTitle.git
 	branch = REL1_27
 [submodule "assets/fonts/Fira"]
-	path = assets/fonts/Fira
+	path = skins/common/assets/fonts/Fira
 	url = https://github.com/mozilla/Fira.git
 	branch = master
 [submodule "extensions/Widgets"]
