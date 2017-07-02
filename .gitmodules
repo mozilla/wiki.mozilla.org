@@ -115,3 +115,6 @@
 	path = extensions/GraphViz
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/GraphViz.git
 	branch = REL1_27
+[submodule "extensions/SemanticResultFormats"]
+	path = extensions/SemanticResultFormats
+	url = https://github.com/SemanticMediaWiki/SemanticResultFormats.git
