@@ -92,46 +92,25 @@ echo "grabbing any changes via git pull"
 git pull
 
 echo
-echo "writing the submodule paths to the .git/config file via git submodule init"
-git submodule init
-
-echo
 echo "make sure submodule repos are in sync with upstream via git submodule sync"
 git submodule sync
 
-# the following command required --init to make extensions/Widgets recurse and checkout smarty/
+# Used because Ubuntu has git 2.13.x
 echo
 echo "updating submodules in parallel using JOBS=$JOBS"
-time git submodule status | awk '{print $2}' | xargs --max-procs=$JOBS -n1 git submodule update --init --recursive 2> /dev/null
+git submodule update --init --recursive --jobs=$JOBS
 
 echo
-echo "updating nested submodule"
-(cd extensions/Widgets && time git submodule update --init --recursive)
-
-# switch to this when we can guarantee a git version of 2.8 or greater
-# git submodule update --init --recursive --jobs=$JOBS
-
-# The following link commands "dirty" the checkout
+echo "linking extensions"
+for ext in `find extensions -maxdepth 1 -mindepth 1 -type d`; do
+    link core/$ext ../../$ext
+done
 
 echo
-echo "linking LocalSettings.php into core submodule"
-link core/LocalSettings.php ../LocalSettings.php
-
-echo
-echo "linking to assets"
-link core/skins/common/assets ../../../assets
-
-echo
-echo "linking images"
-link images $NETAPP/images
-
-echo
-echo "linking php sessions"
-link php_sessions $NETAPP/php_sessions
-
-echo
-echo "linking to Bugzilla charts on netapp filer"
-link extensions/Bugzilla/charts $NETAPP/Bugzilla_charts/
+echo "linking skins"
+for skin in `find skins -maxdepth 1 -mindepth 1 -type d`; do
+    link core/$skin ../../$skin
+done
 
 patches=`cd patches; find . -type f -name "*.patch"`
 if [ -n "$patches" ]; then
@@ -146,10 +125,41 @@ if [ -n "$patches" ]; then
     done
 fi
 
+# All the following link commands are in the default .gitignore
+
+echo
+echo "linking LocalSettings.php into core/LocalSettings.php"
+link core/LocalSettings.php ../LocalSettings.php
+
+echo
+echo "linking composer.json to core/composer.json.local"
+link core/composer.local.json ../composer.json
+
+echo
+echo "linking vendor to core/vendor"
+mkdir -p vendor
+link core/vendor ../vendor
+
+echo
+echo "linking images"
+link images $NETAPP/images
+
+echo
+echo "linking php sessions"
+link php_sessions $NETAPP/php_sessions
+
+echo
+echo "linking to Bugzilla charts on netapp filer"
+link extensions/Bugzilla/charts $NETAPP/Bugzilla_charts/
+
 if hash php 2> /dev/null; then
+    echo
     echo "install any extensions managed by Composer"
-    echo "to update, run php tools/composer.phar update prior to deployment"
-    php tools/composer.phar install
+    (cd core && php ../tools/composer.phar install --no-dev)
+
+    echo
+    echo "updating any already-installed composer files" 
+    (cd core && php ../tools/composer.phar update --no-dev)
 
     echo
     echo "run the maintenance/update.php --quick for database migrations"
