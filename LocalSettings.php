@@ -59,8 +59,7 @@ $wgUploadPath = "{$wgScriptPath}/images";
 
 ## The relative URL path to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
-#$wgLogo = "$wgStylePath/common/images/$SECRETS_wgLogo";
-$wgLogo = "$wgStylePath/assets/logos/$SECRETS_wgLogo";
+$wgLogo = "$wgStylePath/common/logos/$SECRETS_wgLogo";
 
 # The relative URL path to the favicon
 $wgFavicon = "$wgStylePath/common/assets/favicon.ico";
@@ -461,7 +460,9 @@ $smwgQMaxSize = 40;
 $smwgQMaxDepth = 20;
 
 require_once("$IP/extensions/SemanticMediaWiki/SemanticMediaWiki.php");
-#enableSemantics('wiki-dev.allizom.org');
+require_once("$IP/extensions/SemanticResultFormats/SemanticResultFormats.php");
+
+enableSemantics('wiki-dev.allizom.org');
 $smwgEnabledEditPageHelp = false;
 wfLoadExtension( 'PageForms' );
 ##
