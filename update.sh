@@ -46,6 +46,11 @@ else
     exit 1
 fi
 
+if ! hash php 2> /dev/null; then
+    echo "ERROR: php bindary not found.  Installation cannot continue."
+    exit 1
+fi
+
 echo "CWD     = $CWD"
 echo "HOST    = $HOST"
 echo "JOBS    = $JOBS"
@@ -152,21 +157,21 @@ echo
 echo "linking to Bugzilla charts on netapp filer"
 link extensions/Bugzilla/charts $NETAPP/Bugzilla_charts/
 
-if hash php 2> /dev/null; then
-    echo
-    echo "install any extensions managed by Composer"
-    (cd core && php ../tools/composer.phar install --no-dev)
+echo
+echo "install any extensions managed by Composer"
+(cd core && php ../tools/composer.phar install --no-dev)
 
-    echo
-    echo "updating any already-installed composer files" 
-    (cd core && php ../tools/composer.phar update --no-dev)
+echo
+echo "updating any already-installed composer files"
+(cd core && php ../tools/composer.phar update --no-dev)
 
-    echo
-    echo "run the maintenance/update.php --quick for database migrations"
-    (cd core && php maintenance/update.php --quick)
-else
-    echo "php not installed"
-fi
+echo
+echo "run the localisation cache update so we don't have to check on every page load"
+(cd core && php maintenance/rebuildLocalisationCache.php)
+
+echo
+echo "run the maintenance/update.php --quick for database migrations"
+(cd core && php maintenance/update.php --quick)
 
 echo
 echo "deploying $WEBSITE"
