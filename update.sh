@@ -100,10 +100,12 @@ echo
 echo "make sure submodule repos are in sync with upstream via git submodule sync"
 git submodule sync
 
-# Used because Ubuntu has git 2.13.x
 echo
 echo "updating submodules in parallel using JOBS=$JOBS"
-git submodule update --init --recursive --jobs=$JOBS
+time git submodule status | awk '{print $2}' | xargs --max-procs=$JOBS -n1 git submodule update --init --recursive 2> /dev/null
+
+# Later git (> 2.8) can use this instead 
+#git submodule update --init --recursive --jobs=$JOBS
 
 echo
 echo "linking extensions"
@@ -116,6 +118,13 @@ echo "linking skins"
 for skin in `find skins -maxdepth 1 -mindepth 1 -type d`; do
     link core/$skin ../../$skin
 done
+
+echo "setting up cache directory"
+mkdir -p /var/tmp/wikimo-cache
+chown -R www-data /var/tmp/wikimo-cache
+
+echo "Setting permissions on Widgets"
+chown -R www-data extensions/Widgets/compiled_templates
 
 patches=`cd patches; find . -type f -name "*.patch"`
 if [ -n "$patches" ]; then
