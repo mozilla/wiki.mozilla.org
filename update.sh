@@ -18,38 +18,8 @@ CWD=${CWD:=$(pwd)}
 HOST=${HOST:=$(hostname)}
 JOBS=${JOBS:=$(($(nproc) * 3))}
 
-DEV="wiki-dev.allizom.org"
-STAGE="wiki.allizom.org"
-PROD="wiki.mozilla.org"
-GENERICADM="genericadm.private.phx1.mozilla.com"
-
-# Call the deploy script if necessary and reload Apache
-if [ "$HOST" != "$GENERICADM" ]; then
-    echo
-    echo "ERROR: $HOST != '$GENERICADM'"
-    exit 1
-fi
-if [[ "$CWD" == *"$DEV"* ]]; then
-    WEBSITE="$DEV"
-    TARGET="genericrhel6-dev"
-    NETAPP="/mnt/netapp_dev/$WEBSITE"
-elif [[ "$CWD" == *"$STAGE"* ]]; then
-    WEBSITE="$STAGE"
-    TARGET="genericrhel6-stage"
-    NETAPP="/mnt/netapp_stage/$WEBSITE"
-elif [[ "$CWD" == *"$PROD"* ]]; then
-    WEBSITE="$PROD"
-    TARGET="genericrhel6"
-    NETAPP="/mnt/netapp/$WEBSITE"
-else
-    echo "ERROR: Could not match deployment environment"
-    exit 1
-fi
-
-if ! hash php 2> /dev/null; then
-    echo "ERROR: php bindary not found.  Installation cannot continue."
-    exit 1
-fi
+WEBSITE="wiki.mozilla.org"
+NETAPP="/mnt/netapp/$WEBSITE"
 
 echo "CWD     = $CWD"
 echo "HOST    = $HOST"
@@ -97,62 +67,30 @@ echo "grabbing any changes via git pull"
 git pull
 
 echo
-echo "make sure submodule repos are in sync with upstream via git submodule sync"
-git submodule sync
+echo "writing the submodule paths to the .git/config file via git submodule init"
+git submodule init
 
+# the following command required --init to make extensions/Widgets recurse and checkout smarty/
 echo
 echo "updating submodules in parallel using JOBS=$JOBS"
 time git submodule status | awk '{print $2}' | xargs --max-procs=$JOBS -n1 git submodule update --init --recursive 2> /dev/null
 
-# Later git (> 2.8) can use this instead 
-#git submodule update --init --recursive --jobs=$JOBS
+echo
+echo "updating nested submodule"
+(cd extensions/Widgets && time git submodule update --init --recursive)
+
+# switch to this when we can guarantee a git version of 2.8 or greater
+# git submodule update --init --recursive --jobs=$JOBS
+
+# The following link commands "dirty" the checkout
 
 echo
-echo "linking extensions"
-for ext in `find extensions -maxdepth 1 -mindepth 1 -type d`; do
-    link core/$ext ../../$ext
-done
-
-echo
-echo "linking skins"
-for skin in `find skins -maxdepth 1 -mindepth 1 -type d`; do
-    link core/$skin ../../$skin
-done
-
-echo "setting up cache directory"
-mkdir -p /var/tmp/wikimo-cache
-chown -R www-data /var/tmp/wikimo-cache
-
-echo "Setting permissions on Widgets"
-chown -R www-data extensions/Widgets/compiled_templates
-
-patches=`cd patches; find . -type f -name "*.patch"`
-if [ -n "$patches" ]; then
-    echo
-    echo "applying local patches"
-    for patch in ; do
-        patchdir=`dirname $patch`
-        pwd=`pwd`
-        cd $patchdir && echo in $patchdir
-        git am $pwd/$patch
-        cd $pwd
-    done
-fi
-
-# All the following link commands are in the default .gitignore
-
-echo
-echo "linking LocalSettings.php into core/LocalSettings.php"
+echo "linking LocalSettings.php into core submodule"
 link core/LocalSettings.php ../LocalSettings.php
 
 echo
-echo "linking composer.json to core/composer.json.local"
-link core/composer.local.json ../composer.json
-
-echo
-echo "linking vendor to core/vendor"
-mkdir -p vendor
-link core/vendor ../vendor
+echo "linking to fonts submodule"
+link core/skins/common/fonts ../../../assets/fonts
 
 echo
 echo "linking images"
@@ -164,31 +102,23 @@ link php_sessions $NETAPP/php_sessions
 
 echo
 echo "linking to Bugzilla charts on netapp filer"
-link extensions/Bugzilla/charts $NETAPP/Bugzilla_charts/
+link extensions/Bugzilla/Bugzilla_charts $NETAPP/Bugzilla_charts/
 
-echo
-echo "install any extensions managed by Composer"
-(cd core && php ../tools/composer.phar install --no-dev)
+if hash php 2> /dev/null; then
+    echo "install any extensions managed by Composer"
+    echo "to update, run php tools/composer.phar update prior to deployment"
+    php tools/composer.phar install
 
-echo
-echo "updating any already-installed composer files"
-(cd core && php ../tools/composer.phar update --no-dev)
+    echo
+    echo "run the maintenance/update.php --quick for database migrations"
+    (cd core && php maintenance/update.php --quick)
+else
+    echo "php not installed"
+fi
 
-echo
-echo "run the localisation cache update so we don't have to check on every page load"
-(cd core && php maintenance/rebuildLocalisationCache.php)
-
-echo
-echo "run the maintenance/update.php --quick for database migrations"
-(cd core && php maintenance/update.php --quick)
-
-echo
-echo "deploying $WEBSITE"
-if_debug "skipping..."
-/data/$TARGET/deploy $WEBSITE
 echo
 echo "restarting apache gracefully"
-issue-multi-command $TARGET service httpd graceful
+service apache2 graceful
 
 echo
 echo "update.sh script finished"
