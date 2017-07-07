@@ -26,6 +26,13 @@ if ! hash php 2> /dev/null; then
     exit 1
 fi
 
+corepatch=`ls patches/core/*.patch 2>/dev/null`
+if [ -z "$corepatch" ] ; then
+    echo "Don't forget the core patch from https://phabricator.wikimedia.org/T167937"
+    echo "It should be a file ending with .patch in the patches/core sub directory."
+    exit 1
+fi
+
 echo "CWD     = $CWD"
 echo "HOST    = $HOST"
 echo "JOBS    = $JOBS"
