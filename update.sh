@@ -163,6 +163,10 @@ echo "run the localisation cache update so we don't have to check on every page 
 (cd core && php maintenance/rebuildLocalisationCache.php)
 
 echo
+echo "run the maintenance/update.php --quick for database migrations"
+(cd core && php maintenance/update.php --quick)
+
+echo
 echo "restarting apache gracefully"
 service apache2 graceful
 
