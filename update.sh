@@ -90,6 +90,7 @@ link core/LocalSettings.php ../LocalSettings.php
 
 echo
 echo "linking to fonts submodule"
+mkdir -p core/skins/common
 link core/skins/common/fonts ../../../assets/fonts
 
 echo
