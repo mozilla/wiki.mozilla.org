@@ -21,6 +21,9 @@
             "email": "mah@nichework.com"
         }
     ],
+    "config": {
+        "preferred-install": "source"
+    },
     "extra": {
 	"merge-plugin": {
 	    "include": [
