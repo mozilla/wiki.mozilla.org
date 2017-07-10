@@ -18,8 +18,33 @@ CWD=${CWD:=$(pwd)}
 HOST=${HOST:=$(hostname)}
 JOBS=${JOBS:=$(($(nproc) * 3))}
 
-WEBSITE="wiki.mozilla.org"
-NETAPP="/mnt/netapp/$WEBSITE"
+DEV="wiki-dev.allizom.org"
+STAGE="wiki.allizom.org"
+PROD="wiki.mozilla.org"
+GENERICADM="genericadm.private.phx1.mozilla.com"
+
+# Call the deploy script if necessary and reload Apache
+if [ "$HOST" != "$GENERICADM" ]; then
+    echo
+    echo "ERROR: $HOST != '$GENERICADM'"
+    exit 1
+fi
+if [[ "$CWD" == *"$DEV"* ]]; then
+    WEBSITE="$DEV"
+    TARGET="genericrhel6-dev"
+    NETAPP="/mnt/netapp_dev/$WEBSITE"
+elif [[ "$CWD" == *"$STAGE"* ]]; then
+    WEBSITE="$STAGE"
+    TARGET="genericrhel6-stage"
+    NETAPP="/mnt/netapp_stage/$WEBSITE"
+elif [[ "$CWD" == *"$PROD"* ]]; then
+    WEBSITE="$PROD"
+    TARGET="genericrhel6"
+    NETAPP="/mnt/netapp/$WEBSITE"
+else
+    echo "ERROR: Could not match deployment environment"
+    exit 1
+fi
 
 echo "CWD     = $CWD"
 echo "HOST    = $HOST"
@@ -117,8 +142,12 @@ else
 fi
 
 echo
+echo "deploying $WEBSITE"
+if_debug "skipping..."
+/data/$TARGET/deploy $WEBSITE
+echo
 echo "restarting apache gracefully"
-service apache2 graceful
+issue-multi-command $TARGET service httpd graceful
 
 echo
 echo "update.sh script finished"
