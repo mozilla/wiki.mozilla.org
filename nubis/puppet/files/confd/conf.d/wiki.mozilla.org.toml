@@ -1,6 +1,6 @@
 [template]
 src = "wiki.mozilla.org.tmpl"
-dest = "/var/www/wiki.mozilla.org/LocalSettings.php"
+dest = "/etc/nubis-config/wiki.mozilla.org.secrets"
 prefix = "/%%PROJECT%%-%%ENVIRONMENT%%/%%ENVIRONMENT%%"
 
 keys = [

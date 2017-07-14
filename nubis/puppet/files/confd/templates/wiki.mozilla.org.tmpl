@@ -1,0 +1,22 @@
+
+{{if exists "/config/wgServer"}}
+$SECRETS_wgServer                 = '{{ getv "/config/wgServer" }}';
+{{end}} 
+$SECRETS_wgLogo                   = 'mozilla-wiki-logo-alt-135px.png';
+{{if exists "/config/Database"}}
+$SECRETS_wgDBserver               = '{{ getv "/config/Database/Server" }}';
+$SECRETS_wgDBname                 = '{{ getv "/config/Database/Name" }}';
+$SECRETS_wgDBuser                 = '{{ getv "/config/Database/User" }}';
+$SECRETS_wgDBpassword             = '{{ getv "/config/Database/Password" }}';
+$SECRETS_wgSecretKey              = '{{ getv "/config/Database/SecretKey" }}';
+$SECRETS_wgUpgradeKey             = '{{ getv "/config/Database/UpgradeKey" }}';
+$SECRETS_wgReCaptchaPublicKey     = '{{ getv "/config/Database/ReCatchpaPublicKey" }}';
+$SECRETS_wgReCaptchaPrivateKey    = '{{ getv "/config/Database/ReCatchpaPrivateKey" }}';
+{{end}} 
+{{if exists "/config/ga-account"}}
+$SECRETS_wgGoogleAnalyticsAccount = 'ga-account';
+{{end}} 
+#$SECRETS_wgSquidServers           = array('192.168.1.1', '192.168.1.2');
+#$SECRETS_wgMemCachedServers       = array();
+$SECRETS_wgUploadDirectory       = "/var/www/wiki.mozilla.org/images";
+$SECRETS_wgMobileFrontendLogo     = "mozilla-wiki-logomark-35px.png";
