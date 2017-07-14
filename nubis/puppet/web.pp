@@ -19,7 +19,7 @@ nubis::configuration{ $project_name:
 apache::vhost { $project_name:
     port               => 80,
     default_vhost      => true,
-    docroot            => "/var/www/$project_name/core",
+    docroot            => "/var/www/wiki.mozilla.org/core",
     docroot_owner      => 'root',
     docroot_group      => 'root',
     block              => ['scm'],
