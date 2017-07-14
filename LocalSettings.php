@@ -45,8 +45,8 @@ require_once('/etc/nubis-config/wiki.mozilla.org')
 #}
 
 # If a debug.php file exists then lets pull it in.
-if ( file_exists('../debug.php') ) {
-    require_once('../debug.php');
+if ( file_exists("$IP/../debug.php") ) {
+    require_once("$IP/../debug.php");
 }
 
 ## Uncomment this to disable output compression
@@ -60,8 +60,8 @@ $wgMetaNamespace = "MozillaWiki";
 ## For more information on customizing the URLs
 ## (like /w/index.php/Page_title to /wiki/Page_title) please see:
 ## https://www.mediawiki.org/wiki/Manual:Short_URL
-$wgScriptPath = $SECRETS_wgScriptPath;
-$wgArticlePath = $SECRETS_wgArticlePath;
+$wgScriptPath = '';
+$wgArticlePath = '/$1';
 $wgScript = $wgScriptPath . '/index.php';
 $wgUsePathInfo = true;
 $wgScriptExtension = ".php";
@@ -73,10 +73,12 @@ $wgServer = $SECRETS_wgServer;
 ## The relative URL path to the skins directory
 $wgStylePath = "$wgScriptPath/skins";
 
+$wgUploadPath = "{$wgScriptPath}/images";
+
 ## The relative URL path to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
 #$wgLogo = "$wgStylePath/common/images/$SECRETS_wgLogo";
-$wgLogo = "$wgStylePath/common/assets/logos/$SECRETS_wgLogo";
+$wgLogo = "$wgStylePath/assets/logos/$SECRETS_wgLogo";
 
 # The relative URL path to the favicon
 $wgFavicon = "$wgStylePath/common/assets/favicon.ico";
@@ -464,21 +466,20 @@ $wgDefaultUserOptions['wikieditor-preview'] = 1;
 // bug 1080898
 $wgDefaultUserOptions['forceeditsummary'] = true;
 
-#require_once("$IP/extensions/Urchin/Urchin.php");
 wfLoadExtension( 'LabeledSectionTransclusion' );
 wfLoadExtension( 'Renameuser' );
 wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'ImageMap' );
 
 $wgFFmpegLocation = '/usr/bin/ffmpeg';
-require("$IP/extensions/OggHandler/OggHandler.php");
+require_once("$IP/extensions/OggHandler/OggHandler.php");
 
 $smwgNamespaceIndex = 132;
 $smwgQMaxSize = 40;
 $smwgQMaxDepth = 20;
 
 require_once("$IP/extensions/SemanticMediaWiki/SemanticMediaWiki.php");
-enableSemantics('wiki-dev.allizom.org');
+#enableSemantics('wiki-dev.allizom.org');
 $smwgEnabledEditPageHelp = false;
 wfLoadExtension( 'PageForms' );
 ##
@@ -517,9 +518,9 @@ $wgCaptchaTriggers['create']        = false;
 $wgCaptchaTriggers['addurl']        = false;
 $wgCaptchaTriggers['createaccount'] = true;
 $wgCaptchaTriggers['badlogin']      = true;
-$wgCaptchaClass = 'ReCaptcha';
-$wgReCaptchaPublicKey = $SECRETS_wgReCaptchaPublicKey;
-$wgReCaptchaPrivateKey = $SECRETS_wgReCaptchaPrivateKey;
+$wgCaptchaClass = 'ReCaptchaNoCaptcha';
+$wgReCaptchaSiteKey = $SECRETS_wgReCaptchaPublicKey;
+$wgReCaptchaSecretKey = $SECRETS_wgReCaptchaPrivateKey;
 
 # bug 832030
 require_once("$IP/extensions/googleAnalytics/googleAnalytics.php");
@@ -541,7 +542,8 @@ if (!empty($SECRETS_wgSquidServers)) {
     $wgSquidServers = $SECRETS_wgSquidServers;
 }
 
-$wgCacheDirectory = "/tmp/wikimo-cache";
+#survive reboots
+$wgCacheDirectory = "/var/tmp/wikimo-cache";
 
 $wgShowIPinHeader = false;
 $wgFileExtensions   = array( 'gz', 'tar', 'png', 'gif', 'jpg', 'jpeg', 'ppt', 'pdf', 'doc', 'xls', 'zip', 'ics', 'mp3', 'ogg', 'odt', 'odp', 'svg', 'odt', 'ods', 'odg', 'webm' );
@@ -603,6 +605,7 @@ $wgAllowAccountRequestFiles = false;
 $wgAccountRequestThrottle = 50;
 #$wgConfirmAccountContact = 'wikimo-admins@mozilla.org';
 $wgConfirmAccountSaveInfo = false;
+$wgConfirmAccountCaptchas = true;
 
 # Need to set this explicitly to match the value in php.ini
 # Otherwise, pages w/ semanticwiki bits barf
@@ -653,7 +656,7 @@ $wgMobileUrlTemplate = 'm.%h0.%h1.%h2';
 // must disable jquery table on legacy mediawiki-bugzilla extension for mobile editing to work
 $wgBugzillaJqueryTable = false;
 
-require_once "$IP/extensions/ImportFromEtherpad/ImportFromEtherpad.php";
+require_once("$IP/extensions/ImportFromEtherpad/ImportFromEtherpad.php");
 
 // these regexs replace strings in the converted mediawiki content
 $wgImportFromEtherpadSettings->contentRegexs[] = array("\n\n","\n");
