@@ -12,15 +12,10 @@ class { 'apache::mod::proxy': }
 class { 'apache::mod::proxy_http': }
 class { 'apache::mod::php': }
 
-include nubis_configuration
-nubis::configuration{ $project_name:
-  format  => 'php',
-}
-
 apache::vhost { $project_name:
     port               => 80,
     default_vhost      => true,
-    docroot            => "/var/www/$project_name/core",
+    docroot            => "/var/www/$project_name",
     docroot_owner      => 'root',
     docroot_group      => 'root',
     block              => ['scm'],
@@ -48,7 +43,7 @@ apache::vhost { $project_name:
       'set Strict-Transport-Security "max-age=31536000"',
     ],
 
-    rewrites           => [
+#    rewrites           => [
 #      {
 #        #    RewriteRule ^/AdminWiki(/.*|$) https://intranet.mozilla.org/%{QUERY_STRING} [R=permanent,L]
 #        comment      => 'Rewrite the old UseMod URLs to the new MediaWiki ones',
@@ -109,24 +104,24 @@ apache::vhost { $project_name:
 #        comment      => 'Redirect old /wiki/ urls',
 #        rewrite_rule => ['^/wiki$ https://wiki.mozilla.org/index.php [R,L]'],
 #      },
-      {
+#      {
 #        #    RewriteCond %{REQUEST_URI} !^/(assets|extensions|images|skins|resources)/
 #        #    RewriteCond %{REQUEST_URI} !^/(redirect|index|opensearch_desc|api|load|thumb).php
 #        #    RewriteCond %{REQUEST_URI} !^/error/(40(1|3|4)|500).html
 #        #    RewriteCond %{REQUEST_URI} !^/favicon.ico
 #        #    RewriteCond %{REQUEST_URI} !^/robots.txt
 #        #    RewriteRule ^/(.*)$ /data/www/wiki.mozilla.org/core/index.php?title=$1 [L,QSA]
-        comment      => 'Do not rewrite requests for files in MediaWiki subdirectories, MediaWiki PHP files, HTTP error documents, favicon.ico, or robots.txt',
+#        comment      => 'Do not rewrite requests for files in MediaWiki subdirectories, MediaWiki PHP files, HTTP error documents, favicon.ico, or robots.txt',
 #        rewrite_cond => ['%{REQUEST_URI} !^/(assets|extensions|images|skins|resources)/'],
 #        rewrite_cond => ['%{REQUEST_URI} !^/(redirect|index|opensearch_desc|api|load|thumb).php'],
 #        rewrite_cond => ['%{REQUEST_URI} !^/error/(40(1|3|4)|500).html'],
 #        rewrite_cond => ['%{REQUEST_URI} !^/favicon.ico'],
 #        rewrite_cond => ['%{REQUEST_URI} !^/robots.txt'],
 #        # Rewrite http://wiki.domain.tld/article properly, this is the main rule
-        rewrite_rule => ["^/(.*)$ /var/www/wiki/core/index.php?title=$1 [L,QSA]"],
-        # Todo change wiki to $project_name once this is working
-      },
-    ],
+#        rewrite_rule => ["^/(.*)$ /var/www/wiki/core/index.php?title=$1 [L,QSA]"],
+#        # Todo change wiki to $project_name once this is working
+#      },
+#    ],
 
 
 }

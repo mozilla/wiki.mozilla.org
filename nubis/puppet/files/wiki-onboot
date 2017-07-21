@@ -1,0 +1,19 @@
+#!/bin/bash
+# Generate random secrets for Mediawiki if they don't already exist
+
+env=$(nubis-metadata NUBIS_ENVIRONMENT)
+
+echo "Enabling node_exporter"
+consulate kv set "environments/$ENV/global/node_exporter/config/enabled" 1
+
+nubis_project=$(nubis-metadata NUBIS_PROJECT)
+nubis_env=$(nubis-metadata NUBIS_ENVIRONMENT)
+
+kv_prefix="$NUBIS_PROJECT/$NUBIS_ENVIRONMENT/config"
+
+#mediawiki_secret=$(nubis-secret get /config/SecretKey)
+mediawiki_secret=$(consulate kv get "$KV_PREFIX/config/SecretKey")
+if [ -z "$mediawiki_secret" ]; then
+  mediawiki_secret=$(htpasswd -nb federation "$SECRET_FEDERATION_PASSWORD")
+  consulate kv set "$KV_PREFIX/config/SecretKey" "$mediawiki_secret"
+fi
