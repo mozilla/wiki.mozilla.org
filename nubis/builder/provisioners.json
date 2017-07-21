@@ -3,21 +3,21 @@
     {
       "type": "shell",
       "inline": [
-        "sudo mkdir -p -m 755 /var/www/wiki",
-        "sudo chown ubuntu:ubuntu /var/www/wiki"
+        "sudo mkdir -p -m 755 /var/www/{{user `project_name`}}",
+        "sudo chown ubuntu:ubuntu /var/www/{{user `project_name`}}"
       ],
       "order": "1"
     },
     {
       "type": "file",
       "source": "./",
-      "destination": "/var/www/wiki",
+      "destination": "/var/www/{{user `project_name`}}",
       "order": "2"
     },
     {
       "type": "shell",
       "inline": [
-        "sudo chown -R root:root /var/www/wiki"
+        "sudo chown -R root:root /var/www/{{user `project_name`}}"
       ],
       "order": "3"
     }
