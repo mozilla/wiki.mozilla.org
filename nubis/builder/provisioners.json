@@ -24,14 +24,14 @@
     {
       "type": "shell",
       "inline": [
-        "sudo ln -s /var/www/wiki/core/index.html /var/www/wiki/index.html"
+        "sudo ln -s /var/www/wiki/index.html /var/www/wiki/core/index.html"
       ],
       "order": "4"
     },
     {
       "type": "shell",
       "inline": [
-        "sudo ln -s /var/www/wiki/core/debug.php /var/www/wiki/debug.php"
+        "sudo ln -s /var/www/wiki/debug.php /var/www/wiki/core/debug.php"
       ],
       "order": "5"
     }
