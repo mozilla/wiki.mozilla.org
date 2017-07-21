@@ -3,21 +3,21 @@
     {
       "type": "shell",
       "inline": [
-        "sudo mkdir -p -m 755 /var/www/wiki.mozilla.org",
-        "sudo chown ubuntu:ubuntu /var/www/wiki.mozilla.org"
+        "sudo mkdir -p -m 755 /var/www/wiki",
+        "sudo chown ubuntu:ubuntu /var/www/wiki"
       ],
       "order": "1"
     },
     {
       "type": "file",
       "source": "./",
-      "destination": "/var/www/wiki.mozilla.org",
+      "destination": "/var/www/wiki",
       "order": "2"
     },
     {
       "type": "shell",
       "inline": [
-        "sudo chown -R root:root /var/www/wiki.mozilla.org"
+        "sudo chown -R root:root /var/www/wiki"
       ],
       "order": "3"
     }
