@@ -10,6 +10,7 @@ class { 'nubis_apache':
 class { 'apache::mod::rewrite': }
 class { 'apache::mod::proxy': }
 class { 'apache::mod::proxy_http': }
+class { 'apache::mod::php': }
 
 include nubis_configuration
 nubis::configuration{ $project_name:
