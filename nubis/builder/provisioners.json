@@ -20,6 +20,20 @@
         "sudo chown -R root:root /var/www/{{user `project_name`}}"
       ],
       "order": "3"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo ln -s /var/www/wiki/core/index.html /var/www/wiki/index.html"
+      ],
+      "order": "4"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo ln -s /var/www/wiki/core/debug.php /var/www/wiki/debug.php"
+      ],
+      "order": "5"
     }
   ]
 }
