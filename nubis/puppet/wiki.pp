@@ -41,6 +41,6 @@ package { 'imagemagick':
   ensure => 'latest'
 }
 
-package { 'libapache2-mod-php':
+package { 'libapache2-mod-php5':
   ensure => 'latest';
 }
