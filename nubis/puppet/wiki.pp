@@ -45,3 +45,13 @@ package { 'imagemagick':
 #package { 'libapache2-mod-php5':
 #  ensure => 'latest';
 #}
+
+
+# Generate some random secrets for mediawiki on boot
+file { '/etc/nubis.d/wiki-secrets':
+    ensure => file,
+    owner  => root,
+    group  => root,
+    mode   => '0755',
+    source => 'puppet:///nubis/files/wiki-onboot',
+}
