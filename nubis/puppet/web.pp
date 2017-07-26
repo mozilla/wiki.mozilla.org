@@ -124,5 +124,11 @@ apache::vhost { $project_name:
 #    ],
 
 
+    rewrites           => [
+      {
+        comment      => 'Rewrite http://wiki.domain.tld/article properly, this is the main rule',
+        rewrite_rule => ["^/wiki/(.*)$ /var/www/wiki/core/index.php?title=$1 [L,QSA]"],
+      },
+    ],
 }
 
