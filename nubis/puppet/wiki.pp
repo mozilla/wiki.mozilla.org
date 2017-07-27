@@ -41,6 +41,10 @@ package { 'imagemagick':
   ensure => 'latest'
 }
 
+package { 'git':
+  ensure => 'latest'
+}
+
 # Superceded by apache::mod:php we suspect
 #package { 'libapache2-mod-php5':
 #  ensure => 'latest';
