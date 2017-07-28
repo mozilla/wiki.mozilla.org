@@ -65,52 +65,52 @@ exec { 'widgets_permissions':
 }
 
 # Link files that aren't in the core repo to where they need to be
-file { '/var/www/$project_name/core/LocalSettings.php':
+file { "/var/www/$project_name/core/LocalSettings.php":
     ensure => 'link',
-    target => '/var/www/$project_name/LocalSettings.php',
+    target => "/var/www/$project_name/LocalSettings.php",
 }
-file { '/var/www/$project_name/core/composer.local.json':
+file { "/var/www/$project_name/core/composer.local.json":
     ensure => 'link',
-    target => '/var/www/$project_name/composer.local.json',
+    target => "/var/www/$project_name/composer.local.json",
 }
 exec { 'link_extensions':
-    command => 'cd /var/www/$project_name; for ext in $(find extensions -maxdepth 1 -mindepth 1 -type d); do link core/$ext ../../$ext; done',
+    command => "cd /var/www/$project_name; for ext in \$(find extensions -maxdepth 1 -mindepth 1 -type d); do link core/\$ext ../../\$ext; done",
 }
 exec { 'link_skins':
-    command => 'cd /var/www/$project_name; for skin in $(find skins -maxdepth 1 -mindepth 1 -type d); do link core/$skin ../../$skin; done',
+    command => "cd /var/www/$project_name; for skin in \$(find skins -maxdepth 1 -mindepth 1 -type d); do link core/\$skin ../../\$skin; done",
 }
 
 # Links to EFS mount dirs
-file { '/var/www/$project_name/images':
+file { "/var/www/$project_name/images":
     ensure => 'link',
-    target => '/data/$project_name',
+    target => "/data/$project_name",
 }
-file { '/var/www/$project_name/images':
+file { "/var/www/$project_name/images":
     ensure => 'link',
-    target => '/data/$project_name/images',
+    target => "/data/$project_name/images",
 }
-file { '/var/www/$project_name/php_sessions':
+file { "/var/www/$project_name/php_sessions":
     ensure => 'link',
-    target => '/data/$project_name/php_sessions',
+    target => "/data/$project_name/php_sessions",
 }
-file { '/var/www/$project_name/extensions/Bugzilla/charts':
+file { "/var/www/$project_name/extensions/Bugzilla/charts":
     ensure => 'link',
-    target => '/data/$project_name/Bugzilla_charts',
+    target => "/data/$project_name/Bugzilla_charts",
 }
 
 # Install PHP composer extensions
 exec { 'composer':
-    command => 'cd /var/www/$project_name/core && php ../tools/composer.phar install --no-dev &&; php ../tools/composer.phar update --no-dev',
+    command => "cd /var/www/$project_name/core && php ../tools/composer.phar install --no-dev &&; php ../tools/composer.phar update --no-dev",
 }
 
 # Localization
 exec { 'localize':
-    command => 'cd /var/www/$project_name && php maintenance/rebuildLocalisationCache.php',
+    command => "cd /var/www/$project_name && php maintenance/rebuildLocalisationCache.php",
 }
 
 # DB migratation
 exec { 'migration':
-    command => 'cd /var/www/$project_name && php maintenance/update.php --quick',
+    command => "cd /var/www/$project_name && php maintenance/update.php --quick",
     require => Exec['composer'],
 }
 
