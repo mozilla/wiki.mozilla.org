@@ -74,10 +74,12 @@ file { "/var/www/$project_name/core/composer.local.json":
     target => "/var/www/$project_name/composer.local.json",
 }
 exec { 'link_extensions':
-    command => "/usr/bin/cd /var/www/$project_name; for ext in \$(find extensions -maxdepth 1 -mindepth 1 -type d); do /usr/bin/ln -s core/\$ext ../../\$ext; done",
+    command => "for ext in \$(find extensions -maxdepth 1 -mindepth 1 -type d); do /usr/bin/ln -s core/\$ext ../../\$ext; done",
+    cwd => "/var/www/$project_name",
 }
 exec { 'link_skins':
-    command => "/usr/bin/cd /var/www/$project_name; for skin in \$(find skins -maxdepth 1 -mindepth 1 -type d); do /usr/bin/ln -s core/\$skin ../../\$skin; done",
+    command => "for skin in \$(find skins -maxdepth 1 -mindepth 1 -type d); do /usr/bin/ln -s core/\$skin ../../\$skin; done",
+    cwd => "/var/www/$project_name",
 }
 
 # Links to EFS mount dirs
@@ -96,17 +98,20 @@ file { "/var/www/$project_name/extensions/Bugzilla/charts":
 
 # Install PHP composer extensions
 exec { 'composer':
-    command => "/usr/bin/cd /var/www/$project_name/core && /usr/bin/php ../tools/composer.phar install --no-dev &&; /usr/bin/php ../tools/composer.phar update --no-dev",
+    command => "/usr/bin/php ../tools/composer.phar install --no-dev &&; /usr/bin/php ../tools/composer.phar update --no-dev",
+    cwd => "/var/www/$project_name/core",
 }
 
 # Localization
 exec { 'localize':
-    command => "/usr/bin/cd /var/www/$project_name && /usr/bin/php maintenance/rebuildLocalisationCache.php",
+    command => "/usr/bin/php maintenance/rebuildLocalisationCache.php",
+    cwd => "/var/www/$project_name",
 }
 
 # DB migratation
 exec { 'migration':
-    command => "/usr/bin/cd /var/www/$project_name && /usr/bin/php maintenance/update.php --quick",
+    command => "/usr/bin/php maintenance/update.php --quick",
+    cwd => "/var/www/$project_name",
     require => Exec['composer'],
 }
 
