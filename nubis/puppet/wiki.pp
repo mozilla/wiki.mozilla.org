@@ -56,6 +56,7 @@ file { '/etc/nubis.d/wiki-secrets':
 
 # Set up cache directory
 exec { 'wiki_cache_dir':
+    provider => 'shell',
     command => '/usr/bin/mkdir -p /var/tmp/wikimo-cache; /usr/bin/chown -R www-data /var/tmp/wikimo-cache',
 }
 
@@ -100,7 +101,8 @@ file { "/var/www/$project_name/extensions/Bugzilla/charts":
 
 # Install PHP composer extensions
 exec { 'composer':
-    command => "/usr/bin/php ../tools/composer.phar install --no-dev &&; /usr/bin/php ../tools/composer.phar update --no-dev",
+    provider => 'shell',
+    command => "/usr/bin/php ../tools/composer.phar install --no-dev && /usr/bin/php ../tools/composer.phar update --no-dev",
     cwd => "/var/www/$project_name/core",
 }
 
