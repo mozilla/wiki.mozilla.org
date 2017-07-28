@@ -56,12 +56,12 @@ file { '/etc/nubis.d/wiki-secrets':
 
 # Set up cache directory
 exec { 'wiki_cache_dir':
-    command => 'mkdir -p /var/tmp/wikimo-cache; chown -R www-data /var/tmp/wikimo-cache',
+    command => '/usr/bin/mkdir -p /var/tmp/wikimo-cache; /usr/bin/chown -R www-data /var/tmp/wikimo-cache',
 }
 
 # Set permissions for Widgets
 exec { 'widgets_permissions':
-    command => 'chown -R www-data extensions/Widgets/compiled_templates',
+    command => '/usr/bin/chown -R www-data extensions/Widgets/compiled_templates',
 }
 
 # Link files that aren't in the core repo to where they need to be
@@ -74,10 +74,10 @@ file { "/var/www/$project_name/core/composer.local.json":
     target => "/var/www/$project_name/composer.local.json",
 }
 exec { 'link_extensions':
-    command => "cd /var/www/$project_name; for ext in \$(find extensions -maxdepth 1 -mindepth 1 -type d); do link core/\$ext ../../\$ext; done",
+    command => "cd /var/www/$project_name; for ext in \$(find extensions -maxdepth 1 -mindepth 1 -type d); do /usr/bin/ln -s core/\$ext ../../\$ext; done",
 }
 exec { 'link_skins':
-    command => "cd /var/www/$project_name; for skin in \$(find skins -maxdepth 1 -mindepth 1 -type d); do link core/\$skin ../../\$skin; done",
+    command => "cd /var/www/$project_name; for skin in \$(find skins -maxdepth 1 -mindepth 1 -type d); do /usr/bin/ln -s core/\$skin ../../\$skin; done",
 }
 
 # Links to EFS mount dirs
@@ -96,17 +96,17 @@ file { "/var/www/$project_name/extensions/Bugzilla/charts":
 
 # Install PHP composer extensions
 exec { 'composer':
-    command => "cd /var/www/$project_name/core && php ../tools/composer.phar install --no-dev &&; php ../tools/composer.phar update --no-dev",
+    command => "cd /var/www/$project_name/core && /usr/bin/php ../tools/composer.phar install --no-dev &&; /usr/bin/php ../tools/composer.phar update --no-dev",
 }
 
 # Localization
 exec { 'localize':
-    command => "cd /var/www/$project_name && php maintenance/rebuildLocalisationCache.php",
+    command => "cd /var/www/$project_name && /usr/bin/php maintenance/rebuildLocalisationCache.php",
 }
 
 # DB migratation
 exec { 'migration':
-    command => "cd /var/www/$project_name && php maintenance/update.php --quick",
+    command => "cd /var/www/$project_name && /usr/bin/php maintenance/update.php --quick",
     require => Exec['composer'],
 }
 
