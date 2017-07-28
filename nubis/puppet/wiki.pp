@@ -74,10 +74,12 @@ file { "/var/www/$project_name/core/composer.local.json":
     target => "/var/www/$project_name/composer.local.json",
 }
 exec { 'link_extensions':
+    provider => 'sh',
     command => "for ext in \$(find extensions -maxdepth 1 -mindepth 1 -type d); do /usr/bin/ln -s core/\$ext ../../\$ext; done",
     cwd => "/var/www/$project_name",
 }
 exec { 'link_skins':
+    provider => 'sh',
     command => "for skin in \$(find skins -maxdepth 1 -mindepth 1 -type d); do /usr/bin/ln -s core/\$skin ../../\$skin; done",
     cwd => "/var/www/$project_name",
 }
