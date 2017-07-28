@@ -85,10 +85,6 @@ file { "/var/www/$project_name/images":
     ensure => 'link',
     target => "/data/$project_name",
 }
-file { "/var/www/$project_name/images":
-    ensure => 'link',
-    target => "/data/$project_name/images",
-}
 file { "/var/www/$project_name/php_sessions":
     ensure => 'link',
     target => "/data/$project_name/php_sessions",
