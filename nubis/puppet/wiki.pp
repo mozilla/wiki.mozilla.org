@@ -55,9 +55,11 @@ file { '/etc/nubis.d/wiki-secrets':
 }
 
 # Set up cache directory
-exec { 'wiki_cache_dir':
-    provider => 'shell',
-    command => '/usr/bin/mkdir -p /var/tmp/wikimo-cache; /usr/bin/chown -R www-data /var/tmp/wikimo-cache',
+file { '/var/tmp/wikimo-cache':
+    ensure => directory,
+    owner  => www-data,
+    group  => www-data,
+    mode   => '0750',
 }
 
 # Set permissions for Widgets
