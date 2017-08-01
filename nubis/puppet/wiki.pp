@@ -78,12 +78,12 @@ file { "/var/www/$project_name/core/composer.local.json":
 }
 exec { 'link_extensions':
     provider => 'shell',
-    command => "for ext in \$(find extensions -maxdepth 1 -mindepth 1 -type d); do /usr/bin/ln -s core/\$ext ../../\$ext; done",
+    command => "for ext in \$(find extensions -maxdepth 1 -mindepth 1 -type d); do /bin/ln -s core/\$ext ../../\$ext; done",
     cwd => "/var/www/$project_name",
 }
 exec { 'link_skins':
     provider => 'shell',
-    command => "for skin in \$(find skins -maxdepth 1 -mindepth 1 -type d); do /usr/bin/ln -s core/\$skin ../../\$skin; done",
+    command => "for skin in \$(find skins -maxdepth 1 -mindepth 1 -type d); do /bin/ln -s core/\$skin ../../\$skin; done",
     cwd => "/var/www/$project_name",
 }
 
