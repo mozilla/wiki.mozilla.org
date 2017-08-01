@@ -114,16 +114,5 @@ exec { 'composer':
 # Localization
 exec { 'localize':
     command => "/usr/bin/php maintenance/rebuildLocalisationCache.php",
-    cwd => "/var/www/$project_name",
+    cwd => "/var/www/$project_name/core",
 }
-
-# DB migratation
-exec { 'migration':
-    command => "/usr/bin/php maintenance/update.php --quick",
-    cwd => "/var/www/$project_name",
-    require => Exec['composer'],
-    environment => [
-        'HOME=/tmp',
-    ],
-}
-
