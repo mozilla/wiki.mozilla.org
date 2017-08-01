@@ -106,6 +106,9 @@ exec { 'composer':
     provider => 'shell',
     command => "/usr/bin/php ../tools/composer.phar install --no-dev && /usr/bin/php ../tools/composer.phar update --no-dev",
     cwd => "/var/www/$project_name/core",
+    environment => [
+        'HOME=/tmp',
+    ],
 }
 
 # Localization
@@ -119,5 +122,8 @@ exec { 'migration':
     command => "/usr/bin/php maintenance/update.php --quick",
     cwd => "/var/www/$project_name",
     require => Exec['composer'],
+    environment => [
+        'HOME=/tmp',
+    ],
 }
 
