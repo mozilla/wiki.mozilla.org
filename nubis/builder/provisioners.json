@@ -9,17 +9,35 @@
       "order": "1"
     },
     {
-      "type": "file",
-      "source": "./",
-      "destination": "/var/www/{{user `project_name`}}",
+      "type": "shell-local",
+      "command": "rm -f dist/wiki.tar.bz2 ; tar jcf dist/wiki.tar.bz2 --exclude '.git*' --exclude dist/wiki.tar.bz2 .",
       "order": "2"
+    },
+    {
+      "type": "file",
+      "source": "./dist",
+      "destination": "/tmp/",
+      "order": "3"
+    },
+    {
+      "type": "shell-local",
+      "command": "rm dist/wiki.tar.bz2",
+      "order": "4"
+    },
+    {
+      "inline": [
+        "sudo tar jxvf /tmp/dist/wiki.tar.bz2 -C /var/www/{{user `project_name`}}",
+        "rm /tmp/dist/wiki.tar.bz2"
+      ],
+      "type": "shell",
+      "order": "5"
     },
     {
       "type": "shell",
       "inline": [
         "sudo chown -R root:root /var/www/{{user `project_name`}}"
       ],
-      "order": "3"
+      "order": "6"
     }
   ]
 }
