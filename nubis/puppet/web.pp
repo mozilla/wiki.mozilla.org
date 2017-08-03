@@ -12,7 +12,7 @@ class { 'apache::mod::php': }
 apache::vhost { $project_name:
     port               => 80,
     default_vhost      => true,
-    docroot            => "/var/www/$project_name",
+    docroot            => "/var/www/${project_name}",
     docroot_owner      => 'root',
     docroot_group      => 'root',
     block              => ['scm'],
@@ -124,7 +124,7 @@ apache::vhost { $project_name:
     rewrites           => [
       {
         comment      => 'Rewrite http://wiki.domain.tld/article properly, this is the main rule',
-        rewrite_rule => ["^/wiki/(.*)$ /var/www/wiki/core/index.php?title=$1 [L,QSA]"],
+        rewrite_rule => ["^/wiki/(.*)$ /var/www/wiki/core/index.php?title=${1} [L,QSA]"],
       },
     ],
 }
