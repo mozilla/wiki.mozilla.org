@@ -63,8 +63,11 @@ file { '/var/tmp/wikimo-cache':
 }
 
 # Set permissions for Widgets
-exec { 'widgets_permissions':
-    command => '/usr/bin/chown -R www-data extensions/Widgets/compiled_templates',
+file { "/var/www/$project_name/extensions/Widgets/compiled_templates":
+    ensure => directory,
+    owner  => www-data,
+    group  => www-data,
+    mode   => '0750',
 }
 
 # Link files that aren't in the core repo to where they need to be
@@ -76,14 +79,14 @@ file { "/var/www/$project_name/core/composer.local.json":
     ensure => 'link',
     target => "/var/www/$project_name/composer.local.json",
 }
-exec { 'link_extensions':
+exec { 'mv_extensions':
     provider => 'shell',
-    command => "for ext in \$(find extensions -maxdepth 1 -mindepth 1 -type d); do /bin/ln -s core/\$ext ../../\$ext; done",
+    command => "mv extensions/* core/extensions/",
     cwd => "/var/www/$project_name",
 }
-exec { 'link_skins':
+exec { 'mv_skins':
     provider => 'shell',
-    command => "for skin in \$(find skins -maxdepth 1 -mindepth 1 -type d); do /bin/ln -s core/\$skin ../../\$skin; done",
+    command => "mv skins/* core/skins/",
     cwd => "/var/www/$project_name",
 }
 
@@ -101,18 +104,18 @@ file { "/var/www/$project_name/extensions/Bugzilla/charts":
     target => "/data/$project_name/Bugzilla_charts",
 }
 
-# Install PHP composer extensions
-exec { 'composer':
-    provider => 'shell',
-    command => "/usr/bin/php ../tools/composer.phar install --no-dev && /usr/bin/php ../tools/composer.phar update --no-dev",
-    cwd => "/var/www/$project_name/core",
-    environment => [
-        'HOME=/tmp',
-    ],
-}
+## Install PHP composer extensions
+#exec { 'composer':
+#    provider => 'shell',
+#    command => "/usr/bin/php ../tools/composer.phar install --no-dev && /usr/bin/php ../tools/composer.phar update --no-dev",
+#    cwd => "/var/www/$project_name/core",
+#    environment => [
+#        'HOME=/tmp',
+#    ],
+#}
 
-# Localization
-exec { 'localize':
-    command => "/usr/bin/php maintenance/rebuildLocalisationCache.php",
-    cwd => "/var/www/$project_name/core",
-}
+## Localization
+#exec { 'localize':
+#    command => "/usr/bin/php maintenance/rebuildLocalisationCache.php",
+#    cwd => "/var/www/$project_name/core",
+#}
