@@ -62,12 +62,13 @@ file { '/var/tmp/wikimo-cache':
     mode   => '0750',
 }
 
-# Set permissions for Widgets
-file { "/var/www/$project_name/extensions/Widgets/compiled_templates":
+# Set permissions for Widgets compiled templates (XXX: Could it be precompiled somehow?)
+file { "/var/www/$project_name/core/extensions/Widgets/compiled_templates":
     ensure => directory,
     owner  => www-data,
     group  => www-data,
     mode   => '0750',
+    require => Exec['mv_extensions'],
 }
 
 # Link files that aren't in the core repo to where they need to be
