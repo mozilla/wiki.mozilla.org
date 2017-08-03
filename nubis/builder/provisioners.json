@@ -26,6 +26,7 @@
     },
     {
       "inline": [
+        "sudo mkdir /var/www/{{user `project_name`}}",
         "sudo tar jxvf /tmp/dist/wiki.tar.bz2 -C /var/www/{{user `project_name`}}",
         "rm /tmp/dist/wiki.tar.bz2"
       ],
