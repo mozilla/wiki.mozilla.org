@@ -75,10 +75,12 @@ file { "/var/www/$project_name/core/LocalSettings.php":
     ensure => 'link',
     target => "/var/www/$project_name/LocalSettings.php",
 }
+
 file { "/var/www/$project_name/core/composer.local.json":
     ensure => 'link',
-    target => "/var/www/$project_name/composer.local.json",
+    target => "/var/www/$project_name/composer.json",
 }
+
 exec { 'mv_extensions':
     provider => 'shell',
     command => "mv extensions/* core/extensions/",
@@ -105,14 +107,19 @@ file { "/var/www/$project_name/extensions/Bugzilla/charts":
 }
 
 ## Install PHP composer extensions
-#exec { 'composer':
-#    provider => 'shell',
-#    command => "/usr/bin/php ../tools/composer.phar install --no-dev && /usr/bin/php ../tools/composer.phar update --no-dev",
-#    cwd => "/var/www/$project_name/core",
-#    environment => [
-#        'HOME=/tmp',
-#    ],
-#}
+exec { 'composer':
+    command => "php ../tools/composer.phar install --no-dev --verbose",
+    cwd => "/var/www/$project_name/core",
+    path => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+    environment => [
+        'HOME=/tmp',
+    ],
+    require => [
+      Exec['mv_extensions'],
+      File["/var/www/${project_name}/core/composer.local.json"],
+      Class['apache::mod::php'],
+    ],
+}
 
 ## Localization
 #exec { 'localize':
