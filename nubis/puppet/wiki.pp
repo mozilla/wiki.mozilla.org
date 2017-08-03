@@ -95,7 +95,7 @@ exec { 'mv_skins':
 # Links to EFS mount dirs
 file { "/var/www/$project_name/images":
     ensure => 'link',
-    target => "/data/$project_name",
+    target => "/data/$project_name/images",
 }
 file { "/var/www/$project_name/php_sessions":
     ensure => 'link',
