@@ -81,6 +81,11 @@ file { "/var/www/$project_name/core/composer.local.json":
     target => "/var/www/$project_name/composer.json",
 }
 
+file { "/var/www/$project_name/vendor":
+    ensure => 'link',
+    target => "/var/www/$project_name/core/vendor",
+}
+
 exec { 'mv_extensions':
     provider => 'shell',
     command => "mv extensions/* core/extensions/",
@@ -95,7 +100,7 @@ exec { 'mv_skins':
 # Links to EFS mount dirs
 file { "/var/www/$project_name/images":
     ensure => 'link',
-    target => "/data/$project_name",
+    target => "/data/$project_name/images",
 }
 file { "/var/www/$project_name/php_sessions":
     ensure => 'link',
@@ -117,6 +122,7 @@ exec { 'composer':
     require => [
       Exec['mv_extensions'],
       File["/var/www/${project_name}/core/composer.local.json"],
+      File["/var/www/$project_name/vendor"],
       Class['apache::mod::php'],
     ],
 }
