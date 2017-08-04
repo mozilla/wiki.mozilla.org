@@ -41,6 +41,18 @@ apache::vhost { $project_name:
       'set Strict-Transport-Security "max-age=31536000"',
     ],
 
+    aliases => [
+        { alias            => '/images',
+            path             => "/data/www/${project_name}/images",
+        },
+        { alias            => '/assets',
+            path             => "/data/www/${project_name}/assets",
+        },
+        { alias            => '/extensions',
+            path             => "/data/www/${project_name}/extensions",
+        },
+    ],
+
 #    rewrites           => [
 #      {
 #        #    RewriteRule ^/AdminWiki(/.*|$) https://intranet.mozilla.org/%{QUERY_STRING} [R=permanent,L]
