@@ -20,6 +20,7 @@ module "load_balancer" {
   environment  = "${var.environment}"
   account      = "${var.account}"
   service_name = "${var.service_name}"
+  health_check.target = "${var.health_check_target}?redirect=0"
 }
 
 module "dns" {
