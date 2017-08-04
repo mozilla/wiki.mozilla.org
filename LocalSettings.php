@@ -60,8 +60,8 @@ $wgMetaNamespace = "MozillaWiki";
 ## For more information on customizing the URLs
 ## (like /w/index.php/Page_title to /wiki/Page_title) please see:
 ## https://www.mediawiki.org/wiki/Manual:Short_URL
-$wgScriptPath = '';
-$wgArticlePath = '/$1';
+$wgScriptPath = '/Wiki';
+$wgArticlePath = '/Wiki/$1';
 $wgScript = $wgScriptPath . '/index.php';
 $wgUsePathInfo = true;
 $wgScriptExtension = ".php";
