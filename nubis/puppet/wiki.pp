@@ -127,9 +127,3 @@ exec { 'composer':
       Class['apache::mod::php'],
     ],
 }
-
-## Localization
-#exec { 'localize':
-#    command => "/usr/bin/php maintenance/rebuildLocalisationCache.php",
-#    cwd => "/var/www/$project_name/core",
-#}
