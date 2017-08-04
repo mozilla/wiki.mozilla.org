@@ -1,6 +1,7 @@
 class { 'nubis_apache':
     # Changing the Apache mpm is necessary for the Apache PHP module
     mpm_module_type => 'prefork',
+    check_url       => '/?redirect=0',
 }
 
 # Add modules
