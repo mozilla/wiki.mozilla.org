@@ -12,7 +12,7 @@ class { 'apache::mod::php': }
 apache::vhost { $project_name:
     port               => 80,
     default_vhost      => true,
-    docroot            => "/var/www/${project_name}",
+    docroot            => "/var/www/${project_name}/core",
     docroot_owner      => 'root',
     docroot_group      => 'root',
     block              => ['scm'],
@@ -101,30 +101,18 @@ apache::vhost { $project_name:
 #        comment      => 'Redirect old /wiki/ urls',
 #        rewrite_rule => ['^/wiki$ https://wiki.mozilla.org/index.php [R,L]'],
 #      },
-#      {
-#        #    RewriteCond %{REQUEST_URI} !^/(assets|extensions|images|skins|resources)/
-#        #    RewriteCond %{REQUEST_URI} !^/(redirect|index|opensearch_desc|api|load|thumb).php
-#        #    RewriteCond %{REQUEST_URI} !^/error/(40(1|3|4)|500).html
-#        #    RewriteCond %{REQUEST_URI} !^/favicon.ico
-#        #    RewriteCond %{REQUEST_URI} !^/robots.txt
-#        #    RewriteRule ^/(.*)$ /data/www/wiki.mozilla.org/core/index.php?title=$1 [L,QSA]
-#        comment      => 'Do not rewrite requests for files in MediaWiki subdirectories, MediaWiki PHP files, HTTP error documents, favicon.ico, or robots.txt',
-#        rewrite_cond => ['%{REQUEST_URI} !^/(assets|extensions|images|skins|resources)/'],
-#        rewrite_cond => ['%{REQUEST_URI} !^/(redirect|index|opensearch_desc|api|load|thumb).php'],
-#        rewrite_cond => ['%{REQUEST_URI} !^/error/(40(1|3|4)|500).html'],
-#        rewrite_cond => ['%{REQUEST_URI} !^/favicon.ico'],
-#        rewrite_cond => ['%{REQUEST_URI} !^/robots.txt'],
-#        # Rewrite http://wiki.domain.tld/article properly, this is the main rule
-#        rewrite_rule => ["^/(.*)$ /var/www/wiki/core/index.php?title=$1 [L,QSA]"],
-#        # Todo change wiki to $project_name once this is working
-#      },
 #    ],
 
 
     rewrites           => [
       {
-        comment      => 'Rewrite http://wiki.domain.tld/article properly, this is the main rule',
-        rewrite_rule => ["^/Wiki/(.*)$ /var/www/wiki/core/index.php"],
+        comment      => 'Rewrite http://wiki.domain.tld/article properly, this is the main rule. Do not rewrite requests for files in MediaWiki subdirectories, php files, error docs, favicon and robot.txt',
+        rewrite_cond => ['%{REQUEST_URI} !^/(assets|extensions|images|skins|resources)/',
+                         '%{REQUEST_URI} !^/(redirect|index|opensearch_desc|api|load|thumb).php',
+                         '%{REQUEST_URI} !^/error/(40(1|3|4)|500).html',
+                         '%{REQUEST_URI} !^/favicon.ico',
+                         '%{REQUEST_URI} !^/robots.txt'],
+        rewrite_rule => ["^/(.*)\$ /var/www/wiki/core/index.php"],
       },
     ],
 }

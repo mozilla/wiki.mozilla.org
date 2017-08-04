@@ -16,22 +16,12 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 
 # Source the nubis secrets file
-require_once('/etc/nubis-config/wiki.php');
-#$SECRETS_wgServer                 = '';
+include_once('/etc/nubis-config/wiki.php');
 $SECRETS_wgLogo                   = 'mozilla-wiki-logo-alt-135px.png';
-#$SECRETS_wgDBserver               = '{{ getv "/config/Database/Server" }}';
-#$SECRETS_wgDBname                 = '{{ getv "/config/Database/Name" }}';
-#$SECRETS_wgDBuser                 = '{{ getv "/config/Database/User" }}';
-#$SECRETS_wgDBpassword             = '{{ getv "/config/Database/Password" }}';
-#$SECRETS_wgSecretKey              = '{{ getv "/config/SecretKey" }}';
-#$SECRETS_wgUpgradeKey             = '{{ getv "/config/UpgradeKey" }}';
-#$SECRETS_wgReCaptchaPublicKey     = '{{ getv "/config/ReCatchpaPublicKey" }}';
-#$SECRETS_wgReCaptchaPrivateKey    = '{{ getv "/config/ReCatchpaPrivateKey" }}';
-#$SECRETS_wgGoogleAnalyticsAccount = 'UA-35433268-22';
-##$SECRETS_wgSquidServers           = array('192.168.1.1', '192.168.1.2');
-##$SECRETS_wgMemCachedServers       = array();
-$SECRETS_wgUploadDirectory       = "/var/www/wiki/images";
 $SECRETS_wgMobileFrontendLogo     = "mozilla-wiki-logomark-35px.png";
+
+$wgSitename = "MozillaWiki";
+$wgMetaNamespace = "MozillaWiki";
 
 ## Source the secrets settings file
 ## If environment variables are set we will use a secrets file that
@@ -60,10 +50,10 @@ $wgMetaNamespace = "MozillaWiki";
 ## For more information on customizing the URLs
 ## (like /w/index.php/Page_title to /wiki/Page_title) please see:
 ## https://www.mediawiki.org/wiki/Manual:Short_URL
-$wgScriptPath = '/Wiki';
-$wgArticlePath = '/Wiki/$1';
-$wgScript = $wgScriptPath . '/index.php';
-$wgUsePathInfo = true;
+$wgScriptPath = '';
+$wgArticlePath = '/$1';
+$wgScript = '/index.php';
+$wgUsePathInfo = false;
 $wgScriptExtension = ".php";
 
 ## The protocol and server name to use in fully-qualified URLs
