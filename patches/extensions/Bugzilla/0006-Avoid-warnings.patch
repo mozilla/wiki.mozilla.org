@@ -1,0 +1,28 @@
+From fd8b5093903c2f4608ec388f66fa95f6f5d32fef Mon Sep 17 00:00:00 2001
+From: "Mark A. Hershberger" <mah@nichework.com>
+Date: Wed, 7 Jun 2017 19:51:30 +0000
+Subject: [PATCH 6/7] Avoid warnings
+
+---
+ templates/bug/list.tpl | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/templates/bug/list.tpl b/templates/bug/list.tpl
+index 2651f8a..37e0e36 100644
+--- a/templates/bug/list.tpl
++++ b/templates/bug/list.tpl
+@@ -25,7 +25,10 @@
+                 }
+ 
+                 // Print out the data
+-                $data = $bug[$field];
++                $data = null;
++                if ( isset( $bug[$field] ) ) {
++                    $data = $bug[$field];
++                }
+                 require($subtemplate);
+ 
+                 echo "</span>";
+-- 
+2.13.0
+

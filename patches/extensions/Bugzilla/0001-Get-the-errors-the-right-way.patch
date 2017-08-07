@@ -1,0 +1,36 @@
+From f01a6f771db8a42caf31eba31b7a216ff23291c4 Mon Sep 17 00:00:00 2001
+From: "Mark A. Hershberger" <mah@everybody.org>
+Date: Thu, 11 May 2017 10:44:41 -0400
+Subject: [PATCH 1/7] Get the errors the right way
+
+---
+ BugzillaQuery.class.php | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/BugzillaQuery.class.php b/BugzillaQuery.class.php
+index 5b50df3..8207041 100644
+--- a/BugzillaQuery.class.php
++++ b/BugzillaQuery.class.php
+@@ -258,8 +258,7 @@ class BugzillaRESTQuery extends BugzillaBaseQuery {
+             if (200 == $ua->getStatus()) {
+                 $this->data = json_decode($ua->getContent(), TRUE);
+             } else {
+-                $errors = $response->getStatusValue()->getErrors();
+-                $this->error = $errors[0];
++                $this->error = $response->getWikiText();
+                 return;
+             }
+         } catch (MWException $e) {
+@@ -402,8 +401,7 @@ X;
+                     $this->data['bugs'][] = $bug;
+                 }
+             } else {
+-                $errors = $response->getStatusValue()->getErrors();
+-                $this->error = $errors[0];
++                $this->error = $response->getWikiText();
+                 return;
+             }
+         } catch (MWException $e) {
+-- 
+2.13.0
+

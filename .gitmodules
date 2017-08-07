@@ -88,17 +88,13 @@
 	path = extensions/NoTitle
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/NoTitle.git
 	branch = REL1_27
-[submodule "assets/fonts/Fira"]
-	path = assets/fonts/Fira
-	url = https://github.com/mozilla/Fira.git
-	branch = master
 [submodule "extensions/Widgets"]
 	path = extensions/Widgets
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Widgets.git
 	branch = REL1_27
 [submodule "extensions/ImportFromEtherpad"]
 	path = extensions/ImportFromEtherpad
-	url = https://github.com/christi3k/ImportFromEtherpad.git
+	url = https://github.com/hexmode/ImportFromEtherpad.git
 [submodule "extensions/MobileFrontend"]
 	path = extensions/MobileFrontend
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MobileFrontend.git
@@ -115,3 +111,18 @@
 	path = extensions/GraphViz
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/GraphViz.git
 	branch = REL1_27
+[submodule "extensions/SemanticResultFormats"]
+	path = extensions/SemanticResultFormats
+	url = https://github.com/SemanticMediaWiki/SemanticResultFormats.git
+[submodule "extensions/SemanticMediaWiki"]
+	path = extensions/SemanticMediaWiki
+	url = https://github.com/SemanticMediaWiki/SemanticMediaWiki.git
+[submodule "extensions/SemanticWatchlist"]
+	path = extensions/SemanticWatchlist
+	url = https://github.com/SemanticMediaWiki/SemanticWatchlist.git
+[submodule "extensions/SubPageList"]
+	path = extensions/SubPageList
+	url = https://github.com/JeroenDeDauw/SubPageList
+[submodule "skins/common/fonts/Fira"]
+	path = skins/common/fonts/Fira
+	url = https://github.com/mozilla/Fira.git

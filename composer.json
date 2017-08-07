@@ -3,8 +3,11 @@
     "description": "Composer resources for wiki.m.o",
     "require": {
         "mediawiki/semantic-media-wiki": "~2.5",
-        "mediawiki/sub-page-list": "*",
-        "mediawiki/semantic-watchlist": "*",
+        "mediawiki/sub-page-list": "~1.5",
+        "mediawiki/parser-hooks": "~1.3",
+        "mediawiki/image-map": "dev-REL1_27",
+        "mediawiki/semantic-watchlist": "~1.0",
+        "mediawiki/semantic-result-formats": "*",
         "mediawiki/graph-viz": "*"
     },
     "license": "MPL-2.0",
@@ -18,6 +21,9 @@
             "email": "mah@nichework.com"
         }
     ],
+    "config": {
+        "preferred-install": "source"
+    },
     "extra": {
 	"merge-plugin": {
 	    "include": [

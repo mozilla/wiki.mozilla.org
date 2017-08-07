@@ -1,0 +1,74 @@
+From 03335f6d3fc4b62bf9d50af1824feda3657d359b Mon Sep 17 00:00:00 2001
+From: "Mark A. Hershberger" <mah@everybody.org>
+Date: Fri, 12 May 2017 09:09:21 -0400
+Subject: [PATCH 5/7] Clean up PHP notices from charting lib
+
+Only create a chart when we have some data.
+---
+ BugzillaOutput.class.php | 20 ++++++++++++--------
+ 1 file changed, 12 insertions(+), 8 deletions(-)
+
+diff --git a/BugzillaOutput.class.php b/BugzillaOutput.class.php
+index c7fe721..1757a90 100644
+--- a/BugzillaOutput.class.php
++++ b/BugzillaOutput.class.php
+@@ -94,7 +94,7 @@ class BugzillaBugListing extends BugzillaOutput {
+         $this->response->full_query_url = $this->query->full_query_url();
+ 
+         // Set the bug data for the templates
+-        if(isset($this->query->data['bugs']) && count($this->query->data['bugs']) > 0) {
++        if( !empty($this->query->data['bugs']) ) {
+             $this->response->bugs = $this->query->data['bugs'];
+         }
+ 
+@@ -151,8 +151,10 @@ abstract class BugzillaGraph extends BugzillaOutput {
+         if($result = $cache->get($key)) {
+             $image = $result;
+             $this->response->image = $wgBugzillaChartUrl . '/' . $image;
+-        } else {
++        } elseif ( !empty( $this->query->data['data'] ) ) {
+             $this->response->image = $wgBugzillaChartUrl . '/' . $this->generate_chart($key) . '.png';
++        } else {
++            $this->response->image = "";
+         }
+     }
+ 
+@@ -162,6 +164,9 @@ class BugzillaPieGraph extends BugzillaGraph {
+ 
+     public function generate_chart($chart_name)
+     {
++        if ( empty( $this->query->data['data'] ) ) {
++            return "";
++        }
+         include_once "pchart/class/pPie.class.php";
+ 
+         global $wgBugzillaChartStorage;
+@@ -198,13 +203,9 @@ class BugzillaPieGraph extends BugzillaGraph {
+         $startY = ( isset($startY) ) ? $startY : $radius;
+ 
+         $pData = new pData();
+-        if ( !empty( $this->query->data['data'] ) ) {
+-            $pData->addPoints($this->query->data['data'], 'Counts');
+-        }
++        $pData->addPoints($this->query->data['data'], 'Counts');
+         $pData->setAxisName(0, 'Bugs');
+-        if ( !empty( $this->query->data['x_labels'] ) ) {
+-            $pData->addPoints($this->query->data['x_labels'], "Bugs");
+-        }
++        $pData->addPoints($this->query->data['x_labels'], "Bugs");
+         $pData->setSerieDescription("Bugs", "Bugs");
+         $pData->setAbscissa("Bugs");
+ 
+@@ -241,6 +242,9 @@ class BugzillaBarGraph extends BugzillaGraph {
+     public function generate_chart($chart_name)
+     {
+         global $wgBugzillaChartStorage, $wgBugzillaFontStorage;
++        if ( empty( $this->query->data['data'] ) ) {
++            return "";
++        }
+         $pData = new pData();
+         $pData->addPoints($this->query->data['data'], 'Counts');
+         $pData->setAxisName(0, 'Bugs');
+-- 
+2.13.0
+
