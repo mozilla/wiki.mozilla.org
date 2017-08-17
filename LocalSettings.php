@@ -67,8 +67,7 @@ $wgUploadPath = "{$wgScriptPath}/images";
 
 ## The relative URL path to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
-#$wgLogo = "$wgStylePath/common/images/$SECRETS_wgLogo";
-$wgLogo = "$wgStylePath/assets/logos/$SECRETS_wgLogo";
+$wgLogo = "$wgStylePath/common/logos/$SECRETS_wgLogo";
 
 # The relative URL path to the favicon
 $wgFavicon = "$wgStylePath/common/assets/favicon.ico";
@@ -456,20 +455,23 @@ $wgDefaultUserOptions['wikieditor-preview'] = 1;
 // bug 1080898
 $wgDefaultUserOptions['forceeditsummary'] = true;
 
+#require_once("$IP/extensions/Urchin/Urchin.php");
 wfLoadExtension( 'LabeledSectionTransclusion' );
 wfLoadExtension( 'Renameuser' );
 wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'ImageMap' );
 
 $wgFFmpegLocation = '/usr/bin/ffmpeg';
-require_once("$IP/extensions/OggHandler/OggHandler.php");
+require("$IP/extensions/OggHandler/OggHandler.php");
 
 $smwgNamespaceIndex = 132;
 $smwgQMaxSize = 40;
 $smwgQMaxDepth = 20;
 
 require_once("$IP/extensions/SemanticMediaWiki/SemanticMediaWiki.php");
-#enableSemantics('wiki-dev.allizom.org');
+require_once("$IP/extensions/SemanticResultFormats/SemanticResultFormats.php");
+
+enableSemantics('wiki-dev.allizom.org');
 $smwgEnabledEditPageHelp = false;
 wfLoadExtension( 'PageForms' );
 ##
@@ -508,9 +510,9 @@ $wgCaptchaTriggers['create']        = false;
 $wgCaptchaTriggers['addurl']        = false;
 $wgCaptchaTriggers['createaccount'] = true;
 $wgCaptchaTriggers['badlogin']      = true;
-$wgCaptchaClass = 'ReCaptchaNoCaptcha';
-$wgReCaptchaSiteKey = $SECRETS_wgReCaptchaPublicKey;
-$wgReCaptchaSecretKey = $SECRETS_wgReCaptchaPrivateKey;
+$wgCaptchaClass = 'ReCaptcha';
+$wgReCaptchaPublicKey = $SECRETS_wgReCaptchaPublicKey;
+$wgReCaptchaPrivateKey = $SECRETS_wgReCaptchaPrivateKey;
 
 # bug 832030
 require_once("$IP/extensions/googleAnalytics/googleAnalytics.php");
@@ -646,7 +648,7 @@ $wgMobileUrlTemplate = 'm.%h0.%h1.%h2';
 // must disable jquery table on legacy mediawiki-bugzilla extension for mobile editing to work
 $wgBugzillaJqueryTable = false;
 
-require_once("$IP/extensions/ImportFromEtherpad/ImportFromEtherpad.php");
+require_once "$IP/extensions/ImportFromEtherpad/ImportFromEtherpad.php";
 
 // these regexs replace strings in the converted mediawiki content
 $wgImportFromEtherpadSettings->contentRegexs[] = array("\n\n","\n");
@@ -680,5 +682,5 @@ $wgImportFromEtherpadSettings->nsRegexs[] = array('wiki\.etherpad\.mozilla\.org'
 @$wgGraphVizSettings->defaultImageType = 'svg';
 
 # speed up a little and avoid some cli perm errors
-#$wgLocalisationCacheConf['manualRecache'] = true;
+$wgLocalisationCacheConf['manualRecache'] = true;
 // EOF
