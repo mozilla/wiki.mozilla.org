@@ -62,3 +62,11 @@ module "storage" {
   storage_name           = "${var.service_name}"
   client_security_groups = "${module.worker.security_group}"
 }
+
+module "mail" {
+  source       = "github.com/nubisproject/nubis-terraform//mail?ref=v1.5.0"
+  region       = "${var.region}"
+  environment  = "${var.environment}"
+  account      = "${var.account}"
+  service_name = "${var.service_name}"
+}
