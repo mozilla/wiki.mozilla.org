@@ -20,7 +20,7 @@ function migrate_db() {
 
 nubis_project=$(nubis-metadata NUBIS_PROJECT)
 nubis_env=$(nubis-metadata NUBIS_ENVIRONMENT)
-kv_prefix="$nubis_project/$nubis_env/config"
+kv_prefix="$nubis_project-$nubis_env/config"
 docroot="/var/www/$nubis_project"
 
 # Generate a new mediawiki secret only if one does not exist
