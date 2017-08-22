@@ -64,7 +64,7 @@ module "storage" {
 }
 
 module "mail" {
-  source       = "github.com/ziegeer/nubis-terraform//mail?ref=patch-1"
+  source       = "github.com/ziegeer/nubis-terraform//mail?ref=mail_consul_outputs"
   region       = "${var.region}"
   environment  = "${var.environment}"
   account      = "${var.account}"
