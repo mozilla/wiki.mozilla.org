@@ -45,7 +45,7 @@ module "database" {
 }
 
 module "cache" {
-  source                 = "github.com/nubisproject/nubis-terraform//cache?ref=v1.5.0"
+  source                 = "github.com/ziegeer/nubis-terraform//cache?ref=patch-1"
   region                 = "${var.region}"
   environment            = "${var.environment}"
   account                = "${var.account}"
