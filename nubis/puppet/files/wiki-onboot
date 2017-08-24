@@ -5,7 +5,7 @@ function migrate_db() {
     # Run DB migratation once per mediawiki version
 
     # Check mediawiki version
-    version=$(egrep '$\$wgVersion' DefaultSettings.php | cut -d\' -f2)
+    version=$(egrep '$\$wgVersion\s*=\s*' DefaultSettings.php | cut -d\' -f2)
     
     oldversion=$(consulate kv get "$kv_prefix/wgVersion")
     if [ -z "$oldversion" -o "$version" != "$oldversion" ]; then
@@ -14,9 +14,15 @@ function migrate_db() {
         consulate kv set "$kv_prefix/wgVersion" "$version"
 
         # Migrate the DB
-        (cd "$docroot/core"; /usr/bin/php maintenance/update.php --quick)
+        (cd "$docroot/core" && /usr/bin/php maintenance/update.php --quick)
     fi
 }
+
+# If called with the migrate arg just run the DB migration function
+if [ "$1" == "migrate" ]; then
+    migrate_db
+    exit
+fi
 
 nubis_project=$(nubis-metadata NUBIS_PROJECT)
 nubis_env=$(nubis-metadata NUBIS_ENVIRONMENT)
@@ -30,5 +36,6 @@ if [ -z "$mediawiki_secret" ]; then
     consulate kv set "$kv_prefix/SecretKey" "$mediawiki_secret"
 fi
 
-# Get a exclusive lock from consul so we only run this script once
-consul lock "$CONSUL_PREFIX/syncdb" migrate_db()
+# Get a exclusive lock from consul so we only run this script once, migrate the db by re-entering this script specifically only to do the migration work (this funny invocation is so we don't run the function multiple times)
+consul lock "$CONSUL_PREFIX/syncdb" $0 "migrate"
+
