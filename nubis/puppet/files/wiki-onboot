@@ -1,39 +1,44 @@
 #!/bin/bash
 # Generate random secrets for Mediawiki if they don't already exist
 
+log="/var/log/wiki-maintenance.log"
+nubis_project=$(nubis-metadata NUBIS_PROJECT)
+nubis_env=$(nubis-metadata NUBIS_ENVIRONMENT)
+kv_prefix="$nubis_project-$nubis_env/config"
+docroot="/var/www/$nubis_project"
+
 function migrate_db() {
     # Run DB migratation once per mediawiki version
+    echo "Checking if DB needs migrating..." | tee -a $log
 
     # Check mediawiki version
     version=$(egrep '$\$wgVersion\s*=\s*' DefaultSettings.php | cut -d\' -f2)
     
     oldversion=$(consulate kv get "$kv_prefix/wgVersion")
     if [ -z "$oldversion" -o "$version" != "$oldversion" ]; then
+        echo "New version of MediaWiki detected, performing migration" | tee -a $log
 
         # Update/set the version in consul so we don't waste time migrating again for this version of mediawiki
         consulate kv set "$kv_prefix/wgVersion" "$version"
 
         # Migrate the DB
         (cd "$docroot/core" && /usr/bin/php maintenance/update.php --quick)
+        echo "Migration done" | tee -a $log
     fi
 }
 
 # If called with the migrate arg just run the DB migration function
 if [ "$1" == "migrate" ]; then
+    # Generate a new mediawiki secret only if one does not exist
+    mediawiki_secret=$(consulate kv get "$kv_prefix/SecretKey")
+    if [ -z "$mediawiki_secret" ]; then
+        echo "Secret key for MediaWiki not found in Consul, generating a new one"
+        mediawiki_secret=$(openssl rand -base64 14)
+        consulate kv set "$kv_prefix/SecretKey" "$mediawiki_secret"
+    fi
+
     migrate_db
     exit
-fi
-
-nubis_project=$(nubis-metadata NUBIS_PROJECT)
-nubis_env=$(nubis-metadata NUBIS_ENVIRONMENT)
-kv_prefix="$nubis_project-$nubis_env/config"
-docroot="/var/www/$nubis_project"
-
-# Generate a new mediawiki secret only if one does not exist
-mediawiki_secret=$(consulate kv get "$kv_prefix/SecretKey")
-if [ -z "$mediawiki_secret" ]; then
-    mediawiki_secret=$(openssl rand -base64 14)
-    consulate kv set "$kv_prefix/SecretKey" "$mediawiki_secret"
 fi
 
 # Get a exclusive lock from consul so we only run this script once, migrate the db by re-entering this script specifically only to do the migration work (this funny invocation is so we don't run the function multiple times)
