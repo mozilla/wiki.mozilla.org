@@ -125,6 +125,7 @@ apache::vhost { $project_name:
                          '%{REQUEST_URI} !^/error/(40(1|3|4)|500).html',
                          '%{REQUEST_URI} !^/favicon.ico',
                          '%{REQUEST_URI} !^/robots.txt'],
+                         '%{REQUEST_URI} !^/contribute.json'],
         rewrite_rule => ["^/(.*)\$ /var/www/wiki/core/index.php"],
       },
     ],
