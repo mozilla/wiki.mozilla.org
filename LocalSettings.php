@@ -510,9 +510,9 @@ $wgCaptchaTriggers['create']        = false;
 $wgCaptchaTriggers['addurl']        = false;
 $wgCaptchaTriggers['createaccount'] = true;
 $wgCaptchaTriggers['badlogin']      = true;
-$wgCaptchaClass = 'ReCaptcha';
-$wgReCaptchaPublicKey = $SECRETS_wgReCaptchaPublicKey;
-$wgReCaptchaPrivateKey = $SECRETS_wgReCaptchaPrivateKey;
+$wgCaptchaClass = 'ReCaptchaNoCaptcha';
+$wgReCaptchaSiteKey = $SECRETS_wgReCaptchaPublicKey;
+$wgReCaptchaSecretKey = $SECRETS_wgReCaptchaPrivateKey;
 
 # bug 832030
 require_once("$IP/extensions/googleAnalytics/googleAnalytics.php");
