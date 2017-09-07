@@ -54,56 +54,6 @@ apache::vhost { $project_name:
     ],
 
 #    rewrites           => [
-#      {
-#        #    RewriteRule ^/ECMA(/.*|$) https://intranet.mozilla.org/ECMA$1 [R=permanent,L]
-#        comment      => 'This is for the ECMAScript 4 working group bug 324452',
-#        rewrite_rule => ['^/ECMA(/.*|$) https://intranet.mozilla.org/ECMA$1 [R=permanent,L]'],
-#      },
-#      {
-#        #    RewriteRule ^/Mozilla2\.0([/\?].*|$) /wiki/Mozilla2:Home_Page? [R,L]
-#        comment      => 'Old Wiki that has been moved into the public wiki',
-#        rewrite_rule => ['^/Mozilla2\.0([/\?].*|$) /wiki/Mozilla2:Home_Page? [R,L]'],
-#      },
-#      {
-#        #    RewriteRule ^/GeckoDev([/\?].*|$) /wiki/GeckoDev:Home_Page? [R,L]
-#        comment      => 'Old Wiki that has been moved into the public wiki',
-#        rewrite_rule => ['^/GeckoDev([/\?].*|$) /wiki/GeckoDev:Home_Page? [R,L]'],
-#      },
-#      {
-#        #    RewriteRule ^/XULDev([/\?].*|$) /wiki/XUL:Home_Page? [R,L]
-#        comment      => 'Old Wiki that has been moved into the public wiki',
-#        rewrite_rule => ['^/XULDev([/\?].*|$) /wiki/XUL:Home_Page? [R,L]'],
-#      },
-#      {
-#        #    RewriteRule ^/Calendar([/\?].*|$) /wiki/Calendar:Home_Page? [R,L]
-#        comment      => 'Old Wiki that has been moved into the public wiki',
-#        rewrite_rule => ['^/Calendar([/\?].*|$) /wiki/Calendar:Home_Page? [R,L]'],
-#      },
-#      {
-#        #    RewriteRule ^/SVG([/\?].*|$) /wiki/SVG:Home_Page? [R,L]
-#        comment      => 'Old Wiki that has been moved into the public wiki',
-#        rewrite_rule => ['^/SVG([/\?].*|$) /wiki/SVG:Home_Page? [R,L]'],
-#      },
-#      {
-#        #    RewriteRule ^/SVGDev([/\?].*|$) /wiki/SVGDev:Home_Page? [R,L]
-#        comment      => 'Old Wiki that has been moved into the public wiki',
-#        rewrite_rule => ['^/SVGDev([/\?].*|$) /wiki/SVGDev:Home_Page? [R,L]'],
-#      },
-#      {
-#        #    RewriteRule ^/mozwiki https://wiki.mozilla.org/ [R,L]
-#        comment      => 'Old Wiki that has been moved into the public wiki',
-#        rewrite_rule => ['^/mozwiki https://wiki.mozilla.org/ [R,L]'],
-#      },
-#      {
-#        #    RewriteRule ^/wiki/(.*)$ https://wiki.mozilla.org/$1 [R,L]
-#        comment      => 'Redirect old /wiki/ urls',
-#        rewrite_rule => ['^/wiki/(.*)$ https://wiki.mozilla.org/$1 [R,L]'],
-#      },
-#      {
-#        #    RewriteRule ^/wiki$ https://wiki.mozilla.org/index.php [R,L]
-#        comment      => 'Redirect old /wiki/ urls',
-#        rewrite_rule => ['^/wiki$ https://wiki.mozilla.org/index.php [R,L]'],
-#      },
 #    ],
 
 
@@ -117,6 +67,56 @@ apache::vhost { $project_name:
         #    RewriteRule ^/PluginFutures(/.*|$) https://intranet.mozilla.org/PluginFutures$1 [R=permanent,L]
         comment      => 'Rewrite the old UseMod URLs to the new MediaWiki ones',
         rewrite_rule => ['^/PluginFutures(/.*|$) https://intranet.mozilla.org/PluginFutures$1 [R=permanent,L]'],
+      },
+      {
+        #    RewriteRule ^/ECMA(/.*|$) https://intranet.mozilla.org/ECMA$1 [R=permanent,L]
+        comment      => 'This is for the ECMAScript 4 working group bug 324452',
+        rewrite_rule => ['^/ECMA(/.*|$) https://intranet.mozilla.org/ECMA$1 [R=permanent,L]'],
+      },
+      {
+        #    RewriteRule ^/Mozilla2\.0([/\?].*|$) /wiki/Mozilla2:Home_Page? [R,L]
+        comment      => 'Old Wiki that has been moved into the public wiki',
+        rewrite_rule => ['^/Mozilla2\.0([/\?].*|$) /wiki/Mozilla2:Home_Page? [R,L]'],
+      },
+      {
+        #    RewriteRule ^/GeckoDev([/\?].*|$) /wiki/GeckoDev:Home_Page? [R,L]
+        comment      => 'Old Wiki that has been moved into the public wiki',
+        rewrite_rule => ['^/GeckoDev([/\?].*|$) /wiki/GeckoDev:Home_Page? [R,L]'],
+      },
+      {
+        #    RewriteRule ^/XULDev([/\?].*|$) /wiki/XUL:Home_Page? [R,L]
+        comment      => 'Old Wiki that has been moved into the public wiki',
+        rewrite_rule => ['^/XULDev([/\?].*|$) /wiki/XUL:Home_Page? [R,L]'],
+      },
+      {
+        #    RewriteRule ^/Calendar([/\?].*|$) /wiki/Calendar:Home_Page? [R,L]
+        comment      => 'Old Wiki that has been moved into the public wiki',
+        rewrite_rule => ['^/Calendar([/\?].*|$) /wiki/Calendar:Home_Page? [R,L]'],
+      },
+      {
+        #    RewriteRule ^/SVG([/\?].*|$) /wiki/SVG:Home_Page? [R,L]
+        comment      => 'Old Wiki that has been moved into the public wiki',
+        rewrite_rule => ['^/SVG([/\?].*|$) /wiki/SVG:Home_Page? [R,L]'],
+      },
+      {
+        #    RewriteRule ^/SVGDev([/\?].*|$) /wiki/SVGDev:Home_Page? [R,L]
+        comment      => 'Old Wiki that has been moved into the public wiki',
+        rewrite_rule => ['^/SVGDev([/\?].*|$) /wiki/SVGDev:Home_Page? [R,L]'],
+      },
+      {
+        #    RewriteRule ^/mozwiki https://wiki.mozilla.org/ [R,L]
+        comment      => 'Old Wiki that has been moved into the public wiki',
+        rewrite_rule => ['^/mozwiki https://wiki.mozilla.org/ [R,L]'],
+      },
+      {
+        #    RewriteRule ^/wiki/(.*)$ https://wiki.mozilla.org/$1 [R,L]
+        comment      => 'Redirect old /wiki/ urls',
+        rewrite_rule => ['^/wiki/(.*)$ https://wiki.mozilla.org/$1 [R,L]'],
+      },
+      {
+        #    RewriteRule ^/wiki$ https://wiki.mozilla.org/index.php [R,L]
+        comment      => 'Redirect old /wiki/ urls',
+        rewrite_rule => ['^/wiki$ https://wiki.mozilla.org/index.php [R,L]'],
       },
       {
         comment      => 'Rewrite http://wiki.domain.tld/article properly, this is the main rule. Do not rewrite requests for files in MediaWiki subdirectories, php files, error docs, favicon and robot.txt',
