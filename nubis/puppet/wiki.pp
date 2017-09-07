@@ -82,6 +82,11 @@ file { "/var/www/${project_name}/core/composer.local.json":
     target => "/var/www/${project_name}/composer.json",
 }
 
+file { "/var/www/${project_name}/core/contribute.json":
+    ensure => 'link',
+    target => "/var/www/${project_name}/contribute.json",
+}
+
 file { "/var/www/${project_name}/vendor":
     ensure => 'link',
     target => "/var/www/${project_name}/core/vendor",
