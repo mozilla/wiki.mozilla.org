@@ -24,6 +24,10 @@ function migrate_db() {
         # Migrate the DB
         (cd "$docroot/core" && /usr/bin/php maintenance/update.php --quick)
         echo "Migration done" | tee -a $log
+        exit 0
+    else
+        echo "Same version of MediaWiki detected, no migration necessary"
+        exit 0
     fi
 }
 
