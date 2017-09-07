@@ -55,16 +55,6 @@ apache::vhost { $project_name:
 
 #    rewrites           => [
 #      {
-#        #    RewriteRule ^/AdminWiki(/.*|$) https://intranet.mozilla.org/%{QUERY_STRING} [R=permanent,L]
-#        comment      => 'Rewrite the old UseMod URLs to the new MediaWiki ones',
-#        rewrite_rule => ['^/AdminWiki(/.*|$) https://intranet.mozilla.org/%{QUERY_STRING} [R=permanent,L]'],
-#      },
-#      {
-#        #    RewriteRule ^/PluginFutures(/.*|$) https://intranet.mozilla.org/PluginFutures$1 [R=permanent,L]
-#        comment      => 'Rewrite the old UseMod URLs to the new MediaWiki ones',
-#        rewrite_rule => ['^/PluginFutures(/.*|$) https://intranet.mozilla.org/PluginFutures$1 [R=permanent,L]'],
-#      },
-#      {
 #        #    RewriteRule ^/ECMA(/.*|$) https://intranet.mozilla.org/ECMA$1 [R=permanent,L]
 #        comment      => 'This is for the ECMAScript 4 working group bug 324452',
 #        rewrite_rule => ['^/ECMA(/.*|$) https://intranet.mozilla.org/ECMA$1 [R=permanent,L]'],
@@ -118,6 +108,16 @@ apache::vhost { $project_name:
 
 
     rewrites           => [
+      {
+        #    RewriteRule ^/AdminWiki(/.*|$) https://intranet.mozilla.org/%{QUERY_STRING} [R=permanent,L]
+        comment      => 'Rewrite the old UseMod URLs to the new MediaWiki ones',
+        rewrite_rule => ['^/AdminWiki(/.*|$) https://intranet.mozilla.org/%{QUERY_STRING} [R=permanent,L]'],
+      },
+      {
+        #    RewriteRule ^/PluginFutures(/.*|$) https://intranet.mozilla.org/PluginFutures$1 [R=permanent,L]
+        comment      => 'Rewrite the old UseMod URLs to the new MediaWiki ones',
+        rewrite_rule => ['^/PluginFutures(/.*|$) https://intranet.mozilla.org/PluginFutures$1 [R=permanent,L]'],
+      },
       {
         comment      => 'Rewrite http://wiki.domain.tld/article properly, this is the main rule. Do not rewrite requests for files in MediaWiki subdirectories, php files, error docs, favicon and robot.txt',
         rewrite_cond => ['%{REQUEST_URI} !^/(assets|extensions|images|skins|resources)/',
