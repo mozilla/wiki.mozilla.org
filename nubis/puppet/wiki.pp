@@ -25,6 +25,10 @@ package { 'php5-gd':
   ensure => 'latest'
 }
 
+package { 'php-mail':
+  ensure => 'latest'
+}
+
 package { 'pandoc':
   ensure => 'latest'
 }
