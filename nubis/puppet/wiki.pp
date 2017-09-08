@@ -49,8 +49,8 @@ package { 'git':
   ensure => 'latest'
 }
 
-# Generate some random secrets for mediawiki on boot
-file { '/etc/nubis.d/wiki-secrets':
+# Generate some random secrets for mediawiki on boot and if necessary migrate the DB
+file { '/etc/nubis.d/wiki-onboot':
     ensure => file,
     owner  => root,
     group  => root,
