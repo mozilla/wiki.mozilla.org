@@ -12,9 +12,17 @@ function migrate_db() {
     echo "Checking if DB needs migrating..." | tee -a $log
 
     # Check mediawiki version
-    version=$(egrep '$\$wgVersion\s*=\s*' DefaultSettings.php | cut -d\' -f2)
+    version=$(egrep '^\$wgVersion\s*=\s*' DefaultSettings.php | cut -d\' -f2)
+    if [ "$version" == "" ]; then
+        echo "Error: could not find current wiki version, aborting"
+        exit 1
+    fi
     
     oldversion=$(consulate kv get "$kv_prefix/wgVersion")
+    if [ "$oldversion" == "" ]; then
+        echo "Warning: could not find old wiki version, continuing..."
+        exit 1
+    fi
     if [ -z "$oldversion" -o "$version" != "$oldversion" ]; then
         echo "New version of MediaWiki detected, performing migration" | tee -a $log
 
