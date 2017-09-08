@@ -79,7 +79,7 @@ $wgEnableUserEmail = true; # UPO
 
 $wgEmergencyContact = "infra-webops@mozilla.com";
 $wgPasswordSender = "wiki@mozilla.com";
-$wgAdditionalMailParams = "-f no-reply@mozilla.com"; #bug 891341
+$wgAdditionalMailParams = "-f noreply@mozilla.com"; #bug 891341, modified slightly to match already-approved SES domain
 
 $wgEnotifUserTalk = true; # UPO
 $wgEnotifWatchlist = true; # UPO
