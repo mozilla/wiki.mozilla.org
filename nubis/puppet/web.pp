@@ -44,19 +44,15 @@ apache::vhost { $project_name:
 
     aliases => [
         { alias            => '/images',
-            path             => "/var/www/${project_name}/images",
+            path             => "/var/www/${project_name}/images"
         },
         { alias            => '/assets',
-            path             => "/var/www/${project_name}/assets",
+            path             => "/var/www/${project_name}/assets"
         },
         { alias            => '/extensions',
-            path             => "/var/www/${project_name}/core/extensions",
-        },
+            path             => "/var/www/${project_name}/core/extensions"
+        }
     ],
-
-#    rewrites           => [
-#    ],
-
 
     rewrites           => [
       {
