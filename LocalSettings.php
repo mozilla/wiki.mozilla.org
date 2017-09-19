@@ -504,15 +504,15 @@ require_once("$IP/extensions/Smartsheet-MediaWiki-Extension/SmartsheetIframe.php
 
 wfLoadExtension( 'Nuke' );
 
-#wfLoadExtensions( [ 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ] );
-#$wgCaptchaTriggers['edit']          = false;
-#$wgCaptchaTriggers['create']        = false;
-#$wgCaptchaTriggers['addurl']        = false;
-#$wgCaptchaTriggers['createaccount'] = true;
-#$wgCaptchaTriggers['badlogin']      = true;
-#$wgCaptchaClass = 'ReCaptchaNoCaptcha';
-#$wgReCaptchaSiteKey = $SECRETS_wgReCaptchaPublicKey;
-#$wgReCaptchaSecretKey = $SECRETS_wgReCaptchaPrivateKey;
+wfLoadExtensions( [ 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ] );
+$wgCaptchaTriggers['edit']          = false;
+$wgCaptchaTriggers['create']        = false;
+$wgCaptchaTriggers['addurl']        = false;
+$wgCaptchaTriggers['createaccount'] = true;
+$wgCaptchaTriggers['badlogin']      = true;
+$wgCaptchaClass = 'ReCaptchaNoCaptcha';
+$wgReCaptchaSiteKey = $SECRETS_wgReCaptchaPublicKey;
+$wgReCaptchaSecretKey = $SECRETS_wgReCaptchaPrivateKey;
 
 # bug 832030
 require_once("$IP/extensions/googleAnalytics/googleAnalytics.php");
