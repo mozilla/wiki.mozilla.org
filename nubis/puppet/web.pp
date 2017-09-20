@@ -39,79 +39,70 @@ apache::vhost { $project_name:
       'set X-XSS-Protection "1; mode=block"',
       'set X-Frame-Options "DENY"',
       'set Strict-Transport-Security "max-age=31536000"',
-      'set Content-Security-Policy "default-src \'none\'; connect-src \'self\'; font-src \'self\' https://mozorg.cdn.mozilla.net; img-src \'self\' data:; script-src \'self\' \'unsafe-inline\'; style-src \'self\' \'unsafe-inline\'",
+      'set Content-Security-Policy "default-src \'none\'; connect-src \'self\'; font-src \'self\' https://mozorg.cdn.mozilla.net; img-src \'self\' data:; script-src \'self\' \'unsafe-inline\'; style-src \'self\' \'unsafe-inline\'"',
     ],
 
     aliases => [
-        { alias            => '/images',
-            path             => "/var/www/${project_name}/images"
+        {
+            alias => '/images',
+            path  => "/var/www/${project_name}/images",
         },
-        { alias            => '/assets',
-            path             => "/var/www/${project_name}/assets"
+        { 
+            alias => '/assets',
+            path  => "/var/www/${project_name}/assets",
         },
-        { alias            => '/extensions',
-            path             => "/var/www/${project_name}/core/extensions"
-        }
+        { 
+            alias => '/extensions',
+            path  => "/var/www/${project_name}/core/extensions",
+        },
     ],
 
     rewrites           => [
       {
-        #    RewriteRule ^/AdminWiki(/.*|$) https://intranet.mozilla.org/%{QUERY_STRING} [R=permanent,L]
         comment      => 'Rewrite the old UseMod URLs to the new MediaWiki ones',
         rewrite_rule => ['^/AdminWiki(/.*|$) https://intranet.mozilla.org/%{QUERY_STRING} [R=permanent,L]'],
       },
       {
-        #    RewriteRule ^/PluginFutures(/.*|$) https://intranet.mozilla.org/PluginFutures$1 [R=permanent,L]
         comment      => 'Rewrite the old UseMod URLs to the new MediaWiki ones',
         rewrite_rule => ['^/PluginFutures(/.*|$) https://intranet.mozilla.org/PluginFutures$1 [R=permanent,L]'],
       },
       {
-        #    RewriteRule ^/ECMA(/.*|$) https://intranet.mozilla.org/ECMA$1 [R=permanent,L]
         comment      => 'This is for the ECMAScript 4 working group bug 324452',
         rewrite_rule => ['^/ECMA(/.*|$) https://intranet.mozilla.org/ECMA$1 [R=permanent,L]'],
       },
       {
-        #    RewriteRule ^/Mozilla2\.0([/\?].*|$) /wiki/Mozilla2:Home_Page? [R,L]
         comment      => 'Old Wiki that has been moved into the public wiki',
         rewrite_rule => ['^/Mozilla2\.0([/\?].*|$) /wiki/Mozilla2:Home_Page? [R,L]'],
       },
       {
-        #    RewriteRule ^/GeckoDev([/\?].*|$) /wiki/GeckoDev:Home_Page? [R,L]
         comment      => 'Old Wiki that has been moved into the public wiki',
         rewrite_rule => ['^/GeckoDev([/\?].*|$) /wiki/GeckoDev:Home_Page? [R,L]'],
       },
       {
-        #    RewriteRule ^/XULDev([/\?].*|$) /wiki/XUL:Home_Page? [R,L]
         comment      => 'Old Wiki that has been moved into the public wiki',
         rewrite_rule => ['^/XULDev([/\?].*|$) /wiki/XUL:Home_Page? [R,L]'],
       },
       {
-        #    RewriteRule ^/Calendar([/\?].*|$) /wiki/Calendar:Home_Page? [R,L]
         comment      => 'Old Wiki that has been moved into the public wiki',
         rewrite_rule => ['^/Calendar([/\?].*|$) /wiki/Calendar:Home_Page? [R,L]'],
       },
       {
-        #    RewriteRule ^/SVG([/\?].*|$) /wiki/SVG:Home_Page? [R,L]
         comment      => 'Old Wiki that has been moved into the public wiki',
         rewrite_rule => ['^/SVG([/\?].*|$) /wiki/SVG:Home_Page? [R,L]'],
       },
       {
-        #    RewriteRule ^/SVGDev([/\?].*|$) /wiki/SVGDev:Home_Page? [R,L]
         comment      => 'Old Wiki that has been moved into the public wiki',
         rewrite_rule => ['^/SVGDev([/\?].*|$) /wiki/SVGDev:Home_Page? [R,L]'],
       },
       {
-        #    RewriteRule ^/mozwiki https://wiki.mozilla.org/ [R,L]
         comment      => 'Old Wiki that has been moved into the public wiki',
         rewrite_rule => ['^/mozwiki https://wiki.mozilla.org/ [R,L]'],
       },
       {
-        #    RewriteRule ^/wiki/(.*)$ https://wiki.mozilla.org/$1 [R,L]
         comment      => 'Redirect old /wiki/ urls',
         rewrite_rule => ['^/wiki/(.*)$ https://wiki.mozilla.org/$1 [R,L]'],
       },
       {
-        #    RewriteRule ^/wiki$ https://wiki.mozilla.org/index.php [R,L]
         comment      => 'Redirect old /wiki/ urls',
         rewrite_rule => ['^/wiki$ https://wiki.mozilla.org/index.php [R,L]'],
       },
