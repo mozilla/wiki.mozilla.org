@@ -43,7 +43,7 @@ function migrate_db() {
 if [ "$1" == "migrate" ]; then
     # Generate a new mediawiki secret only if one does not exist
     mediawiki_secret=$(consulate kv get "$kv_prefix/SecretKey")
-    if [ -z "$mediawiki_secret" ]; then
+    if [ "$mediawiki_secret" == "None" -o -z "$mediawiki_secret" ]; then
         echo "Secret key for MediaWiki not found in Consul, generating a new one"
         mediawiki_secret=$(openssl rand -base64 14)
         consulate kv set "$kv_prefix/SecretKey" "$mediawiki_secret"
