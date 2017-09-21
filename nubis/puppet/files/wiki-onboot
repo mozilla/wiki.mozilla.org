@@ -12,7 +12,7 @@ function migrate_db() {
     echo "Checking if DB needs migrating..." | tee -a $log
 
     # Check mediawiki version
-    version=$(egrep '^\$wgVersion\s*=\s*' DefaultSettings.php | cut -d\' -f2)
+    version=$(egrep '^\$wgVersion\s*=\s*' $docroot/core/includes/DefaultSettings.php | cut -d\' -f2)
     if [ "$version" == "" ]; then
         echo "Error: could not find current wiki version, aborting"
         exit 1
