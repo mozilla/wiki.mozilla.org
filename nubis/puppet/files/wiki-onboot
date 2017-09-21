@@ -18,7 +18,7 @@ function migrate_db() {
         exit 1
     fi
     
-    oldversion=$(consulate kv get "$kv_prefix/wgVersion")
+    oldversion=$(consul kv get "$kv_prefix/wgVersion")
     if [ "$oldversion" == "" ]; then
         echo "Warning: could not find old wiki version, continuing..."
         exit 1
@@ -27,7 +27,7 @@ function migrate_db() {
         echo "New version of MediaWiki detected, performing migration" | tee -a $log
 
         # Update/set the version in consul so we don't waste time migrating again for this version of mediawiki
-        consulate kv set "$kv_prefix/wgVersion" "$version"
+        consul kv put "$kv_prefix/wgVersion" "$version"
 
         # Migrate the DB
         (cd "$docroot/core" && /usr/bin/php maintenance/update.php --quick)
@@ -42,11 +42,11 @@ function migrate_db() {
 # If called with the migrate arg just check for a SecretKey and run the DB migration function
 if [ "$1" == "migrate" ]; then
     # Generate a new mediawiki secret only if one does not exist
-    mediawiki_secret=$(consulate kv get "$kv_prefix/SecretKey")
+    mediawiki_secret=$(consul kv get "$kv_prefix/SecretKey")
     if [ "$mediawiki_secret" == "None" -o -z "$mediawiki_secret" ]; then
         echo "Secret key for MediaWiki not found in Consul, generating a new one"
         mediawiki_secret=$(openssl rand -base64 21)
-        consulate kv set "$kv_prefix/SecretKey" "$mediawiki_secret"
+        consul kv put "$kv_prefix/SecretKey" "$mediawiki_secret"
     else
         echo "Secret key for MediaWiki already found in Consul"
     fi
