@@ -39,7 +39,6 @@ apache::vhost { $project_name:
       'set X-XSS-Protection "1; mode=block"',
       'set X-Frame-Options "DENY"',
       'set Strict-Transport-Security "max-age=31536000"',
-      'set Content-Security-Policy "default-src \'none\'; connect-src \'self\'; font-src \'self\' https://mozorg.cdn.mozilla.net; frame-src https://www.google.com; img-src \'self\' data:; script-src \'self\' \'unsafe-inline\' https://www.google.com/recaptcha/api.js https://www.gstatic.com/recaptcha/; style-src \'self\' \'unsafe-inline\'"',
     ],
 
     aliases => [
