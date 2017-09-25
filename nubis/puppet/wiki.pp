@@ -66,6 +66,14 @@ file { '/var/tmp/wikimo-cache':
     mode   => '0750',
 }
 
+# Log
+file { '/var/log/wiki.log':
+    ensure => file,
+    owner  => www-data,
+    group  => www-data,
+    mode   => '0750',
+}
+
 # Set permissions for Widgets compiled templates (XXX: Could it be precompiled somehow?)
 file { "/var/www/${project_name}/core/extensions/Widgets/compiled_templates":
     ensure  => directory,
