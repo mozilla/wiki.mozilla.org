@@ -12,7 +12,7 @@ module "worker" {
   nubis_sudo_groups = "${var.nubis_sudo_groups}"
   nubis_user_groups = "${var.nubis_user_groups}"
   instance_type     = "t2.small"
-  health_check_type = "EC2"     # EC2 or ELB
+  health_check_type = "ELB"     # EC2 or ELB
 }
 
 module "load_balancer" {
