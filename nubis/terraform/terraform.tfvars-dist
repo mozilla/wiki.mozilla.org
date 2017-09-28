@@ -1,0 +1,10 @@
+account = "<some account name>"
+region  = "<some aws region name>"
+environment = "<stage/prod>"
+service_name = "<username>-skel"
+
+ssh_key_name = "<username>-ssh-key-foo"
+ssh_key_file = "/home/<username>/.ssh/foo.pub"
+
+nubis_sudo_groups = "<ldap sudo group>"
+nubis_user_groups = "<ldap user group>"

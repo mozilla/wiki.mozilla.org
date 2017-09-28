@@ -1,0 +1,33 @@
+From cefc7f9444e40a6085ff22f07b6c8a0738caa772 Mon Sep 17 00:00:00 2001
+From: "Mark A. Hershberger" <mah@everybody.org>
+Date: Thu, 11 May 2017 10:52:42 -0400
+Subject: [PATCH 2/7] Avoid warnings by not adding points if there are none to
+ add
+
+---
+ BugzillaOutput.class.php | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/BugzillaOutput.class.php b/BugzillaOutput.class.php
+index dfb2dce..c7fe721 100644
+--- a/BugzillaOutput.class.php
++++ b/BugzillaOutput.class.php
+@@ -198,9 +198,13 @@ class BugzillaPieGraph extends BugzillaGraph {
+         $startY = ( isset($startY) ) ? $startY : $radius;
+ 
+         $pData = new pData();
+-        $pData->addPoints($this->query->data['data'], 'Counts');
++        if ( !empty( $this->query->data['data'] ) ) {
++            $pData->addPoints($this->query->data['data'], 'Counts');
++        }
+         $pData->setAxisName(0, 'Bugs');
+-        $pData->addPoints($this->query->data['x_labels'], "Bugs");
++        if ( !empty( $this->query->data['x_labels'] ) ) {
++            $pData->addPoints($this->query->data['x_labels'], "Bugs");
++        }
+         $pData->setSerieDescription("Bugs", "Bugs");
+         $pData->setAbscissa("Bugs");
+ 
+-- 
+2.13.0
+

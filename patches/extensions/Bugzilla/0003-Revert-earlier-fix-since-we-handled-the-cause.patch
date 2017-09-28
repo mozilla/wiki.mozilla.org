@@ -1,0 +1,24 @@
+From 6ed3511a668c9e4342b5d5ca5a2f539f44bf2f44 Mon Sep 17 00:00:00 2001
+From: "Mark A. Hershberger" <mah@everybody.org>
+Date: Thu, 11 May 2017 10:54:01 -0400
+Subject: [PATCH 3/7] Revert earlier fix since we handled the cause
+
+---
+ templates/error.tpl | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/templates/error.tpl b/templates/error.tpl
+index ffde693..2e89d15 100644
+--- a/templates/error.tpl
++++ b/templates/error.tpl
+@@ -2,6 +2,6 @@
+ <div class="bugzilla errorbox">
+     <h2>Bugzilla query error</h2>
+     <p>
+-        <?php echo implode(", ", $error); ?>
++        <?php echo $error; ?>
+     </p>
+ </div>
+-- 
+2.13.0
+
