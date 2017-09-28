@@ -1,0 +1,29 @@
+From 9ba9eca4d99c95d60d92e00a33748361e3a9c6b3 Mon Sep 17 00:00:00 2001
+From: "Mark A. Hershberger" <mah@nichework.com>
+Date: Sun, 25 Jun 2017 01:50:43 -0400
+Subject: [PATCH] Pay attention to CAPTCHA failures
+
+The CAPTCHA is shown, but without this hook it is ignored.
+
+Bug: T168783
+Change-Id: Id9518664f85b2c718591c15662a9978bae01efd0
+---
+ frontend/ConfirmAccountUI.setup.php | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/frontend/ConfirmAccountUI.setup.php b/frontend/ConfirmAccountUI.setup.php
+index 5924fca..ce454c4 100644
+--- a/frontend/ConfirmAccountUI.setup.php
++++ b/frontend/ConfirmAccountUI.setup.php
+@@ -20,7 +20,8 @@ class ConfirmAccountUISetup {
+ 		$hooks['AdminLinks'][] = 'ConfirmAccountUIHooks::confirmAccountAdminLinks';
+ 		# Pre-fill/lock the form if its for an approval
+ 		$hooks['AuthChangeFormFields'][] = 'ConfirmAccountUIHooks::onAuthChangeFormFields';
++		# Let the CAPTCHA block an account request.
++		$hooks['AbortNewAccount'][] = 'ConfirmEditHooks::confirmUserCreate';
+ 	}
+ 
+ 	/**
+-- 
+2.11.0
+

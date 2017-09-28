@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo ''
+echo '#################################################################' 
+echo '###                                                           ###' 
+echo '###               Welcome to the nubis project                ###' 
+echo '###     Find us on GitHub https://github.com/Nubisproject     ###' 
+echo '###        Reach out on irc.mozilla.org in #nubis-users       ###' 
+echo '###    Shoot us a message nubis-users[at]googlegroups.com     ###' 
+echo '###                                                           ###' 
+echo '#################################################################' 

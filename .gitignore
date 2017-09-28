@@ -15,3 +15,21 @@ secrets.php
 # these assest are not in version control
 images
 php_sessions
+
+# emacs
+\#.*#
+*~
+.tramp_history# Do not track secrets
+nubis/cloudformation/parameters*
+!nubis/cloudformation/parameters.json-dist
+nubis/librarian-puppet.tar.gz
+nubis/librarian-puppet
+nubis/Puppetfile.lock
+nubis/.tmp
+nubis/.librarian
+nubis/builder/artifacts/*-dev*
+nubis/terraform/terraform.tfstate*
+nubis/terraform/.terraform
+nubis/terraform/terraform.tfvars
+nubis/builder/artifacts/*-dev/
+nubis/builder/artifacts/AMIs.json

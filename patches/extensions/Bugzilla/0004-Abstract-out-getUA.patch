@@ -1,0 +1,100 @@
+From 144fad46fd46101bb67f2ff50acd1329e578a833 Mon Sep 17 00:00:00 2001
+From: "Mark A. Hershberger" <mah@everybody.org>
+Date: Thu, 11 May 2017 11:16:47 -0400
+Subject: [PATCH 4/7] Abstract out getUA()
+
+Also make the possibly-not-wanted-options changeable.
+---
+ Bugzilla.php            |  1 +
+ BugzillaQuery.class.php | 37 ++++++++++++++++---------------------
+ 2 files changed, 17 insertions(+), 21 deletions(-)
+
+diff --git a/Bugzilla.php b/Bugzilla.php
+index 2e761f9..f081693 100755
+--- a/Bugzilla.php
++++ b/Bugzilla.php
+@@ -19,6 +19,7 @@
+  */
+ 
+ $wgBugzillaExtVersion = '1.0.0';
++$wgBugzillaQueryDefaults = [ 'ssl_verify_peer' => false ];
+ 
+ $wgExtensionCredits['other'][] = array(
+     'name'        => 'Bugzilla',
+diff --git a/BugzillaQuery.class.php b/BugzillaQuery.class.php
+index 8207041..ded57a8 100644
+--- a/BugzillaQuery.class.php
++++ b/BugzillaQuery.class.php
+@@ -110,6 +110,16 @@ abstract class BugzillaBaseQuery {
+         return $options;
+     }
+ 
++
++	protected function getUA( $method, $url, $caller = __METHOD__ ) {
++		global $wgBugzillaQueryDefaults;
++		return MWHttpRequest::factory( $url,
++									   array_merge( $wgBugzillaQueryDefaults, [
++										   'method' => $method,
++										   'follow_redirects' => true,
++									   ] ), $caller );
++	}
++
+     // Connect and fetch the data
+     public function fetch() {
+ 
+@@ -240,14 +250,8 @@ class BugzillaRESTQuery extends BugzillaBaseQuery {
+     public function _fetch_by_options() {
+ 
+         // Add the requested query options to the request
+-        $ua = MWHttpRequest::factory( $this->url . '?'
+-                                           . http_build_query( $this->options ),
+-                                           [
+-                                               'method' => 'GET',
+-                                               'follow_redirects' => true,
+-                                               // TODO: Not sure if I should do this
+-                                               'ssl_verify_peer' => false
+-                                           ], __METHOD__ );
++        $ua = $this->getUA( 'GET', $this->url . '?' . http_build_query( $this->options ),
++							__METHOD__ );
+ 
+         // The REST API requires these
+         $ua->setHeader('Accept', 'application/json');
+@@ -313,18 +317,14 @@ class BugzillaJSONRPCQuery extends BugzillaBaseQuery {
+         $query = json_encode($params, true);
+         $url = $this->url."?method=$method&params=[".urlencode($query)."]";
+ 
+-        $req = MWHttpRequest::factory($url, array(
+-                    'sslVerifyHost' => false,
+-                    'sslVerifyCert' => false
+-                  )
+-              );
+-        $status = $req->execute();
++        $ua = $this->getUA( 'GET', $url, __METHOD__ );
++        $status = $ua->execute();
+ 
+         if(!$status->isOK()) {
+             $this->error = $res->getMessage();
+             return false;
+         } else {
+-            $this->rawData = $req->getContent();
++            $this->rawData = $ua->getContent();
+             $params = json_decode($this->rawData, true);
+             $this->data = $params['result'];
+             return true;
+@@ -369,12 +369,7 @@ class BugzillaXMLRPCQuery extends BugzillaBaseQuery {
+ </methodCall>
+ X;
+ 
+-        $ua = MWHttpRequest::factory( $this->url, [
+-            'method' => 'POST',
+-            'follow_redirects' => true,
+-            // TODO: Not sure if I should do this
+-            'ssl_verify_peer' => false
+-        ], __METHOD__ );
++        $ua = $this->getUA( 'POST', $this->url, __METHOD__ );
+ 
+         $ua->setHeader('Accept', 'text/xml');
+         $ua->setHeader('Content-Type', 'text/xml;charset=utf-8');
+-- 
+2.13.0
+

@@ -1,0 +1,33 @@
+From c8bf0ee9f871caed49a2f34593263b13f5cd36c9 Mon Sep 17 00:00:00 2001
+From: "Mark A. Hershberger" <mah@everybody.org>
+Date: Thu, 11 May 2017 11:16:47 -0400
+Subject: [PATCH 7/7] Abstract out getUA()
+
+Also make the possibly-not-wanted-options changeable.
+---
+ BugzillaQuery.class.php | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/BugzillaQuery.class.php b/BugzillaQuery.class.php
+index 64f9863..c0df7bc 100644
+--- a/BugzillaQuery.class.php
++++ b/BugzillaQuery.class.php
+@@ -101,6 +101,15 @@ abstract class BugzillaBaseQuery {
+         return $options;
+     }
+ 
++	protected function getUA( $method, $url, $caller = __METHOD__ ) {
++		global $wgBugzillaQueryDefaults;
++		return MWHttpRequest::factory( $url,
++									   array_merge( $wgBugzillaQueryDefaults, [
++										   'method' => $method,
++										   'follow_redirects' => true,
++									   ] ), $caller );
++	}
++
+     /**
+      * Wrap around sub-classes actual fetch action, with caching.
+      * Uses MediaWiki main cache strategy.
+-- 
+2.13.0
+
