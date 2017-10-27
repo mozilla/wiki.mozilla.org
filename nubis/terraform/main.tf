@@ -11,9 +11,9 @@ module "worker" {
   ssh_key_name      = "${var.ssh_key_name}"
   nubis_sudo_groups = "${var.nubis_sudo_groups}"
   nubis_user_groups = "${var.nubis_user_groups}"
-  instance_type     = "t2.small"
+  instance_type     = "m3.medium"
   health_check_type = "ELB"     # EC2 or ELB
-  min_instances		= 3 
+  min_instances	    = 3
   
 }
 
@@ -23,7 +23,6 @@ module "load_balancer" {
   environment  = "${var.environment}"
   account      = "${var.account}"
   service_name = "${var.service_name}"
-  #health_check_target = "TCP:80"
   health_check_target = "HTTP:80/?redirect=0"
   ssl_cert_name_prefix = "${var.service_name}"
 }
@@ -46,6 +45,8 @@ module "database" {
   service_name           = "${var.service_name}"
   client_security_groups = "${module.worker.security_group}"
   allocated_storage      = 20
+  multi_az               = true
+  instance_class         = "db.t2.medium"
 }
 
 module "cache" {
