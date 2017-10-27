@@ -681,9 +681,6 @@ $wgImportFromEtherpadSettings->nsRegexs[] = array('wiki\.etherpad\.mozilla\.org'
 
 @$wgGraphVizSettings->defaultImageType = 'svg';
 
-# Set proxy for curl and fopen_url, used by bugzilla integration extension
-$wgHTTPProxy = 'proxy.service.consul:3128';
-
 # speed up a little and avoid some cli perm errors
 # $wgLocalisationCacheConf['manualRecache'] = true;
 // EOF
