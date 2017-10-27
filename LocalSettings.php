@@ -70,7 +70,7 @@ $wgUploadPath = "{$wgScriptPath}/images";
 $wgLogo = "$wgStylePath/common/logos/$SECRETS_wgLogo";
 
 # The relative URL path to the favicon
-$wgFavicon = "$wgStylePath/common/assets/favicon.ico";
+$wgFavicon = "$wgStylePath/common/favicon.ico";
 
 ## UPO means: this is also a user preference option
 
@@ -642,7 +642,7 @@ require_once("$IP/extensions/Widgets/Widgets.php");
 wfLoadExtension( 'MobileFrontend' );
 
 $wgMFAutodetectMobileView = true;
-$wgMobileFrontendLogo = "$wgStylePath/../assets/logos/$SECRETS_wgMobileFrontendLogo";
+$wgMobileFrontendLogo = "$wgStylePath/../logos/$SECRETS_wgMobileFrontendLogo";
 $wgMobileUrlTemplate = 'm.%h0.%h1.%h2';
 
 // must disable jquery table on legacy mediawiki-bugzilla extension for mobile editing to work
@@ -680,6 +680,9 @@ $wgImportFromEtherpadSettings->pathRegexs[] = array('(\w+)\s+(\d+)\s+(\d+)\s+(\d
 $wgImportFromEtherpadSettings->nsRegexs[] = array('wiki\.etherpad\.mozilla\.org','4');
 
 @$wgGraphVizSettings->defaultImageType = 'svg';
+
+# Set proxy for curl and fopen_url, used by bugzilla integration extension
+$wgHTTPProxy = 'proxy.service.consul:3128';
 
 # speed up a little and avoid some cli perm errors
 # $wgLocalisationCacheConf['manualRecache'] = true;
