@@ -25,6 +25,7 @@ module "load_balancer" {
   service_name = "${var.service_name}"
   health_check_target = "HTTP:80/?redirect=0"
   ssl_cert_name_prefix = "${var.service_name}"
+  health_check_timeout = 5
 }
 
 module "dns" {
