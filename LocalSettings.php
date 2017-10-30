@@ -498,7 +498,7 @@ wfLoadExtension( 'InputBox' );
 
 # Bug 721366 and 731672
 require_once("$IP/extensions/Bugzilla/Bugzilla.php");
-# Cache bugzilla data for 1 minute
+# Cache bugzilla data for 5 minutes
 $wgBugzillaCacheTimeOut = 5;
 
 # Bug 772192 & 838391
