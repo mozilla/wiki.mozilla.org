@@ -14,7 +14,9 @@ module "worker" {
   instance_type     = "m3.medium"
   health_check_type = "ELB"     # EC2 or ELB
   min_instances	    = 3
-  
+
+  # CPU utilisation based autoscaling (with good defaults)
+  scale_load_defaults = true
 }
 
 module "load_balancer" {
