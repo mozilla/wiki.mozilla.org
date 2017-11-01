@@ -144,3 +144,17 @@ exec { 'composer':
       Class['apache::mod::php'],
     ],
 }
+
+# Hot/Monkey Patch MWDebug.php to not spew errors
+file { '/tmp/MWDebug.php.patch':
+    ensure => file,
+    owner  => root,
+    group  => root,
+    mode   => '0755',
+    source => 'puppet:///nubis/files/MWDebug.php.patch',
+}
+exec { 'composer':
+    command     => 'patch MWDebug.php /tmp/MWDebug.php.patch',
+    cwd         => "/var/www/${project_name}/core/includes/debug",
+}
+
