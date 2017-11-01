@@ -152,9 +152,11 @@ file { '/tmp/MWDebug.php.patch':
     group  => root,
     mode   => '0755',
     source => 'puppet:///nubis/files/MWDebug.php.patch',
+    target => '/tmp/MWDebug.php.patch',
 }
 exec { 'debug_patch':
     command     => '/usr/bin/patch MWDebug.php /tmp/MWDebug.php.patch',
     cwd         => "/var/www/${project_name}/core/includes/debug",
+    require => File['/tmp/MWDebug.php.patch'],
 }
 
