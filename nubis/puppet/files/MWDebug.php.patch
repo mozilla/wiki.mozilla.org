@@ -1,21 +1,18 @@
---- MWDebug.php.fixed	2017-11-01 10:17:51.000000000 -0500
-+++ core/includes/debug/MWDebug.php	2017-11-01 10:04:36.000000000 -0500
-@@ -407,13 +407,11 @@
+diff --git a/includes/debug/MWDebug.php b/includes/debug/MWDebug.php
+index 13d25a86b4..1b3f5d1d87 100644
+--- a/includes/debug/MWDebug.php
++++ b/includes/debug/MWDebug.php
+@@ -407,11 +407,13 @@ class MWDebug {
  		$files = get_included_files();
  		$fileList = [];
  		foreach ( $files as $file ) {
--			if ( file_exists($file) ) {
--				$size = filesize( $file );
--				$fileList[] = [
--					'name' => $file,
--					'size' => $context->getLanguage()->formatSize( $size ),
--					];
--			}
-+			$size = filesize( $file );
-+			$fileList[] = [
-+				'name' => $file,
-+				'size' => $context->getLanguage()->formatSize( $size ),
-+			];
++            if ( file_exists($file) ) {
+ 			$size = filesize( $file );
+ 			$fileList[] = [
+ 				'name' => $file,
+ 				'size' => $context->getLanguage()->formatSize( $size ),
+ 			];
++            }
  		}
  
  		return $fileList;
