@@ -153,7 +153,7 @@ file { '/tmp/MWDebug.php.patch':
     mode   => '0755',
     source => 'puppet:///nubis/files/MWDebug.php.patch',
 }
-exec { 'composer':
+exec { 'debug_patch':
     command     => 'patch MWDebug.php /tmp/MWDebug.php.patch',
     cwd         => "/var/www/${project_name}/core/includes/debug",
 }
