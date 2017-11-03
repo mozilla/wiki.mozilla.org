@@ -49,6 +49,11 @@ package { 'git':
   ensure => 'latest'
 }
 
+# For backups to S3
+package { 'awscli':
+  ensure => 'latest'
+}
+
 # Generate some random secrets for mediawiki on boot and if necessary migrate the DB
 file { '/etc/nubis.d/wiki-onboot':
     ensure => file,
