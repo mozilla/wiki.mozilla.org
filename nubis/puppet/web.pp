@@ -27,6 +27,9 @@ apache::vhost { $project_name:
     custom_fragment    => "
         # Don't set default expiry on anything
         ExpiresActive Off
+
+	# Compress custom types
+	AddOutputFilterByType DEFLATE text/javascript
     ",
     headers            => [
       # Nubis headers
