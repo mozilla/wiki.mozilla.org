@@ -1,0 +1,10 @@
+forge "https://forgeapi.puppetlabs.com"
+
+####################### NOTE #############################
+# All modules *must* be pinned to a specific version/tag #
+##########################################################
+
+#  Needs to be removed once Nubis v2.1.0 is out
+mod 'nubis/nubis_apache',
+    :git => 'https://github.com/nubisproject/nubis-puppet-apache.git',
+    :ref => 'v0.1.13'
