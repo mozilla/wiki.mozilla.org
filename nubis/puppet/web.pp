@@ -28,7 +28,8 @@ apache::vhost { $project_name:
         # Don't set default expiry on anything
         ExpiresActive Off
 
-	# Compress custom types
+	# Compress custom deflate types
+	Include /etc/apache2/mods-enabled/deflate.conf
 	AddOutputFilterByType DEFLATE text/javascript
     ",
     headers            => [
