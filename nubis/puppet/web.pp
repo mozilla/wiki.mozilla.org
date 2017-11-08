@@ -2,6 +2,7 @@ class { 'nubis_apache':
     # Changing the Apache mpm is necessary for the Apache PHP module
     mpm_module_type => 'prefork',
     check_url       => '/?redirect=0',
+    port            => 81,
 }
 
 # Add modules
@@ -11,7 +12,7 @@ class { 'apache::mod::proxy_http': }
 class { 'apache::mod::php': }
 
 apache::vhost { $project_name:
-    port               => 80,
+    port               => 81,
     default_vhost      => true,
     docroot            => "/var/www/${project_name}/core",
     docroot_owner      => 'root',
@@ -27,6 +28,9 @@ apache::vhost { $project_name:
     custom_fragment    => "
         # Don't set default expiry on anything
         ExpiresActive Off
+
+        # Detect private IP addresses
+        SetEnvIfExpr \"-R '10.0.0.0/8' || -R '172.16.0.0/12' || -R '192.168.0.0/16'\" rfc1918
 
 	# Compress custom deflate types
 	Include /etc/apache2/mods-enabled/deflate.conf
@@ -45,16 +49,16 @@ apache::vhost { $project_name:
       'set Strict-Transport-Security "max-age=31536000"',
     ],
 
-    aliases => [
+    aliases            => [
         {
             alias => '/images',
             path  => "/var/www/${project_name}/images",
         },
-        { 
+        {
             alias => '/assets',
             path  => "/var/www/${project_name}/assets",
         },
-        { 
+        {
             alias => '/extensions',
             path  => "/var/www/${project_name}/core/extensions",
         },

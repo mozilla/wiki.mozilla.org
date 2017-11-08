@@ -159,8 +159,8 @@ file { '/tmp/MWDebug.php.patch':
     source => 'puppet:///nubis/files/MWDebug.php.patch',
 }
 exec { 'debug_patch':
-    command     => '/usr/bin/patch MWDebug.php /tmp/MWDebug.php.patch',
-    cwd         => "/var/www/${project_name}/core/includes/debug",
+    command => '/usr/bin/patch MWDebug.php /tmp/MWDebug.php.patch',
+    cwd     => "/var/www/${project_name}/core/includes/debug",
     require => File['/tmp/MWDebug.php.patch'],
 }
 

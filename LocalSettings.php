@@ -529,8 +529,9 @@ $wgMimeDetectorCommand= "file -bi"; #use external mime detector (Linux)
 
 # This should be initilized as an array if you need it:
 #+ $wgSquidServers = array('192.168.1.1', '192.168.1.2');
+
+$wgUseSquid = true;
 if (!empty($SECRETS_wgSquidServers)) {
-    $wgUseSquid = true;
     $wgSquidServers = $SECRETS_wgSquidServers;
 }
 
