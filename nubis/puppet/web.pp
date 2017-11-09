@@ -21,13 +21,15 @@ apache::vhost { $project_name:
     setenvif           => [
       'X-Forwarded-Proto https HTTPS=on',
       'Remote_Addr 127\.0\.0\.1 internal',
-      'Remote_Addr ^10\. internal',
     ],
     access_log_env_var => '!internal',
     access_log_format  => '%a %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\"',
     custom_fragment    => "
-        # Detect private IP addresses
-        SetEnvIfExpr \"-R '10.0.0.0/8' || -R '172.16.0.0/12' || -R '192.168.0.0/16'\" rfc1918
+        # Use modification time and size for etags
+        FileETag MTime Size
+
+	# Detect private IP addresses
+        SetEnvIfExpr \"-R '10.0.0.0/8' || -R '172.16.0.0/12' || -R '192.168.0.0/16'\" internal
 
 	# Compress custom deflate types
 	Include /etc/apache2/mods-enabled/deflate.conf
