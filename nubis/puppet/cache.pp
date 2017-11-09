@@ -14,6 +14,7 @@ class {'varnish':
 }
 
 class {'varnish::ncsa':
+  log_format => '%{VCL_Log:RealIP}x %u %t "%r" %s %b "%{Referer}i" "%{User-agent}i"',
 }
 
 class { 'varnish::vcl':
