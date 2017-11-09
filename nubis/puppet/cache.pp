@@ -18,7 +18,10 @@ class {'varnish::ncsa':
 
 class { 'varnish::vcl':
   backends               => {}, # without this line you will not be able to redefine backend 'default'
-  cookiekeeps            => [ 'wiki[^=]*' ],
+  cookiekeeps            => [
+    'wiki_session',
+    'wikiUserID',
+  ],
   logrealip              => true,
   honor_backend_ttl      => true,
   cond_requests          => true,
@@ -28,6 +31,11 @@ class { 'varnish::vcl':
   purgeips               => [ '127.0.0.1' ],
   unset_headers          => [],
   unset_headers_debugips => [],
+  cond_unset_cookies     => '
+    # Static file cache
+    req.url ~ "(?i)\.(jpg|jpeg|gif|png|tiff|tif|svg|swf|ico|css|kss|js|vsd|doc|ppt|pps|xls|pdf|mp3|mp4|m4a|ogg|mov|avi|wmv|sxw|zip|gz|bz2|tar|rar|odc|odb|odf|odg|odi|odp|ods|odt|sxc|sxd|sxi|sxw|dmg|torrent|deb|msi|iso|rpm|jar|class|flv|exe)($|\?)" ||
+    req.url ~ "^(?i)/load.php"
+',
 }
 
 varnish::probe {  'mediawiki_version':
