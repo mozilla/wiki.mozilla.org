@@ -26,9 +26,6 @@ apache::vhost { $project_name:
     access_log_env_var => '!internal',
     access_log_format  => '%a %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\"',
     custom_fragment    => "
-        # Don't set default expiry on anything
-        ExpiresActive Off
-
         # Detect private IP addresses
         SetEnvIfExpr \"-R '10.0.0.0/8' || -R '172.16.0.0/12' || -R '192.168.0.0/16'\" rfc1918
 
