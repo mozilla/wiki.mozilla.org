@@ -33,8 +33,8 @@ class { 'varnish::vcl':
   unset_headers_debugips => [],
   cond_unset_cookies     => '
     # Static file cache
-    req.url ~ "(?i)\.(jpg|jpeg|gif|png|tiff|tif|svg|swf|ico|css|kss|js|vsd|doc|ppt|pps|xls|pdf|mp3|mp4|m4a|ogg|mov|avi|wmv|sxw|zip|gz|bz2|tar|rar|odc|odb|odf|odg|odi|odp|ods|odt|sxc|sxd|sxi|sxw|dmg|torrent|deb|msi|iso|rpm|jar|class|flv|exe)(\?.*)?$" ||
-    req.url ~ "(?i)^/load.php(\?.*)?$"
+    req.url ~ "^/(assets|extensions|images|skins|resources)/" ||
+    req.url ~ "^/load.php(\?.*)?$"
 ',
 }
 
