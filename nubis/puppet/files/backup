@@ -1,4 +1,7 @@
 #!/bin/bash -l
+
+export PATH=/usr/local/bin:$PATH
+
 NUBIS_ENVIRONMENT=$(nubis-metadata NUBIS_ENVIRONMENT)
 NUBIS_PROJECT=$(nubis-metadata NUBIS_PROJECT)
 
