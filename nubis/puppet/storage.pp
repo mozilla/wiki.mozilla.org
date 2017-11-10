@@ -17,7 +17,7 @@ file { "/usr/local/bin/${project_name}-backup":
 cron::daily { "${project_name}-backup":
   command => "/usr/local/bin/${project_name}-backup /data/$project_name",
   # Pick a time between 0-5 hour
-  hour => fqdn_rand(6)
+  hour => fqdn_rand(6),
   # Pick a random minute
   minute => fqdn_rand(60),
 }
