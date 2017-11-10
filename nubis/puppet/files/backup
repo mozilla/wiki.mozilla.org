@@ -1,0 +1,17 @@
+#!/bin/bash -l
+NUBIS_ENVIRONMENT=$(nubis-metadata NUBIS_ENVIRONMENT)
+NUBIS_PROJECT=$(nubis-metadata NUBIS_PROJECT)
+
+KV_PREFIX="$NUBIS_PROJECT-$NUBIS_ENVIRONMENT/$NUBIS_ENVIRONMENT/config"
+
+BACKUP_REGION=$(consulate kv get "$KV_PREFIX/Bucket/Backup/Region")
+BACKUP_BUCKET=$(consulate kv get "$KV_PREFIX/Bucket/Backup/Name")
+
+DATA="$1"
+
+aws --region "$BACKUP_REGION" s3 sync \
+  --no-guess-mime-type \
+  --exclude=sessions/ \
+  --exclude=php_sessions/ \
+  --delete \
+  "$DATA" "s3://$BACKUP_BUCKET"
