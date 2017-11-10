@@ -1,0 +1,11 @@
+{{ $env := plugin "nubis-metadata" "NUBIS_ENVIRONMENT" -}}
+{{ $project := plugin "nubis-metadata" "NUBIS_PROJECT" -}}
+
+# Webservers for {{ $project }} in {{ $env }}
+acl purge {
+  "127.0.0.1";
+{{- range service ( print $env "." $project) }}
+  "{{.Address }}";
+{{- end}}
+}
+

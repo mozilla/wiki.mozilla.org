@@ -531,8 +531,11 @@ $wgMimeDetectorCommand= "file -bi"; #use external mime detector (Linux)
 #+ $wgSquidServers = array('192.168.1.1', '192.168.1.2');
 
 $wgUseSquid = true;
-if (!empty($SECRETS_wgSquidServers)) {
-    $wgSquidServers = $SECRETS_wgSquidServers;
+
+# Find our peers
+if ( file_exists("/etc/nubis-config/peers.php")) {
+    include_once("/etc/nubis-config/peers.php");
+    $wgSquidServers = $wgServers;
 }
 
 #survive reboots

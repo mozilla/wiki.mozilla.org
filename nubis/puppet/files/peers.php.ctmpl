@@ -1,0 +1,9 @@
+<?php
+{{ $env := plugin "nubis-metadata" "NUBIS_ENVIRONMENT" -}}
+{{ $project := plugin "nubis-metadata" "NUBIS_PROJECT" -}}
+# Webservers for {{ $project }} in {{ $env }}
+
+$wgServers = array();
+{{range service ( print $env "." $project) -}}
+$wgServers[] = "{{.Address}}";
+{{end}}
