@@ -50,6 +50,7 @@ module "database" {
   allocated_storage      = 20
   multi_az               = true
   instance_class         = "db.t2.medium"
+  nubis_sudo_groups      = "${var.nubis_sudo_groups},team_dbeng"
 }
 
 module "cache" {
