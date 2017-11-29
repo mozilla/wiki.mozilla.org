@@ -15,8 +15,9 @@ module "worker" {
   health_check_type = "ELB"     # EC2 or ELB
   min_instances	    = 3
 
-  # CPU utilisation based autoscaling (with good defaults)
-  scale_load_defaults = true
+  # CPU utilisation based autoscaling
+  scale_down_load = 30
+  scale_up_load   = 60
 }
 
 module "load_balancer" {
