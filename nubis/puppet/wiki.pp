@@ -88,6 +88,14 @@ file { "/var/www/${project_name}/core/extensions/Widgets/compiled_templates":
     require => Exec['mv_extensions'],
 }
 
+# Add robots.txt to document root
+file { "/var/www/${project_name}/core/robots.txt":
+  ensure => file,
+  owner  => www-data,
+  group  => www-data,
+  source => "puppet:///nubis/files/robots.txt",
+}
+
 # Link files that aren't in the core repo to where they need to be
 file { "/var/www/${project_name}/core/LocalSettings.php":
     ensure => 'link',
