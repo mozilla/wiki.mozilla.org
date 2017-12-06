@@ -50,7 +50,7 @@ module "database" {
   client_security_groups = "${module.worker.security_group}"
   allocated_storage      = 20
   multi_az               = true
-  instance_class         = "db.t2.medium"
+  instance_class         = "db.r3.large"
   nubis_sudo_groups      = "${var.nubis_sudo_groups},team_dbeng"
 }
 
