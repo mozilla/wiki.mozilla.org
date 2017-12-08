@@ -63,7 +63,7 @@ staging::file { "varnish_exporter.${varnish_exporter_version}.tar.gz":
 include nubis_discovery
 
 nubis::discovery::service { 'varnish':
-  tcp      => 80,
+  tcp      => 'localhost:6082',
   interval => '15s',
 }
 
