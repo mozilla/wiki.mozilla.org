@@ -33,10 +33,6 @@ package { 'pandoc':
   ensure => 'latest'
 }
 
-package { 'memcached':
-  ensure => 'latest'
-}
-
 package { 'librsvg2-bin':
   ensure => 'latest'
 }
