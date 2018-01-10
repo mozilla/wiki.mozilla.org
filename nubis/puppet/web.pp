@@ -33,7 +33,6 @@ apache::vhost { $project_name:
 
 	# Compress custom deflate types
 	Include /etc/apache2/mods-enabled/deflate.conf
-	Include /etc/apache2/mods-enabled/newrelic.conf
 	AddOutputFilterByType DEFLATE text/javascript
     ",
     headers            => [
