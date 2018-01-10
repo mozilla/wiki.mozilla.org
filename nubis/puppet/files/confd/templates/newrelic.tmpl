@@ -1,0 +1,4 @@
+<IfModule mod_php5.c>
+  php_flag newrelic.appname = '{{ getv "/config/newrelic/app_name" }}'
+  php_flag newrelic.license = '{{ getv "/config/newrelic/license_key" }}'
+</IfModule>
