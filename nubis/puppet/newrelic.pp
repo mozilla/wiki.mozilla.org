@@ -1,3 +1,5 @@
+include apt
+
 apt::source { 'newrelic':
   comment  => 'This is the New Relic package repository',
   location => 'http://apt.newrelic.com/debian/',
