@@ -16,6 +16,7 @@ apt::source { 'newrelic':
 package { 'newrelic-php5':
   ensure  => 'installed',
   require => Apt::Source['newrelic'],
+  require => Exec['apt_update'],
 }
 
 exec { 'newrelic-install':
