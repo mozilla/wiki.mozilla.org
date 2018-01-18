@@ -1,4 +1,9 @@
-<IfModule mod_php5.c>
-  php_flag newrelic.appname = '{{ getv "/config/newrelic/app_name" }}'
-  php_flag newrelic.license = '{{ getv "/config/newrelic/license_key" }}'
-</IfModule>
+extension = 'newrelic.so'
+
+[newrelic]
+
+newrelic.license = '{{ getv "/config/newrelic/license_key" }}'
+newrelic.logfile = '/var/log/newrelic/php_agent.log'
+newrelic.appname = '{{ getv "/config/newrelic/app_name" }}'
+newrelic.daemon.logfile = '/var/log/newrelic/newrelic-daemon.log'
+newrelic.daemon.proxy = 'proxy.service.consul:3128'
