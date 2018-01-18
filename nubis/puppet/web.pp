@@ -113,6 +113,50 @@ apache::vhost { $project_name:
         rewrite_rule => ['^/wiki$ https://wiki.mozilla.org/index.php [R,L]'],
       },
       {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/InfoSec$ https://infosec.mozilla.org [R,L]'],
+      },
+      {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/Guidelines/$ https://infosec.mozilla.org/guidelines/ [R,L]'],
+      },
+      {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/Guidelines/OpenSSH$ https://infosec.mozilla.org/guidelines/openssh [R,L]'],
+      },
+      {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/Guidelines/Key_Management$ https://infosec.mozilla.org/guidelines/key_management [R,L]'],
+      },
+      {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/Guidelines/Kubernetes$ https://infosec.mozilla.org/guidelines/kubernetes [R,L]'],
+      },
+      {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/Guidelines/OpenID_Connect$ https://infosec.mozilla.org/guidelines/openid_connect [R,L]'],
+      },
+      {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/Guidelines/SAML$ https://infosec.mozilla.org/guidelines/saml [R,L]'],
+      },
+      {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/Guidelines/Web_Security$ https://infosec.mozilla.org/guidelines/web_security [R,L]'],
+      },
+      {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/Fundamentals/$ https://infosec.mozilla.org/fundamentals/ [R,L]'],
+      },
+      {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/Fundamentals/Security_Principles$ https://infosec.mozilla.org/fundamentals/security_principles.html [R,L]'],
+      },
+      {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/Fundamentals/Rationales$ https://infosec.mozilla.org/fundamentals/rationales.html [R,L]'],
+      },
+      {
         comment      => 'Rewrite http://wiki.domain.tld/article properly, this is the main rule. Do not rewrite requests for files in MediaWiki subdirectories, php files, error docs, favicon and robot.txt',
         rewrite_cond => ['%{REQUEST_URI} !^/(assets|extensions|images|skins|resources)/',
                          '%{REQUEST_URI} !^/(redirect|index|opensearch_desc|api|load|thumb).php',
