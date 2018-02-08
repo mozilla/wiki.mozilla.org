@@ -169,6 +169,10 @@ apache::vhost { $project_name:
         rewrite_rule => ['^/Security/Risk_management/Rapid_Risk_Assessment$ https://infosec.mozilla.org/guidelines/risk/rapid_risk_assessment [R,L]'],
       },
       {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/Risk_management$ https://infosec.mozilla.org/guidelines/assessing_security_risk [R,L]'],
+      },
+      {
         comment      => 'Rewrite http://wiki.domain.tld/article properly, this is the main rule. Do not rewrite requests for files in MediaWiki subdirectories, php files, error docs, favicon and robot.txt',
         rewrite_cond => ['%{REQUEST_URI} !^/(assets|extensions|images|skins|resources)/',
                          '%{REQUEST_URI} !^/(redirect|index|opensearch_desc|api|load|thumb).php',
