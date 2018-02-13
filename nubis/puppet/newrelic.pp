@@ -13,16 +13,9 @@ apt::source { 'newrelic':
   },
 }
 
-exec { 'newrelic_apt_update':
-  command => 'apt-get update',
-  cwd     => '/tmp',
-  path    => ['/usr/bin'],
-  require => Apt::Source['newrelic'],
-}
-
 package { 'newrelic-php5':
   ensure  => 'installed',
-  require => Exec['newrelic_apt_update'],
+  require => Apt::Source['newrelic'],
 }
 
 exec { 'newrelic-install':
@@ -31,3 +24,5 @@ exec { 'newrelic-install':
   environment => ['NR_INSTALL_SILENT=true'],
   require     => Package['newrelic-php5'],
 }
+
+Apt::Source['newrelic'] -> Class['apt::update'] -> Package['newrelic-php5']

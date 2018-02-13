@@ -1,11 +1,11 @@
 # Install mysql client libraries
 include mysql::client
 
-package { 'php5-mysql':
+package { 'php-mysql':
   ensure => 'latest'
 }
 
-package { 'php5-xcache':
+package { 'php-mbstring':
   ensure => 'latest'
 }
 
@@ -13,15 +13,15 @@ package { 'graphviz':
   ensure => 'latest'
 }
 
-package { 'php5-memcache':
+package { 'php-memcache':
   ensure => 'latest'
 }
 
-package { 'php5-intl':
+package { 'php-intl':
   ensure => 'latest'
 }
 
-package { 'php5-gd':
+package { 'php-gd':
   ensure => 'latest'
 }
 
@@ -133,7 +133,8 @@ file { "/var/www/${project_name}/php_sessions":
     ensure => 'link',
     target => "/data/${project_name}/php_sessions",
 }
-file { "/var/www/${project_name}/extensions/Bugzilla/charts":
+
+file { "/var/www/${project_name}/core/extensions/Bugzilla/charts":
     ensure => 'link',
     target => "/data/${project_name}/Bugzilla_charts",
 }

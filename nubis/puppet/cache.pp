@@ -1,7 +1,7 @@
 class { 'apt':
 }
 
-$varnish_exporter_version = '1.3.4'
+$varnish_exporter_version = '1.4'
 $varnish_exporter_url = "https://github.com/jonnenauha/prometheus_varnish_exporter/releases/download/${varnish_exporter_version}/prometheus_varnish_exporter-${varnish_exporter_version}.linux-amd64.tar.gz"
 
 Exec['apt_update'] -> Package['varnish']
@@ -14,7 +14,8 @@ class {'varnish':
 }
 
 class {'varnish::ncsa':
-  log_format => '%{VCL_Log:RealIP}x %u %t "%r" %s %b "%{Referer}i" "%{User-agent}i"',
+  log_format => '%{X-Forwarded-For}i %l %u %t "%r" %s %b "%{Referer}i" "%{User-agent}i"',
+  varnishncsa_daemon_opts => '-w /var/log/varnish/ncsa.log',
 }
 
 class { 'varnish::vcl':
@@ -67,15 +68,24 @@ nubis::discovery::service { 'varnish':
   interval => '15s',
 }
 
-upstart::job { 'varnish_exporter':
-    description    => 'Prometheus Varnish Exporter',
-    service_ensure => 'stopped',
-    service_enable => true,
-    # Never give up
-    respawn        => true,
-    respawn_limit  => 'unlimited',
-    start_on       => '(local-filesystems and net-device-up IFACE!=lo)',
-    user           => 'root',
-    group          => 'root',
-    exec           => '/usr/local/bin/prometheus_varnish_exporter',
+systemd::unit_file { 'varnish_exporter.service':
+  content => @("EOT")
+[Unit]
+Description=Prometheus Varnish Exporter
+Wants=basic.target
+After=basic.target network.target varnish.service
+
+[Service]
+Restart=on-failure
+RestartSec=10s
+
+ExecStart=/usr/local/bin/prometheus_varnish_exporter
+
+[Install]
+WantedBy=multi-user.target
+
+EOT
+} ~> service { 'varnish_exporter':
+  ensure => 'stopped',
+  enable => true,
 }
