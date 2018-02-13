@@ -4,18 +4,6 @@ forge "https://forgeapi.puppetlabs.com"
 # All modules *must* be pinned to a specific version/tag #
 ##########################################################
 
-#  Needs to be removed once Nubis v2.1.0 is out
-mod 'nubis/nubis_apache',
-    :git => 'https://github.com/nubisproject/nubis-puppet-apache.git',
-    :ref => 'v0.1.13'
-
-# Dependents
-mod 'srf/fluentd',
-    :git => 'https://github.com/gozer/puppet-fluentd.git',
-    :ref => 'fd03d5e921971b2a324d30c92d514c0ee08a3377'
-
-mod 'puppetlabs/apt', '2.0.1'
-
 mod 'maxchk/varnish',
-  :git => 'https://github.com/gozer/puppet-varnish.git',
-  :ref => 'issue/146/packagecloud'
+  :git => 'https://github.com/maxchk/puppet-varnish.git',
+  :ref => 'b998fbfb42207e5614ea0c6a4bf71423c59469b8'
