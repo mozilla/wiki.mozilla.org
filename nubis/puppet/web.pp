@@ -134,11 +134,11 @@ apache::vhost { $project_name:
       },
       {
         comment      => 'Redirect InfoSec urls',
-        rewrite_rule => ['^/Security/Guidelines/OpenID_Connect$ https://infosec.mozilla.org/guidelines/openid_connect [R,L]'],
+        rewrite_rule => ['^/Security/Guidelines/OpenID_Connect$ https://infosec.mozilla.org/guidelines/iam/openid_connect [R,L]'],
       },
       {
         comment      => 'Redirect InfoSec urls',
-        rewrite_rule => ['^/Security/Guidelines/SAML$ https://infosec.mozilla.org/guidelines/saml [R,L]'],
+        rewrite_rule => ['^/Security/Guidelines/SAML$ https://infosec.mozilla.org/guidelines/iam/saml [R,L]'],
       },
       {
         comment      => 'Redirect InfoSec urls',
@@ -155,6 +155,22 @@ apache::vhost { $project_name:
       {
         comment      => 'Redirect InfoSec urls',
         rewrite_rule => ['^/Security/Fundamentals/Rationales$ https://infosec.mozilla.org/fundamentals/rationales.html [R,L]'],
+      },
+      {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/Standard_Levels$ https://infosec.mozilla.org/guidelines/risk/standard_levels [R,L]'],
+      },
+      {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/Scoring_and_other_levels$ https://infosec.mozilla.org/guidelines/risk/scoring_and_other_levels [R,L]'],
+      },
+      {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/Risk_management/Rapid_Risk_Assessment$ https://infosec.mozilla.org/guidelines/risk/rapid_risk_assessment [R,L]'],
+      },
+      {
+        comment      => 'Redirect InfoSec urls',
+        rewrite_rule => ['^/Security/Risk_management$ https://infosec.mozilla.org/guidelines/assessing_security_risk [R,L]'],
       },
       {
         comment      => 'Rewrite http://wiki.domain.tld/article properly, this is the main rule. Do not rewrite requests for files in MediaWiki subdirectories, php files, error docs, favicon and robot.txt',
