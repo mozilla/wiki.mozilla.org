@@ -22,7 +22,7 @@ module "worker" {
   nubis_user_groups = "${var.nubis_user_groups}"
   instance_type     = "m3.medium"
   health_check_type = "ELB"     # EC2 or ELB
-  min_instances	    = 3
+  min_instances	    = "${var.environment == "prod" ? 5 : 3}"
 
   # CPU utilisation based autoscaling
   scale_down_load = 30
