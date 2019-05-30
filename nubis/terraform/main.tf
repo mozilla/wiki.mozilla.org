@@ -16,8 +16,8 @@ module "worker" {
   nubis_sudo_groups = "${var.nubis_sudo_groups}"
   nubis_user_groups = "${var.nubis_user_groups}"
   instance_type     = "m3.medium"
-  health_check_type = "ELB"     # EC2 or ELB
-  min_instances	    = "${var.environment == "prod" ? 5 : 3}"
+  health_check_type = "ELB"                                                        # EC2 or ELB
+  min_instances     = "${var.environment == "prod" ? 5 : 3}"
 
   # CPU utilisation based autoscaling
   scale_down_load = 30
@@ -25,12 +25,12 @@ module "worker" {
 }
 
 module "load_balancer" {
-  source       = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v2.3.0"
-  region       = "${var.region}"
-  environment  = "${var.environment}"
-  account      = "${var.account}"
-  service_name = "${var.service_name}"
-  health_check_target = "HTTP:80/?redirect=0"
+  source               = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v2.3.0"
+  region               = "${var.region}"
+  environment          = "${var.environment}"
+  account              = "${var.account}"
+  service_name         = "${var.service_name}"
+  health_check_target  = "HTTP:80/?redirect=0"
   ssl_cert_name_prefix = "${var.service_name}"
   health_check_timeout = 5
 }
