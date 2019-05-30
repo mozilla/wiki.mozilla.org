@@ -12,45 +12,17 @@
 	path = extensions/ConfirmAccount
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ConfirmAccount.git
 	branch = REL1_27
-[submodule "extensions/ConfirmEdit"]
-	path = extensions/ConfirmEdit
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ConfirmEdit.git
-	branch = REL1_27
-[submodule "extensions/Gadgets"]
-	path = extensions/Gadgets
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Gadgets.git
-	branch = REL1_27
 [submodule "extensions/googleAnalytics"]
 	path = extensions/googleAnalytics
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/googleAnalytics.git
 	branch = REL1_27
-[submodule "extensions/ImageMap"]
-	path = extensions/ImageMap
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ImageMap.git
-	branch = REL1_27
-[submodule "extensions/Interwiki"]
-	path = extensions/Interwiki
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Interwiki.git
-	branch = REL1_25
 [submodule "extensions/LabeledSectionTransclusion"]
 	path = extensions/LabeledSectionTransclusion
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/LabeledSectionTransclusion.git
 	branch = REL1_27
-[submodule "extensions/Nuke"]
-	path = extensions/Nuke
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Nuke.git
-	branch = REL1_27
 [submodule "extensions/OggHandler"]
 	path = extensions/OggHandler
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/OggHandler.git
-	branch = REL1_27
-[submodule "extensions/ParserFunctions"]
-	path = extensions/ParserFunctions
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ParserFunctions.git
-	branch = REL1_27
-[submodule "extensions/Renameuser"]
-	path = extensions/Renameuser
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Renameuser.git
 	branch = REL1_27
 [submodule "extensions/RSS"]
 	path = extensions/RSS
@@ -68,10 +40,6 @@
 	path = extensions/Smartsheet-MediaWiki-Extension
 	url = https://github.com/bensternthal/Smartsheet-MediaWiki-Extension.git
 	branch = master
-[submodule "extensions/SpamBlacklist"]
-	path = extensions/SpamBlacklist
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SpamBlacklist.git
-	branch = REL1_27
 [submodule "extensions/SyntaxHighlight"]
 	path = extensions/SyntaxHighlight
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SyntaxHighlight_GeSHi.git
@@ -79,10 +47,6 @@
 [submodule "extensions/UrlGetParameters"]
 	path = extensions/UrlGetParameters
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UrlGetParameters.git
-	branch = REL1_27
-[submodule "extensions/WikiEditor"]
-	path = extensions/WikiEditor
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/WikiEditor.git
 	branch = REL1_27
 [submodule "extensions/NoTitle"]
 	path = extensions/NoTitle
@@ -98,10 +62,6 @@
 [submodule "extensions/MobileFrontend"]
 	path = extensions/MobileFrontend
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MobileFrontend.git
-	branch = REL1_27
-[submodule "extensions/InputBox"]
-	path = extensions/InputBox
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/InputBox.git
 	branch = REL1_27
 [submodule "skins/Vector"]
 	path = skins/Vector
