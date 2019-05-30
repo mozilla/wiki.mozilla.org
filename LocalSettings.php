@@ -562,7 +562,7 @@ $wgAutoConfirmCount = 10;   // and have ten edits
 
 $wgRCMaxAge = 31536000; // one year
 
-require_once("$IP/extensions/RSS/RSS.php");
+wfLoadExtension( 'RSS' );
 $wgRSSUrlWhitelist = array( 'http://benjamin.smedbergs.us/weekly-updates.fcgi/project/firefox/feed',
                             'http://blog.wikimedia.org/feed/',
                             'https://blog.mozilla.org/feed/',
