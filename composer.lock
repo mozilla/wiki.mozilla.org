@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b1c8a74a4ddd0ae8db640f976a1e4a3",
+    "content-hash": "e33b83a2044fc46f9d22c9aecf5222f5",
     "packages": [
         {
             "name": "composer/installers",
@@ -1649,50 +1649,6 @@
             "description": "Constant Database (CDB) wrapper library for PHP. Provides pure-PHP fallback when dba_* functions are absent.",
             "homepage": "https://www.mediawiki.org/wiki/CDB",
             "time": "2016-05-29T07:39:26+00:00"
-        },
-        {
-            "name": "wikimedia/object-factory",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wikimedia/ObjectFactory.git",
-                "reference": "7a4ed8c5b09dbe553c773ac2ec5f687838217f45"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wikimedia/ObjectFactory/zipball/7a4ed8c5b09dbe553c773ac2ec5f687838217f45",
-                "reference": "7a4ed8c5b09dbe553c773ac2ec5f687838217f45",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "jakub-onderka/php-console-highlighter": "0.3.2",
-                "jakub-onderka/php-parallel-lint": "0.9.2",
-                "mediawiki/mediawiki-codesniffer": "15.0.0",
-                "mediawiki/minus-x": "0.2.1",
-                "phpunit/phpunit": "4.8.36"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Wikimedia\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Bryan Davis",
-                    "email": "bdavis@wikimedia.org"
-                }
-            ],
-            "description": "Construct objects from configuration instructions",
-            "homepage": "https://www.mediawiki.org/wiki/ObjectFactory",
-            "time": "2018-01-25T23:57:37+00:00"
         },
         {
             "name": "wikimedia/textcat",
