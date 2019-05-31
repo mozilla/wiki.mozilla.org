@@ -442,7 +442,7 @@ $wgSpamBlacklistFiles = array(
         "DB: $wgDBname Spam_blacklist",
 );
 
-wfLoadExtension( 'SyntaxHighlight' );
+wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 
 wfLoadExtension( 'WikiEditor' );
 # Enables use of WikiEditor by default but still allow users to disable it in preferences

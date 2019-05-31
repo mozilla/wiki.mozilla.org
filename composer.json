@@ -29,7 +29,6 @@
   "extra": {
     "merge-plugin": {
       "include": [
-        "extensions/SyntaxHighlight/composer.json",
         "extensions/Widgets/composer.json"
       ]
     }
