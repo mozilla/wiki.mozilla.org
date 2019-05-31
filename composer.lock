@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ced485c7ced111ba98be4ea581025cfb",
+    "content-hash": "e33b83a2044fc46f9d22c9aecf5222f5",
     "packages": [
         {
             "name": "composer/installers",
@@ -485,11 +485,11 @@
         },
         {
             "name": "mediawiki/image-map",
-            "version": "1.32.1",
+            "version": "dev-REL1_31",
             "source": {
                 "type": "git",
                 "url": "https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ImageMap.git",
-                "reference": "02770ad7ec794c92566d658f14d2f10c3730a677"
+                "reference": "6ca1ad79b0afb0d7b80f4ffccd844cc557e22db9"
             },
             "require": {
                 "composer/installers": "1.*,>=1.0.1",
@@ -498,13 +498,13 @@
             "require-dev": {
                 "jakub-onderka/php-console-highlighter": "0.3.2",
                 "jakub-onderka/php-parallel-lint": "1.0.0",
-                "mediawiki/mediawiki-codesniffer": "22.0.0",
-                "mediawiki/mediawiki-phan-config": "0.3.0",
+                "mediawiki/mediawiki-codesniffer": "18.0.0",
+                "mediawiki/mediawiki-phan-config": "0.2.0",
                 "mediawiki/minus-x": "0.3.1"
             },
             "type": "mediawiki-extension",
             "extra": {
-                "phan-taint-check-plugin": "1.5.0"
+                "phan-taint-check-plugin": "1.2.0"
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -517,7 +517,7 @@
                 "mediawiki",
                 "wiki"
             ],
-            "time": "2018-10-16T18:29:57+00:00"
+            "time": "2018-05-05T04:39:21+00:00"
         },
         {
             "name": "mediawiki/open-layers",
@@ -1704,6 +1704,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "mediawiki/image-map": 20,
         "mediawiki/graph-viz": 20,
         "mediawiki/page-forms": 20,
         "mediawiki/open-layers": 20
