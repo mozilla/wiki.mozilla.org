@@ -36,10 +36,6 @@
 	path = extensions/Smartsheet-MediaWiki-Extension
 	url = https://github.com/bensternthal/Smartsheet-MediaWiki-Extension.git
 	branch = master
-[submodule "extensions/SyntaxHighlight"]
-	path = extensions/SyntaxHighlight
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/SyntaxHighlight_GeSHi.git
-	branch = master
 [submodule "extensions/UrlGetParameters"]
 	path = extensions/UrlGetParameters
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UrlGetParameters.git
