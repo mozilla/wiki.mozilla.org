@@ -17,6 +17,9 @@ apache::vhost { $project_name:
     docroot            => "/var/www/${project_name}/core",
     docroot_owner      => 'root',
     docroot_group      => 'root',
+    options            => [
+      '-Indexes',
+    ],
     block              => ['scm'],
     setenvif           => [
       'X-Forwarded-Proto https HTTPS=on',
