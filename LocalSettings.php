@@ -646,6 +646,8 @@ require_once("$IP/extensions/Widgets/Widgets.php");
 wfLoadExtension( 'MobileFrontend' );
 
 $wgMFAutodetectMobileView = true;
+$wgMFDefaultSkinClass = 'SkinVector';
+
 $wgMobileFrontendLogo = "$wgStylePath/../logos/$SECRETS_wgMobileFrontendLogo";
 $wgMobileUrlTemplate = 'm.%h0.%h1.%h2';
 
