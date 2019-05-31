@@ -1,7 +1,7 @@
 [submodule "core"]
 	path = core
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/core.git
-	branch = REL1_27
+	branch = REL1_31
 	ignore = untracked
 [submodule "extensions/Bugzilla"]
 	path = extensions/Bugzilla
@@ -11,23 +11,23 @@
 [submodule "extensions/ConfirmAccount"]
 	path = extensions/ConfirmAccount
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ConfirmAccount.git
-	branch = REL1_27
+	branch = REL1_31
 [submodule "extensions/googleAnalytics"]
 	path = extensions/googleAnalytics
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/googleAnalytics.git
-	branch = REL1_27
+	branch = REL1_31
 [submodule "extensions/LabeledSectionTransclusion"]
 	path = extensions/LabeledSectionTransclusion
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/LabeledSectionTransclusion.git
-	branch = REL1_27
+	branch = REL1_31
 [submodule "extensions/OggHandler"]
 	path = extensions/OggHandler
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/OggHandler.git
-	branch = REL1_27
+	branch = REL1_31
 [submodule "extensions/RSS"]
 	path = extensions/RSS
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RSS.git
-	branch = REL1_27
+	branch = REL1_31
 [submodule "extensions/Sandstone"]
 	path = extensions/Sandstone
 	url = https://github.com/christi3k/mw-sandstone.git
@@ -43,22 +43,22 @@
 [submodule "extensions/UrlGetParameters"]
 	path = extensions/UrlGetParameters
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/UrlGetParameters.git
-	branch = REL1_27
+	branch = REL1_31
 [submodule "extensions/NoTitle"]
 	path = extensions/NoTitle
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/NoTitle.git
-	branch = REL1_27
+	branch = REL1_31
 [submodule "extensions/Widgets"]
 	path = extensions/Widgets
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Widgets.git
-	branch = REL1_27
+	branch = REL1_31
 [submodule "extensions/ImportFromEtherpad"]
 	path = extensions/ImportFromEtherpad
 	url = https://github.com/hexmode/ImportFromEtherpad.git
 [submodule "extensions/MobileFrontend"]
 	path = extensions/MobileFrontend
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MobileFrontend.git
-	branch = REL1_27
+	branch = REL1_31
 [submodule "skins/common/fonts/Fira"]
 	path = skins/common/fonts/Fira
 	url = https://github.com/mozilla/Fira.git
