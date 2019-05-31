@@ -32,10 +32,6 @@
 	path = extensions/Sandstone
 	url = https://github.com/christi3k/mw-sandstone.git
 	branch = master
-[submodule "extensions/PageForms"]
-	path = extensions/PageForms
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/PageForms
-	branch = REL1_27
 [submodule "extensions/Smartsheet-MediaWiki-Extension"]
 	path = extensions/Smartsheet-MediaWiki-Extension
 	url = https://github.com/bensternthal/Smartsheet-MediaWiki-Extension.git
@@ -63,22 +59,6 @@
 	path = extensions/MobileFrontend
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/MobileFrontend.git
 	branch = REL1_27
-[submodule "skins/GraphViz"]
-	path = extensions/GraphViz
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/GraphViz.git
-	branch = REL1_27
-[submodule "extensions/SemanticResultFormats"]
-	path = extensions/SemanticResultFormats
-	url = https://github.com/SemanticMediaWiki/SemanticResultFormats.git
-[submodule "extensions/SemanticMediaWiki"]
-	path = extensions/SemanticMediaWiki
-	url = https://github.com/SemanticMediaWiki/SemanticMediaWiki.git
-[submodule "extensions/SemanticWatchlist"]
-	path = extensions/SemanticWatchlist
-	url = https://github.com/SemanticMediaWiki/SemanticWatchlist.git
-[submodule "extensions/SubPageList"]
-	path = extensions/SubPageList
-	url = https://github.com/JeroenDeDauw/SubPageList
 [submodule "skins/common/fonts/Fira"]
 	path = skins/common/fonts/Fira
 	url = https://github.com/mozilla/Fira.git
