@@ -9,8 +9,7 @@
     "mediawiki/semantic-result-formats": "~2",
     "mediawiki/graph-viz": "dev-REL1_31",
     "mediawiki/page-forms": "dev-REL1_31",
-    "mediawiki/open-layers": "dev-REL1_31",
-    "michelf/php-markdown": "~1"
+    "mediawiki/open-layers": "dev-REL1_31"
   },
   "license": "MPL-2.0",
   "authors": [

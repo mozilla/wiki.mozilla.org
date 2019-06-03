@@ -139,13 +139,15 @@ file { "/var/www/${project_name}/core/extensions/Bugzilla/charts":
     target => "/data/${project_name}/Bugzilla_charts",
 }
 
-# symlink for the MarkdownExtraParser extension
+# parser for MarkdownExtraParser extension
 file { "/var/www/${project_name}/core/extensions/MarkdownExtraParser/markdown.php":
-    ensure  => 'link',
-    target  => '/var/www/wiki/vendor/michelf/php-markdown/Markdown.php',
-    require => [
-        Exec['mv_extensions'],
-    ],
+  ensure => file,
+  owner  => www-data,
+  group  => www-data,
+  source => 'puppet:///nubis/files/robots.txt',
+  require => [
+    Exec['mv_extensions'],
+  ],
 }
 
 ## Install PHP composer extensions
