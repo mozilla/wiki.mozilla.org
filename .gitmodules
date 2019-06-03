@@ -58,3 +58,6 @@
 [submodule "skins/common/fonts/Fira"]
 	path = skins/common/fonts/Fira
 	url = https://github.com/mozilla/Fira.git
+[submodule "extensions/MarkdownExtraParser"]
+	path = extensions/MarkdownExtraParser
+	url = https://github.com/Rican7/MediaWiki-MarkdownExtraParser.git
