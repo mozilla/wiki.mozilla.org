@@ -1,6 +1,6 @@
 [template]
 src = "newrelic.tmpl"
-dest = "/etc/php/7.0/apache2/conf.d/20-newrelic.ini"
+dest = "/etc/php/7.0/apache2/conf.d/newrelic.ini"
 prefix = "/%%PROJECT%%-%%ENVIRONMENT%%/%%ENVIRONMENT%%"
 
 keys = [
