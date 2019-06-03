@@ -144,7 +144,7 @@ file { "/var/www/${project_name}/core/extensions/MarkdownExtraParser/markdown.ph
   ensure => file,
   owner  => www-data,
   group  => www-data,
-  source => 'puppet:///nubis/files/robots.txt',
+  source => 'puppet:///nubis/files/markdown.php',
   require => [
     Exec['mv_extensions'],
   ],
