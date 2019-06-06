@@ -465,6 +465,9 @@ $wgFFmpegLocation = '/usr/bin/ffmpeg';
 
 wfLoadExtension( 'TimedMediaHandler' );
 
+// Increase max allowed shell memory for ffmpeg to 600Mb
+$wgMaxShellMemory = 102400 * 6;
+
 $smwgNamespaceIndex = 132;
 $smwgQMaxSize = 40;
 $smwgQMaxDepth = 20;
