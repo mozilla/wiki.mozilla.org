@@ -61,3 +61,6 @@
 [submodule "extensions/MarkdownExtraParser"]
 	path = extensions/MarkdownExtraParser
 	url = https://github.com/Rican7/MediaWiki-MarkdownExtraParser.git
+[submodule "extensions/SemanticWatchlist"]
+	path = extensions/SemanticWatchlist
+	url = https://github.com/SemanticMediaWiki/SemanticWatchlist.git
