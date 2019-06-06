@@ -20,10 +20,6 @@
 	path = extensions/LabeledSectionTransclusion
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/LabeledSectionTransclusion.git
 	branch = REL1_31
-[submodule "extensions/OggHandler"]
-	path = extensions/OggHandler
-	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/OggHandler.git
-	branch = REL1_31
 [submodule "extensions/RSS"]
 	path = extensions/RSS
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RSS.git
@@ -58,3 +54,6 @@
 [submodule "skins/common/fonts/Fira"]
 	path = skins/common/fonts/Fira
 	url = https://github.com/mozilla/Fira.git
+[submodule "extensions/TimedMediaHandler"]
+	path = extensions/TimedMediaHandler
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/TimedMediaHandler.git

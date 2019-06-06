@@ -462,7 +462,8 @@ wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'ImageMap' );
 
 $wgFFmpegLocation = '/usr/bin/ffmpeg';
-require("$IP/extensions/OggHandler/OggHandler.php");
+
+wfLoadExtension( 'TimedMediaHandler' );
 
 $smwgNamespaceIndex = 132;
 $smwgQMaxSize = 40;

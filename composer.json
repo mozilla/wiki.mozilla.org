@@ -29,7 +29,8 @@
   "extra": {
     "merge-plugin": {
       "include": [
-        "extensions/Widgets/composer.json"
+        "extensions/Widgets/composer.json",
+        "extensions/TimedMediaHandler/composer.json"
       ]
     }
   }
