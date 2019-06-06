@@ -1,6 +1,10 @@
 # Install mysql client libraries
 include mysql::client
 
+package { 'ffmpeg':
+  ensure => 'latest'
+}
+
 package { 'php-mysql':
   ensure => 'latest'
 }
