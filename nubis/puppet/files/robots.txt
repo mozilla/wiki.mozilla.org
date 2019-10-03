@@ -6,3 +6,5 @@ Disallow: /index.php/Special:
 Disallow: /index.php/Template
 Disallow: /skins/
 
+User-agent: SemrushBot
+Disallow: / 
