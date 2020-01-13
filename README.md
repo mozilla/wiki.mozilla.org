@@ -8,7 +8,7 @@ If you wish to have a local install of wiki.m.o including posts and content you 
 
 1. A copy of the production database*
 2. A copy of the images directory
-3. A copy of the extesnions/Bugzilla/charts directory**
+3. A copy of the extensions/Bugzilla/charts directory**
 
 \* There is talk of generating a sanitized (remove PII) database for convenience.
 
@@ -18,7 +18,7 @@ Once you have a copy of the aforementioned datasets you need to:
 
 1. clone this repository
 2. create a secrets.php file (see below)
-3. run the install.sh script (found in the tools directroy)
+3. run the install.sh script (found in the tools directory)
 
 ## The secrets.php file
 This file is where information specific to a particular deployment is stored. In hindsight I must admit that this is a poorly chosen name. This file should be self-explanatory. You can crib off of the -dist file or set environment variables in which case they will be automatically consumed.
@@ -40,9 +40,9 @@ We are installing extensions in three separate ways.
 A few (two) extensions are available through Subversion only. These extensions are included fully. To update them you need to navigate into the extension's folder and issue an `svn up`. Then simply follow your usual procedure for committing upstream.
 ### The git submodule model
 The majority of extensions are installed as git submodules. Simply follow normal submodule practice for this. In short:
-- navagate to path/to/submodule directory
+- navigate to path/to/submodule directory
 - `git checkout TAG`
-- navagate to top level
+- navigate to top level
 - `git add path/to/submodule`
 
 ### The Composer model
