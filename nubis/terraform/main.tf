@@ -2,6 +2,11 @@ provider "aws" {
   region = "${var.region}"
 }
 
+data "aws_acm_certificate" "wiki" {
+  domain   = "${var.environment == "prod" ? "wiki.mozilla.org" : "wiki.allizom.org"}"
+  statuses = ["ISSUED"]
+}
+
 module "worker" {
   source            = "github.com/nubisproject/nubis-terraform//worker?ref=v2.3.0"
   region            = "${var.region}"
@@ -25,13 +30,13 @@ module "worker" {
 }
 
 module "load_balancer" {
-  source       = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v2.3.0"
-  region       = "${var.region}"
-  environment  = "${var.environment}"
-  account      = "${var.account}"
-  service_name = "${var.service_name}"
-  health_check_target = "HTTP:80/?redirect=0"
-  ssl_cert_name_prefix = "${var.service_name}"
+  source               = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v2.4.3"
+  region               = "${var.region}"
+  environment          = "${var.environment}"
+  account              = "${var.account}"
+  service_name         = "${var.service_name}"
+  health_check_target  = "HTTP:80/?redirect=0"
+  ssl_cert_arn         = "${data.aws_acm_certificate.wiki.arn}"
   health_check_timeout = 5
 }
 
