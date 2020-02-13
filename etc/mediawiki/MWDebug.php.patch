@@ -1,0 +1,18 @@
+ diff --git a/includes/debug/MWDebug.php b/includes/debug/MWDebug.php
+index 13d25a86b4..1b3f5d1d87 100644
+--- a/includes/debug/MWDebug.php
++++ b/includes/debug/MWDebug.php
+@@ -407,11 +407,13 @@ class MWDebug {
+ 		$files = get_included_files();
+ 		$fileList = [];
+ 		foreach ( $files as $file ) {
++            if ( file_exists($file) ) {
+ 			$size = filesize( $file );
+ 			$fileList[] = [
+ 				'name' => $file,
+ 				'size' => $context->getLanguage()->formatSize( $size ),
+ 			];
++            }
+ 		}
+ 
+ 		return $fileList;

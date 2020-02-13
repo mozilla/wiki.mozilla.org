@@ -37,3 +37,10 @@ nubis/terraform/.terraform
 nubis/terraform/terraform.tfvars
 nubis/builder/artifacts/*-dev/
 nubis/builder/artifacts/AMIs.json
+
+# dockerized ignores
+.env
+etc/ssl/*.key
+etc/ssl/*.crt
+etc/ssl/*.pem
+etc/ssl/*.csr
