@@ -8,7 +8,7 @@ If you wish to have a local install of wiki.m.o including posts and content you 
 
 1. A copy of the production database*
 2. A copy of the images directory
-3. A copy of the extesnions/Bugzilla/charts directory**
+3. A copy of the extensions/Bugzilla/charts directory**
 
 \* There is talk of generating a sanitized (remove PII) database for convenience.
 
@@ -51,5 +51,3 @@ Extensions installed with composer need to be updated using the `php tools/compo
 - You need to be sure to `git add composer.lock` file whenever you make changes to the `composer.json` manually or with the `composer.phar` command. This will avoid errors when setting up a fresh install.
 - Composer automatically handles dependency resolution. Therefore you should not add any dependent extensions to the extensions directory.
 - Extensions installed with Composer are automatically loaded through the `vendor/autoload.php` file and do not need to be included in the `LocalSettings.php` file.
-
-
