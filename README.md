@@ -1,6 +1,8 @@
 wiki.mozilla.org
 ================
 
+[![Build Status](https://travis-ci.com/mozilla-it/wiki.mozilla.org.svg?branch=master)](https://travis-ci.com/mozilla-it/wiki.mozilla.org)
+
 This is the deployment repository for the [wiki.mozilla.org](https://wiki.mozilla.org) project. To find out more about this project please visit the [About](https://wiki.mozilla.org/MozillaWiki:About) page. To get involved with the project visit the [Team](https://wiki.mozilla.org/MozillaWiki:Team) page.
 
 ## Install
