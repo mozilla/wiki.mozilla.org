@@ -1,0 +1,19 @@
+language: php
+matrix:
+  include:
+  # PHP Supported versions: https://www.php.net/supported-versions.php
+  - php: 7.3
+  - php: 7.4
+  # NOTE: These are intended to fail until the compose package
+  # is updated to handle the tests (or lack thereof) correctly.
+  allow_failures:
+  - php: 7.3
+  - php: 7.4
+before_script:
+    - travis_retry composer self-update
+    - travis_retry composer install
+# TODO: Execute unit tests once added and push out code coverage.
+# script:
+#     - phpunit --coverage-clover=coverage.xml
+# after_success:
+#     - bash <(curl -s https://codecov.io/bash)
