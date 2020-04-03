@@ -1,8 +1,8 @@
 #!/bin/bash
 #
 # This script is used to pull down updates
-#+ bash update.sh
-#
+# 
+# bash bin/developer-setup.sh
 
 set -e
 
@@ -10,6 +10,9 @@ if [ -z "$BASH_VERSION" ]; then
    echo Run with bash!
    exit 1
 fi
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+cd "${DIR}/.."
 
 DEBUG="${DEBUG:=${CWD}${HOST}}"
 CWD=${CWD:=$(pwd)}

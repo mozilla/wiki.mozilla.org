@@ -1,5 +1,7 @@
 #!/bin/bash
 # This script is used to pull down updates from github
+# 
+# bash bin/update.sh
 
 set -e
 
@@ -7,6 +9,9 @@ DEBUG="${DEBUG:=${CWD}${HOST}}"
 CWD=${CWD:=$(pwd)}
 HOST=${HOST:=$(hostname)}
 JOBS=${JOBS:=$(($(nproc) * 3))}
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+cd "${DIR}/.."
 
 NETAPP="/data/wiki"
 

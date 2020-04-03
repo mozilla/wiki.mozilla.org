@@ -52,4 +52,8 @@ Extensions installed with composer need to be updated using the `php tools/compo
 - Composer automatically handles dependency resolution. Therefore you should not add any dependent extensions to the extensions directory.
 - Extensions installed with Composer are automatically loaded through the `vendor/autoload.php` file and do not need to be included in the `LocalSettings.php` file.
 
+## Author(s)
+
+Stewart Henderson <shenderson@mozilla.com>
+
 
