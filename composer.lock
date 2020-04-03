@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.6.0",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b"
+                "reference": "7d610d50aae61ae7ed6675e58efeabdf279bb5e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/cfcca6b1b60bc4974324efb5783c13dca6932b5b",
-                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+                "url": "https://api.github.com/repos/composer/installers/zipball/7d610d50aae61ae7ed6675e58efeabdf279bb5e3",
+                "reference": "7d610d50aae61ae7ed6675e58efeabdf279bb5e3",
                 "shasum": ""
             },
             "require": {
@@ -65,6 +65,7 @@
                 "Kanboard",
                 "Lan Management System",
                 "MODX Evo",
+                "MantisBT",
                 "Mautic",
                 "Maya",
                 "OXID",
@@ -73,6 +74,7 @@
                 "RadPHP",
                 "SMF",
                 "Thelia",
+                "Whmcs",
                 "WolfCMS",
                 "agl",
                 "aimeos",
@@ -95,6 +97,7 @@
                 "installer",
                 "itop",
                 "joomla",
+                "known",
                 "kohana",
                 "laravel",
                 "lavalite",
@@ -117,6 +120,7 @@
                 "shopware",
                 "silverstripe",
                 "sydes",
+                "sylius",
                 "symfony",
                 "typo3",
                 "wordpress",
@@ -124,26 +128,29 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2018-08-27T06:10:37+00:00"
+            "time": "2020-02-07T10:39:20+00:00"
         },
         {
             "name": "data-values/common",
-            "version": "0.4.2",
+            "version": "0.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DataValues/Common.git",
-                "reference": "c99e06ffe1cfb709d4d8c970bac75dad65f66a1b"
+                "reference": "844359d1e782884a2b79460a49624d9c08673666"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DataValues/Common/zipball/c99e06ffe1cfb709d4d8c970bac75dad65f66a1b",
-                "reference": "c99e06ffe1cfb709d4d8c970bac75dad65f66a1b",
+                "url": "https://api.github.com/repos/DataValues/Common/zipball/844359d1e782884a2b79460a49624d9c08673666",
+                "reference": "844359d1e782884a2b79460a49624d9c08673666",
                 "shasum": ""
             },
             "require": {
                 "data-values/data-values": "~2.0|~1.0|~0.1",
                 "data-values/interfaces": "~0.2.0|^0.1.5",
                 "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.7"
             },
             "type": "library",
             "extra": {
@@ -185,20 +192,20 @@
                 "valuevalidators",
                 "wikidata"
             ],
-            "time": "2018-08-16T08:16:18+00:00"
+            "time": "2019-06-28T14:23:34+00:00"
         },
         {
             "name": "data-values/data-values",
-            "version": "2.1.1",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DataValues/DataValues.git",
-                "reference": "5d7ad3730f05541f7c088c7c2ba1782ba56333b3"
+                "reference": "0c256a1b0a9202d5d01da1ed8a0e1d845cca0289"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DataValues/DataValues/zipball/5d7ad3730f05541f7c088c7c2ba1782ba56333b3",
-                "reference": "5d7ad3730f05541f7c088c7c2ba1782ba56333b3",
+                "url": "https://api.github.com/repos/DataValues/DataValues/zipball/0c256a1b0a9202d5d01da1ed8a0e1d845cca0289",
+                "reference": "0c256a1b0a9202d5d01da1ed8a0e1d845cca0289",
                 "shasum": ""
             },
             "require": {
@@ -214,7 +221,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
@@ -231,7 +238,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -248,20 +255,20 @@
                 "wikibase",
                 "wikidata"
             ],
-            "time": "2017-09-28T11:48:25+00:00"
+            "time": "2019-09-19T23:38:17+00:00"
         },
         {
             "name": "data-values/geo",
-            "version": "4.1.0",
+            "version": "4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DataValues/Geo.git",
-                "reference": "36e62af6c2769eab2c5d7d278c98b4917f1081b3"
+                "reference": "e58eff08ab543251f8f07a1e9b70ebb3976fee96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DataValues/Geo/zipball/36e62af6c2769eab2c5d7d278c98b4917f1081b3",
-                "reference": "36e62af6c2769eab2c5d7d278c98b4917f1081b3",
+                "url": "https://api.github.com/repos/DataValues/Geo/zipball/e58eff08ab543251f8f07a1e9b70ebb3976fee96",
+                "reference": "e58eff08ab543251f8f07a1e9b70ebb3976fee96",
                 "shasum": ""
             },
             "require": {
@@ -272,13 +279,16 @@
             "require-dev": {
                 "jeroen/nyancat-phpunit-resultprinter": "~2.2",
                 "ockcyp/covers-validator": "~1.0",
+                "phpmd/phpmd": "^2.6.1",
+                "phpstan/phpstan": "~0.11.0",
                 "phpunit/phpunit": "~7.1",
+                "vimeo/psalm": "^3.7",
                 "wikibase/wikibase-codesniffer": "^0.5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1.x-dev"
+                    "dev-master": "4.x-dev"
                 }
             },
             "autoload": {
@@ -321,7 +331,7 @@
                 "seconds",
                 "wikidata"
             ],
-            "time": "2018-10-29T10:28:15+00:00"
+            "time": "2019-12-19T09:11:16+00:00"
         },
         {
             "name": "data-values/interfaces",
@@ -624,26 +634,26 @@
         },
         {
             "name": "mediawiki/parser-hooks",
-            "version": "1.5.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JeroenDeDauw/ParserHooks.git",
-                "reference": "8139d79191e467d71139d53ac12bb4acb7b3963d"
+                "reference": "45660efef737bcf33abbbb12c1ddb049c4e713fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JeroenDeDauw/ParserHooks/zipball/8139d79191e467d71139d53ac12bb4acb7b3963d",
-                "reference": "8139d79191e467d71139d53ac12bb4acb7b3963d",
+                "url": "https://api.github.com/repos/JeroenDeDauw/ParserHooks/zipball/45660efef737bcf33abbbb12c1ddb049c4e713fe",
+                "reference": "45660efef737bcf33abbbb12c1ddb049c4e713fe",
                 "shasum": ""
             },
             "require": {
-                "param-processor/param-processor": "~1.2",
-                "php": ">=5.3.0"
+                "param-processor/param-processor": "^1.3.2",
+                "php": ">=7.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5.x-dev"
+                    "dev-master": "1.6.x-dev"
                 }
             },
             "autoload": {
@@ -656,7 +666,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -674,7 +684,7 @@
                 "parserhooks",
                 "tag extension"
             ],
-            "time": "2016-03-05T15:47:04+00:00"
+            "time": "2020-01-14T02:43:39+00:00"
         },
         {
             "name": "mediawiki/semantic-media-wiki",
@@ -856,27 +866,27 @@
         },
         {
             "name": "mediawiki/sub-page-list",
-            "version": "1.5.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JeroenDeDauw/SubPageList.git",
-                "reference": "effed3a00e58e81e3b8b6168730daf817f0e44fd"
+                "reference": "b77afbae25dc8beb08446bdfaeb4dd20618f6511"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JeroenDeDauw/SubPageList/zipball/effed3a00e58e81e3b8b6168730daf817f0e44fd",
-                "reference": "effed3a00e58e81e3b8b6168730daf817f0e44fd",
+                "url": "https://api.github.com/repos/JeroenDeDauw/SubPageList/zipball/b77afbae25dc8beb08446bdfaeb4dd20618f6511",
+                "reference": "b77afbae25dc8beb08446bdfaeb4dd20618f6511",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "^1.0.1",
                 "mediawiki/parser-hooks": "~1.3",
-                "php": ">=5.5.0"
+                "php": ">=7.1"
             },
             "type": "mediawiki-extension",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5.x-dev"
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
@@ -889,13 +899,13 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
                     "name": "Jeroen De Dauw",
                     "email": "jeroendedauw@gmail.com",
-                    "homepage": "http://jeroendedauw.com",
+                    "homepage": "https://www.entropywins.wtf",
                     "role": "Developer"
                 }
             ],
@@ -906,7 +916,7 @@
                 "SubPageList",
                 "mediawiki"
             ],
-            "time": "2017-04-13T22:28:46+00:00"
+            "time": "2020-02-23T22:40:06+00:00"
         },
         {
             "name": "nicmart/tree",
@@ -1322,16 +1332,16 @@
         },
         {
             "name": "param-processor/param-processor",
-            "version": "1.4.2",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JeroenDeDauw/ParamProcessor.git",
-                "reference": "40cd2140aa339f59c5500760a9f6f1fa6c0ef0a6"
+                "reference": "5dec3e41bdc684640faf334db650e9bd32092e23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JeroenDeDauw/ParamProcessor/zipball/40cd2140aa339f59c5500760a9f6f1fa6c0ef0a6",
-                "reference": "40cd2140aa339f59c5500760a9f6f1fa6c0ef0a6",
+                "url": "https://api.github.com/repos/JeroenDeDauw/ParamProcessor/zipball/5dec3e41bdc684640faf334db650e9bd32092e23",
+                "reference": "5dec3e41bdc684640faf334db650e9bd32092e23",
                 "shasum": ""
             },
             "require": {
@@ -1350,17 +1360,13 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "ParamProcessor\\": "src"
                 },
-                "classmap": [
-                    "tests/phpunit/Definitions/ParamDefinitionTest.php",
-                    "tests/phpunit/Definitions/NumericParamTest.php"
-                ],
                 "files": [
                     "DefaultConfig.php"
                 ]
@@ -1386,20 +1392,20 @@
                 "mediawiki",
                 "validator"
             ],
-            "time": "2018-11-26T05:02:09+00:00"
+            "time": "2019-08-03T15:18:54+00:00"
         },
         {
             "name": "psr/log",
-            "version": "1.1.0",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
+                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/0f73288fd15629204f9d42b7055f72dacbe811fc",
+                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc",
                 "shasum": ""
             },
             "require": {
@@ -1408,7 +1414,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -1433,7 +1439,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2018-11-20T15:27:04+00:00"
+            "time": "2020-03-23T09:12:05+00:00"
         },
         {
             "name": "serialization/serialization",
@@ -1493,16 +1499,16 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v3.4.28",
+            "version": "v3.4.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "8ca29297c29b64fb3a1a135e71cb25f67f9fdccf"
+                "reference": "9ccf6e78077a3fc1596e6c7b5958008965a11518"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/8ca29297c29b64fb3a1a135e71cb25f67f9fdccf",
-                "reference": "8ca29297c29b64fb3a1a135e71cb25f67f9fdccf",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/9ccf6e78077a3fc1596e6c7b5958008965a11518",
+                "reference": "9ccf6e78077a3fc1596e6c7b5958008965a11518",
                 "shasum": ""
             },
             "require": {
@@ -1528,12 +1534,12 @@
             ],
             "authors": [
                 {
-                    "name": "Jean-François Simon",
-                    "email": "jeanfrancois.simon@sensiolabs.com"
-                },
-                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Jean-François Simon",
+                    "email": "jeanfrancois.simon@sensiolabs.com"
                 },
                 {
                     "name": "Symfony Community",
@@ -1542,7 +1548,21 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16T09:39:14+00:00"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-03-16T08:31:04+00:00"
         },
         {
             "name": "wikimedia/cdb",
@@ -1659,5 +1679,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
