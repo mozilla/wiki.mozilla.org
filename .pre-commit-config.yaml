@@ -1,0 +1,31 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+#
+# Available pre-commit hooks
+#   https://pre-commit.com/hooks.html
+fail_fast: true
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.1.0
+    hooks:
+    -   id: check-added-large-files
+    -   id: check-json
+    -   id: detect-private-key
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+-   repo: meta
+    hooks:
+    -   id: check-useless-excludes
+-   repo: https://github.com/digitalpulp/pre-commit-php
+    rev: 1.3.0
+    hooks:
+    -   id: php-lint-all
+    -   id: php-unit
+    -   id: php-cs-fixer
+    -   id: php-cbf
+-   repo: https://github.com/Yelp/detect-secrets
+    rev: v0.13.0
+    hooks:
+    -   id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
