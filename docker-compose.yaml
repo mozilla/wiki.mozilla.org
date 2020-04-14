@@ -1,0 +1,64 @@
+version: '3.4'
+
+services:
+
+  cfssl:
+    image: cfssl/cfssl
+    working_dir: /ssl
+    volumes:
+      - ./etc/ssl:/ssl
+    entrypoint: ./gen-cert.sh
+
+  db:
+    image: mysql:5.6
+    ports:
+      - "3306:3306"
+    expose:
+      - 3306
+    volumes:
+      - database:/var/lib/mysql
+    env_file: .env
+
+  memcached:
+    image: memcached:1.4-alpine
+    ports:
+      - "11211:11211"
+
+  varnish:
+    image: varnish:stable
+    ports:
+      - "80"
+    volumes:
+      - ./etc/varnish/default.vcl:/etc/varnish/default.vcl:ro
+    depends_on:
+      - web
+
+  web-ssl:
+    image: nginx
+    ports:
+      - 443:443
+      - 80:80
+    volumes:
+      - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./etc/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - web
+      - cfssl
+
+  web:
+    build:
+      context: .
+    expose:
+      - 80
+    env_file: .env
+    environment:
+      ENVIRONMENT: 'local'
+      SITE_URL: "https://wikimo-127-0-0-1.nip.io"
+      MEMCACHED_HOST: memcached
+      MEMCACHED_PORT: "11211"
+    depends_on:
+      - db
+
+volumes:
+  database:
+

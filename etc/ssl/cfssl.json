@@ -1,0 +1,21 @@
+{
+  "CN": "securitywiki-127-0-0-1.nip.io",
+  "hosts": [
+    "securitywiki-127-0-0-1.nip.io",
+    "localhost",
+    "127.0.01"
+  ],
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "O": "Mozilla",
+      "OU": "Securitywiki development",
+      "C": "US",
+      "ST": "CA",
+      "L": "San Francisco"
+    }
+  ]
+}
