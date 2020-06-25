@@ -24,6 +24,7 @@ module "worker" {
   health_check_type = "ELB"                                                        # EC2 or ELB
   min_instances     = "${var.environment == "prod" ? 5 : 3}"
 
+
   # CPU utilisation based autoscaling
   scale_down_load = 30
   scale_up_load   = 60
