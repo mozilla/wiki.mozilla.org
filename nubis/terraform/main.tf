@@ -20,9 +20,10 @@ module "worker" {
   ssh_key_name      = "${var.ssh_key_name}"
   nubis_sudo_groups = "${var.nubis_sudo_groups}"
   nubis_user_groups = "${var.nubis_user_groups}"
-  instance_type     = "m3.medium"
-  health_check_type = "ELB"     # EC2 or ELB
-  min_instances	    = "${var.environment == "prod" ? 5 : 3}"
+  instance_type     = "${var.environment == "prod" ? "m3.medium" : "t2.small"}"
+  health_check_type = "ELB"                                                        # EC2 or ELB
+  min_instances     = "${var.environment == "prod" ? 5 : 3}"
+
 
   # CPU utilisation based autoscaling
   scale_down_load = 30
@@ -59,7 +60,7 @@ module "database" {
   client_security_groups = "${module.worker.security_group}"
   allocated_storage      = 40
   multi_az               = true
-  instance_class         = "${var.environment == "prod" ? "db.r3.large" : "db.t2.large"}
+  instance_class         = "${var.environment == "prod" ? "db.r3.large" : "db.t2.large"}"
   nubis_sudo_groups      = "${var.nubis_sudo_groups},team_dbeng"
 }
 

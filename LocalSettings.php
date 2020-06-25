@@ -442,7 +442,7 @@ $wgSpamBlacklistFiles = array(
         "DB: $wgDBname Spam_blacklist",
 );
 
-wfLoadExtension( 'SyntaxHighlight' );
+wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 
 wfLoadExtension( 'WikiEditor' );
 # Enables use of WikiEditor by default but still allow users to disable it in preferences
@@ -462,7 +462,11 @@ wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'ImageMap' );
 
 $wgFFmpegLocation = '/usr/bin/ffmpeg';
-require("$IP/extensions/OggHandler/OggHandler.php");
+
+wfLoadExtension( 'TimedMediaHandler' );
+
+// Increase max allowed shell memory for ffmpeg to 600Mb
+$wgMaxShellMemory = 102400 * 6;
 
 $smwgNamespaceIndex = 132;
 $smwgQMaxSize = 40;
@@ -562,7 +566,7 @@ $wgAutoConfirmCount = 10;   // and have ten edits
 
 $wgRCMaxAge = 31536000; // one year
 
-require_once("$IP/extensions/RSS/RSS.php");
+wfLoadExtension( 'RSS' );
 $wgRSSUrlWhitelist = array( 'http://benjamin.smedbergs.us/weekly-updates.fcgi/project/firefox/feed',
                             'http://blog.wikimedia.org/feed/',
                             'https://blog.mozilla.org/feed/',
@@ -646,6 +650,8 @@ require_once("$IP/extensions/Widgets/Widgets.php");
 wfLoadExtension( 'MobileFrontend' );
 
 $wgMFAutodetectMobileView = true;
+$wgMFDefaultSkinClass = 'SkinVector';
+
 $wgMobileFrontendLogo = "$wgStylePath/../logos/$SECRETS_wgMobileFrontendLogo";
 $wgMobileUrlTemplate = 'm.%h0.%h1.%h2';
 
@@ -684,6 +690,8 @@ $wgImportFromEtherpadSettings->pathRegexs[] = array('(\w+)\s+(\d+)\s+(\d+)\s+(\d
 $wgImportFromEtherpadSettings->nsRegexs[] = array('wiki\.etherpad\.mozilla\.org','4');
 
 @$wgGraphVizSettings->defaultImageType = 'svg';
+
+require_once( "$IP/extensions/MarkdownExtraParser/MarkdownExtraParser.php" );
 
 # speed up a little and avoid some cli perm errors
 # $wgLocalisationCacheConf['manualRecache'] = true;
