@@ -11,6 +11,10 @@ secrets.php
 /extensions/SubPageList/
 /extensions/Validator/
 /extensions/GraphViz/
+/extensions/ImageMap/
+/extensions/SemanticResultFormats/
+/extensions/PageForms/
+/extensions/OpenLayers/
 
 # these assest are not in version control
 images

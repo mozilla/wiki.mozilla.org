@@ -5,7 +5,7 @@
     ],
     "project_description": "wiki",
     "project_name": "wiki",
-    "project_version": "v2.3.0_{{env `GIT_COMMIT_SHA`}}",
-    "source_ami_project_version": "v2.3.0"
+    "project_version": "v2.4.0_{{env `GIT_COMMIT_SHA`}}",
+    "source_ami_project_version": "v2.4.0"
   }
 }

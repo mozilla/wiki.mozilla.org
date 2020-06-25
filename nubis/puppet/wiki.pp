@@ -1,6 +1,10 @@
 # Install mysql client libraries
 include mysql::client
 
+package { 'ffmpeg':
+  ensure => 'latest'
+}
+
 package { 'php-mysql':
   ensure => 'latest'
 }
@@ -89,7 +93,7 @@ file { "/var/www/${project_name}/core/robots.txt":
   ensure => file,
   owner  => www-data,
   group  => www-data,
-  source => "puppet:///nubis/files/robots.txt",
+  source => 'puppet:///nubis/files/robots.txt',
 }
 
 # Link files that aren't in the core repo to where they need to be
@@ -137,6 +141,17 @@ file { "/var/www/${project_name}/php_sessions":
 file { "/var/www/${project_name}/core/extensions/Bugzilla/charts":
     ensure => 'link',
     target => "/data/${project_name}/Bugzilla_charts",
+}
+
+# parser for MarkdownExtraParser extension
+file { "/var/www/${project_name}/core/extensions/MarkdownExtraParser/markdown.php":
+  ensure => file,
+  owner  => www-data,
+  group  => www-data,
+  source => 'puppet:///nubis/files/markdown.php',
+  require => [
+    Exec['mv_extensions'],
+  ],
 }
 
 ## Install PHP composer extensions
