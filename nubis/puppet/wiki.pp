@@ -81,7 +81,7 @@ file { "/var/www/${project_name}/core/extensions/Widgets/compiled_templates":
     owner   => www-data,
     group   => www-data,
     mode    => '0750',
-    require => Exec['mv_extensions'],
+#    require => Exec['mv_extensions'],
 }
 
 # Add robots.txt to document root
@@ -148,7 +148,7 @@ exec { 'composer':
         'HOME=/tmp',
     ],
     require     => [
-      Exec['mv_extensions'],
+#      Exec['mv_extensions'],
       File["/var/www/${project_name}/core/composer.local.json"],
       File["/var/www/${project_name}/vendor"],
       Class['apache::mod::php'],
