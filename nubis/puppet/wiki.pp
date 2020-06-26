@@ -113,16 +113,16 @@ file { "/var/www/${project_name}/vendor":
     target => "/var/www/${project_name}/core/vendor",
 }
 
-exec { 'mv_extensions':
-    provider => 'shell',
-    command  => 'mv extensions/* core/extensions/',
-    cwd      => "/var/www/${project_name}",
-}
-exec { 'mv_skins':
-    provider => 'shell',
-    command  => 'mv skins/* core/skins/',
-    cwd      => "/var/www/${project_name}",
-}
+#exec { 'mv_extensions':
+#    provider => 'shell',
+#    command  => 'mv extensions/* core/extensions/',
+#    cwd      => "/var/www/${project_name}",
+#}
+#exec { 'mv_skins':
+#    provider => 'shell',
+#    command  => 'mv skins/* core/skins/',
+#    cwd      => "/var/www/${project_name}",
+#}
 
 # Links to EFS mount dirs
 file { "/var/www/${project_name}/images":
