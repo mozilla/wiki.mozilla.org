@@ -21,7 +21,7 @@ module "worker" {
   nubis_sudo_groups = "${var.nubis_sudo_groups}"
   nubis_user_groups = "${var.nubis_user_groups}"
   instance_type     = "${var.environment == "prod" ? "m5.medium" : "t3.small"}"
-  health_check_type = "ELB"                                                        # EC2 or ELB
+  health_check_type = "ELB" # EC2 or ELB
   min_instances     = "${var.environment == "prod" ? 5 : 3}"
 
   # CPU utilisation based autoscaling
@@ -59,7 +59,7 @@ module "database" {
   client_security_groups = "${module.worker.security_group}"
   allocated_storage      = 40
   multi_az               = true
-  instance_class         = "${var.environment == "prod" ? "db.r3.large" : "db.t2.large"}
+  instance_class         = "${var.environment == "prod" ? "db.r3.large" : "db.t2.large"}"
   nubis_sudo_groups      = "${var.nubis_sudo_groups},team_dbeng"
 }
 
