@@ -6,6 +6,7 @@
     "project_description": "wiki",
     "project_name": "wiki",
     "project_version": "v2.3.0_{{env `GIT_COMMIT_SHA`}}",
-    "source_ami_project_version": "v2.3.0"
+    "source_ami_project_version": "v2.3.0",
+    "instance_type": "t3.medium"
   }
 }

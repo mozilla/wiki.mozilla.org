@@ -81,7 +81,7 @@ file { "/var/www/${project_name}/core/extensions/Widgets/compiled_templates":
     owner   => www-data,
     group   => www-data,
     mode    => '0750',
-#    require => Exec['mv_extensions'],
+    require => Exec['mv_extensions'],
 }
 
 # Add robots.txt to document root
@@ -113,16 +113,16 @@ file { "/var/www/${project_name}/vendor":
     target => "/var/www/${project_name}/core/vendor",
 }
 
-#exec { 'mv_extensions':
-#    provider => 'shell',
-#    command  => 'mv extensions/* core/extensions/',
-#    cwd      => "/var/www/${project_name}",
-#}
-#exec { 'mv_skins':
-#    provider => 'shell',
-#    command  => 'mv skins/* core/skins/',
-#    cwd      => "/var/www/${project_name}",
-#}
+exec { 'mv_extensions':
+    provider => 'shell',
+    command  => 'mv extensions/* core/extensions/',
+    cwd      => "/var/www/${project_name}",
+}
+exec { 'mv_skins':
+    provider => 'shell',
+    command  => 'mv skins/* core/skins/',
+    cwd      => "/var/www/${project_name}",
+}
 
 # Links to EFS mount dirs
 file { "/var/www/${project_name}/images":
@@ -148,7 +148,7 @@ exec { 'composer':
         'HOME=/tmp',
     ],
     require     => [
-#      Exec['mv_extensions'],
+      Exec['mv_extensions'],
       File["/var/www/${project_name}/core/composer.local.json"],
       File["/var/www/${project_name}/vendor"],
       Class['apache::mod::php'],
