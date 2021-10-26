@@ -26,7 +26,7 @@
 	branch = REL1_31
 [submodule "extensions/Sandstone"]
 	path = extensions/Sandstone
-	url = https://github.com/christi3k/mw-sandstone.git
+	url = https://github.com/mozilla/wikimo-sandstone.git
 	branch = master
 [submodule "extensions/Smartsheet-MediaWiki-Extension"]
 	path = extensions/Smartsheet-MediaWiki-Extension
