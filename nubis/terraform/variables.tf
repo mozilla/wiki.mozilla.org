@@ -29,3 +29,11 @@ variable "nubis_sudo_groups" {
 variable "nubis_user_groups" {
   default = ""
 }
+
+variable "engine_version" {
+  default = "5.7.38"
+}
+
+variable "parameter_group_name" {
+  default = "default:mysql-5-7-db-omejnkmaq6skwy7hbu4pslhm34-upgrade"
+}
