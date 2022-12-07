@@ -61,6 +61,8 @@ module "database" {
   multi_az               = true
   instance_class         = "${var.environment == "prod" ? "db.r3.large" : "db.t2.large"}"
   nubis_sudo_groups      = "${var.nubis_sudo_groups},team_dbeng"
+  engine_version         = "${var.engine_version}"
+  parameter_group_name   = "${var.parameter_group_name}"
 }
 
 module "cache" {
