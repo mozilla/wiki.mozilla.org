@@ -35,7 +35,10 @@
     {
       "type": "shell",
       "inline": [
-        "sudo chown -R root:root /var/www/{{user `project_name`}}"
+        "sudo chown -R root:root /var/www/{{user `project_name`}}",
+        "sudo /bin/rm /usr/share/ca-certificates/mozilla/DST_Root_CA_X3.crt",
+        "sudo /bin/sed -i '/DST_Root_CA_X3.crt/d' /etc/ca-certificates.conf",
+        "sudo /usr/sbin/update-ca-certificates"
       ],
       "order": "6"
     }
