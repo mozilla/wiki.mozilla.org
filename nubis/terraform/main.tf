@@ -16,6 +16,7 @@ module "worker" {
   purpose           = "webserver"
   ami               = "${var.ami}"
   elb               = "${module.load_balancer.name}"
+  elb               = "${var.environment == "prod" ? "arn:aws:elasticloadbalancing:us-west-2:921547910285:loadbalancer/app/wiki-prod/ad49b7d565dd20f8" : "arn:aws:elasticloadbalancing:us-west-2:921547910285:loadbalancer/app/wiki-stage/59e998f857a6232c"}"
   ssh_key_file      = "${var.ssh_key_file}"
   ssh_key_name      = "${var.ssh_key_name}"
   nubis_sudo_groups = "${var.nubis_sudo_groups}"
@@ -27,17 +28,6 @@ module "worker" {
   # CPU utilisation based autoscaling
   scale_down_load = 30
   scale_up_load   = 60
-}
-
-module "load_balancer" {
-  source               = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v2.4.3"
-  region               = "${var.region}"
-  environment          = "${var.environment}"
-  account              = "${var.account}"
-  service_name         = "${var.service_name}"
-  health_check_target  = "HTTP:80/?redirect=0"
-  ssl_cert_arn         = "${data.aws_acm_certificate.wiki.arn}"
-  health_check_timeout = 5
 }
 
 module "dns" {
@@ -62,7 +52,7 @@ module "database" {
   instance_class         = "${var.environment == "prod" ? "db.r3.large" : "db.t2.large"}"
   nubis_sudo_groups      = "${var.nubis_sudo_groups},team_dbeng"
   engine_version         = "5.7.38"
-  parameter_group_name   = "${var.environment == "prod" ? "default:mysql-5-7-db-omejnkmaq6skwy7hbu4pslhm34-upgrade" : "default:mysql-5-7-db-ore5lzjf75p23t3z6x2qhenupy-upgrade"}"
+  parameter_group_name   = "${var.environment == "prod" ? "default.mysql5.7-db-omejnkmaq6skwy7hbu4pslhm34-upgrade" : "default.mysql5.7-db-ore5lzjf75p23t3z6x2qhenupy-upgrade"}"
 }
 
 module "cache" {
