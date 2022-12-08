@@ -29,15 +29,6 @@ module "worker" {
   scale_up_load   = 60
 }
 
-module "dns" {
-  source       = "github.com/nubisproject/nubis-terraform//dns?ref=v2.3.0"
-  region       = "${var.region}"
-  environment  = "${var.environment}"
-  account      = "${var.account}"
-  service_name = "${var.service_name}"
-  target       = "${module.load_balancer.address}"
-}
-
 module "database" {
   source                 = "github.com/nubisproject/nubis-terraform//database?ref=v2.3.0"
   region                 = "${var.region}"
