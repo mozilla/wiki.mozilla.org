@@ -29,6 +29,17 @@ module "worker" {
   scale_up_load   = 60
 }
 
+module "load_balancer" {
+  source               = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v2.4.3"
+  region               = "${var.region}"
+  environment          = "${var.environment}"
+  account              = "${var.account}"
+  service_name         = "${var.service_name}"
+  health_check_target  = "HTTP:80/?redirect=0"
+  ssl_cert_arn         = "${data.aws_acm_certificate.wiki.arn}"
+  health_check_timeout = 5
+}
+
 module "dns" {
   source       = "github.com/nubisproject/nubis-terraform//dns?ref=v2.3.0"
   region       = "${var.region}"
