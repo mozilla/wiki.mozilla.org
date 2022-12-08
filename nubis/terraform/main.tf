@@ -29,6 +29,15 @@ module "worker" {
   scale_up_load   = 60
 }
 
+module "dns" {
+  source       = "github.com/nubisproject/nubis-terraform//dns?ref=v2.3.0"
+  region       = "${var.region}"
+  environment  = "${var.environment}"
+  account      = "${var.account}"
+  service_name = "${var.service_name}"
+  target       = "${var.environment == "prod" ? "wiki-prod-850398177.us-west-2.elb.amazonaws.com" : "wiki-stage-309377030.us-west-2.elb.amazonaws.com"}"
+}
+
 module "database" {
   source                 = "github.com/nubisproject/nubis-terraform//database?ref=v2.3.0"
   region                 = "${var.region}"
