@@ -15,7 +15,7 @@ module "worker" {
   service_name      = "${var.service_name}"
   purpose           = "webserver"
   ami               = "${var.ami}"
-  elb               = "${var.environment == "prod" ? "arn:aws:elasticloadbalancing:us-west-2:921547910285:loadbalancer/app/wiki-prod/ad49b7d565dd20f8" : "arn:aws:elasticloadbalancing:us-west-2:921547910285:loadbalancer/app/wiki-stage/59e998f857a6232c"}"
+  elb               = "${module.load_balancer.name}"
   ssh_key_file      = "${var.ssh_key_file}"
   ssh_key_name      = "${var.ssh_key_name}"
   nubis_sudo_groups = "${var.nubis_sudo_groups}"
