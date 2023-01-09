@@ -59,7 +59,7 @@ module "database" {
   client_security_groups = "${module.worker.security_group}"
   allocated_storage      = 40
   multi_az               = true
-  instance_class         = "${var.environment == "prod" ? "db.r3.large" : "db.t2.large"}"
+  instance_class         = "${var.environment == "prod" ? "db.r5.large" : "db.t2.large"}"
   nubis_sudo_groups      = "${var.nubis_sudo_groups},team_dbeng"
   engine_version         = "5.7.38"
   parameter_group_name   = "${var.environment == "prod" ? "default.mysql5.7-db-omejnkmaq6skwy7hbu4pslhm34-upgrade" : "default.mysql5.7-db-ore5lzjf75p23t3z6x2qhenupy-upgrade"}"
