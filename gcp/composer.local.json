@@ -1,0 +1,21 @@
+{
+  "config": {
+    "allow-plugins": true
+  },
+  "require": {
+    "mediawiki/sub-page-list": "~3.0",
+    "mediawiki/semantic-media-wiki": "~4.1",
+    "mediawiki/semantic-result-formats": "~4.2",
+    "mediawiki/semantic-watchlist": "~1.0",
+    "wikimedia/normalized-exception": "v1.0.1",
+    "wikimedia/at-ease": "v2.1.0"
+  },
+  "extra": {
+    "merge-plugin": {
+      "include": [
+        "extensions/TimedMediaHandler/composer.json",
+        "extensions/Widgets/composer.json"
+      ]
+    }
+  }
+}
