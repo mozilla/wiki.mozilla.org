@@ -46,4 +46,5 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     php -r "unlink('composer-setup.php');"
 
 COPY composer.local.json /var/www/html/composer.local.json
+COPY ports.conf /etc/apache2/ports.conf
 RUN php composer.phar update --no-dev
