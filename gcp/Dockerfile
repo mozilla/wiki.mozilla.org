@@ -47,4 +47,4 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 
 COPY composer.local.json /var/www/html/composer.local.json
 RUN php composer.phar update --no-dev
-EXPOSE 8000
+EXPOSE 8080
