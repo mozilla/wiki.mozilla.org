@@ -30,7 +30,7 @@ RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerri
 RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerrit.wikimedia.org/r/mediawiki/extensions/NoTitle /var/www/html/extensions/NoTitle
 RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerrit.wikimedia.org/r/mediawiki/extensions/Widgets /var/www/html/extensions/Widgets
 RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerrit.wikimedia.org/r/mediawiki/extensions/MobileFrontend /var/www/html/extensions/MobileFrontend
-RUN git clone --depth 1 --single-branch --branch master https://github.com/mozilla/mediawiki-bugzilla.git /var/www/html/extensions/Bugzilla
+#RUN git clone --depth 1 --single-branch --branch master https://github.com/mozilla/mediawiki-bugzilla.git /var/www/html/extensions/Bugzilla
 #extensions/ImportFromEtherpad can we drop? requires pandoc
 #extensions/MobileFrontend can we drop? vector has some mobile modes
 #skins/GraphViz need replacement, do we even need?
