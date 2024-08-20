@@ -16,10 +16,6 @@ RUN groupadd -g $GID app; \
 USER app
 
 RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerrit.wikimedia.org/r/mediawiki/extensions/ConfirmAccount /var/www/html/extensions/ConfirmAccount
-
-#extensions/googleAnalytics, do we need this?
-#RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerrit.wikimedia.org/r/mediawiki/extensions/googleAnalytics /var/www/html/extensions/googleAnalyics
-
 RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerrit.wikimedia.org/r/mediawiki/extensions/LabeledSectionTransclusion /var/www/html/extensions/LabeledSectionTransclusion
 RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerrit.wikimedia.org/r/mediawiki/extensions/TimedMediaHandler /var/www/html/extensions/TimedMediaHandler
 RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerrit.wikimedia.org/r/mediawiki/extensions/RSS /var/www/html/extensions/RSS
@@ -30,7 +26,7 @@ RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerri
 RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerrit.wikimedia.org/r/mediawiki/extensions/NoTitle /var/www/html/extensions/NoTitle
 RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerrit.wikimedia.org/r/mediawiki/extensions/Widgets /var/www/html/extensions/Widgets
 RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerrit.wikimedia.org/r/mediawiki/extensions/MobileFrontend /var/www/html/extensions/MobileFrontend
-#RUN git clone --depth 1 --single-branch --branch master https://github.com/mozilla/mediawiki-bugzilla.git /var/www/html/extensions/Bugzilla
+RUN git clone --depth 1 --single-branch --branch main https://github.com/mozilla/mediawiki-bugzilla.git /var/www/html/extensions/Bugzilla
 #extensions/ImportFromEtherpad can we drop? requires pandoc
 #extensions/MobileFrontend can we drop? vector has some mobile modes
 #skins/GraphViz need replacement, do we even need?
