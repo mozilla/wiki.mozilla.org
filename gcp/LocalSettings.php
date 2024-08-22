@@ -554,3 +554,5 @@ $wgPFEnableStringFunctions = true;
 
 // must disable jquery table on legacy mediawiki-bugzilla extension for mobile editing to work
 $wgBugzillaJqueryTable = false;
+
+$wgReadOnly = getenv("wgReadOnly") ? getenv("wgReadOnly") : false;
