@@ -555,4 +555,9 @@ $wgPFEnableStringFunctions = true;
 // must disable jquery table on legacy mediawiki-bugzilla extension for mobile editing to work
 $wgBugzillaJqueryTable = false;
 
-$wgReadOnly = getenv("wgReadOnly") ? getenv("wgReadOnly") : false;
+// 
+if (getenv("UPGRADE_MODE")) {
+    $wgReadOnly = ( PHP_SAPI === 'cli' ) ? false : 'This wiki is currently being upgraded to a newer software version. Please check back soon.';
+} else {
+    $wgReadOnly = getenv("wgReadOnly") ? getenv("wgReadOnly") : false;
+}
