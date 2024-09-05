@@ -50,7 +50,7 @@ $wgEmailAuthentication = true;
 
 ## Database settings
 $wgDBtype = "mysql";
-$wgDBserver = getenv("wgDBserver") ? getenv("wgDBserver") : "db";
+$wgDBserver = getenv("wgDBserver") ? getenv("wgDBserver") : "localhost";
 $wgDBname = getenv("wgDBname") ? getenv("wgDBname") : "db";
 $wgDBuser = getenv("wgDBuser") ? getenv("wgDBuser") : "root";
 $wgDBpassword = getenv("wgDBpassword") ? getenv("wgDBpassword") : "password";
@@ -498,7 +498,6 @@ $wgMimeDetectorCommand= "file -bi"; #use external mime detector (Linux)
 $wgAllowExternalImages  = true;
 
 $wgSitename = "MozillaWiki";
-# $wgMetaNamespace = "MozillaWiki";
 
 # The relative URL path to the favicon
 $wgFavicon = "$wgUploadPath/favicon.ico";
@@ -512,7 +511,7 @@ $wgMemoryLimit = "256M";
 //$wgCacheDirectory = "/var/tmp/wikimo-cache";
 
 $wgShowIPinHeader = false;
-$wgFileExtensions   = array( 'gz', 'tar', 'png', 'gif', 'jpg', 'jpeg', 'ppt', 'pdf', 'doc', 'xls', 'zip', 'ics', 'mp3', 'ogg', 'odt', 'odp', 'svg', 'odt', 'ods', 'odg', 'webm' );
+$wgFileExtensions = array( 'gz', 'tar', 'png', 'gif', 'jpg', 'jpeg', 'ppt', 'pdf', 'doc', 'xls', 'zip', 'ics', 'mp3', 'ogg', 'odt', 'odp', 'svg', 'odt', 'ods', 'odg', 'webm' );
 
 $wgAllowTitlesInSVG = true;
 
