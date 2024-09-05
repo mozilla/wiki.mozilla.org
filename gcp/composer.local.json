@@ -8,7 +8,7 @@
     "mediawiki/semantic-result-formats": "~4.2",
     "mediawiki/semantic-watchlist": "~1.0",
     "wikimedia/normalized-exception": "v1.0.1",
-    "wikimedia/at-ease": "v2.1.0"
+    "wikimedia/at-ease": "v2.0.0"
   },
   "extra": {
     "merge-plugin": {

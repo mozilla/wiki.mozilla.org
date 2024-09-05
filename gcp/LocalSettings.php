@@ -18,8 +18,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-#$wgSitename = "WikiMo";
-
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
 ## For more information on customizing the URLs
@@ -33,7 +31,7 @@ $wgStylePath = "$wgScriptPath/skins";
 $wgUploadPath = "{$wgScriptPath}/images";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = getenv("wgServer") ? getenv("wgServer") : "http://localhost:8080";
+$wgServer = getenv("wgServer") ? getenv("wgServer") : "http://localhost:8000";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -116,7 +114,6 @@ $wgRightsIcon = "";
 
 # Path to the GNU diff3 utility. Used for conflict resolution.
 $wgDiff3 = "/usr/bin/diff3";
-
 
 ###
 ### Only allow logged-in users to edit
@@ -447,7 +444,6 @@ $wgSpamBlacklistFiles = array(
 	);
 
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
-wfLoadExtension( 'UrlGetParameters' );
 
 wfLoadExtension( 'WikiEditor' );
 # Enables use of WikiEditor by default but still allow users to disable it in preferences
@@ -466,26 +462,29 @@ wfLoadExtension( 'Widgets' );
 wfLoadExtension( 'MobileFrontend' );
 wfLoadExtension( 'InputBox' );
 
+// Disable for 1.35 upgrade
+if (getenv("MWIKI_VER") != "35") {
+    $smwgConfigFileDir = "/data/smw";
+    wfLoadExtension('SemanticResultFormats');
+    wfLoadExtension('SemanticMediaWiki');
+    $smwgNamespaceIndex = 132;
+    $smwgQMaxSize = 40;
+    $smwgQMaxDepth = 20;
+    $smwgEnabledEditPageHelp = false;
+    enableSemantics('localhost');
 
-wfLoadExtension( 'SemanticResultFormats' );
-wfLoadExtension( 'SemanticMediaWiki' );
-$smwgNamespaceIndex = 132;
-$smwgQMaxSize = 40;
-$smwgQMaxDepth = 20;
-$smwgEnabledEditPageHelp = false;
-enableSemantics( 'localhost' );
-//wfLoadExtension( 'SmiteSpam' );
-//wfLoadExtension( 'SandStone' );
-wfLoadExtension( 'SubPageList' );
+    ##
+    # ask API feature will be available at api.php?action=<$wgSMWAskAPI_ActionName>
+    # Default it 'ask'
+    ##
+    global $wgSMWAskAPI_ActionName;
+    $wgSMWAskAPI_ActionName = 'ask';
 
-##
-# ask API feature will be available at api.php?action=<$wgSMWAskAPI_ActionName>
-# Default it 'ask'
-##
-global $wgSMWAskAPI_ActionName;
-$wgSMWAskAPI_ActionName = 'ask';
+    wfLoadExtension( 'SemanticWatchlist' );
 
-wfLoadExtension( 'SemanticWatchlist' );
+    wfLoadExtension('SubPageList');
+    wfLoadExtension('UrlGetParameters');
+}
 
 $wgLogos = [
 	'icon' => "$wgUploadPath/mozilla-wiki-logo-alt-135px.png",
@@ -510,7 +509,7 @@ $wgMemoryLimit = "256M";
 
 
 #survive reboots
-$wgCacheDirectory = "/var/tmp/wikimo-cache";
+//$wgCacheDirectory = "/var/tmp/wikimo-cache";
 
 $wgShowIPinHeader = false;
 $wgFileExtensions   = array( 'gz', 'tar', 'png', 'gif', 'jpg', 'jpeg', 'ppt', 'pdf', 'doc', 'xls', 'zip', 'ics', 'mp3', 'ogg', 'odt', 'odp', 'svg', 'odt', 'ods', 'odg', 'webm' );
