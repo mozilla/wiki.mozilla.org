@@ -24,6 +24,10 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## (like /w/index.php/Page_title to /wiki/Page_title) please see:
 ## https://www.mediawiki.org/wiki/Manual:Short_URL
 $wgScriptPath = "";
+$wgArticlePath = '/$1';
+$wgScript = '/index.php';
+$wgUsePathInfo = false;
+$wgScriptExtension = ".php";
 
 ## The relative URL path to the skins directory
 $wgStylePath = "$wgScriptPath/skins";
