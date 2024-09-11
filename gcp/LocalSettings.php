@@ -93,7 +93,7 @@ $wgShellLocale = "C.UTF-8";
 ## Set $wgCacheDirectory to a writable directory on the web server
 ## to make your wiki go slightly faster. The directory should not
 ## be publically accessible from the web.
-#$wgCacheDirectory = "$IP/cache";
+$wgCacheDirectory = "/var/tmp/cache";
 
 # Site language code, should be one of the list in ./languages/data/Names.php
 $wgLanguageCode = "en";
@@ -508,10 +508,6 @@ $wgFavicon = "$wgUploadPath/favicon.ico";
 $wgShowExceptionDetails = true;
 
 $wgMemoryLimit = "256M";
-
-
-#survive reboots
-//$wgCacheDirectory = "/var/tmp/wikimo-cache";
 
 $wgShowIPinHeader = false;
 $wgFileExtensions = array( 'gz', 'tar', 'png', 'gif', 'jpg', 'jpeg', 'ppt', 'pdf', 'doc', 'xls', 'zip', 'ics', 'mp3', 'ogg', 'odt', 'odp', 'svg', 'odt', 'ods', 'odg', 'webm' );
