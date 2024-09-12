@@ -94,6 +94,7 @@ $wgShellLocale = "C.UTF-8";
 ## to make your wiki go slightly faster. The directory should not
 ## be publically accessible from the web.
 $wgCacheDirectory = "/var/tmp/cache";
+$wgTmpDirectory = "/var/tmp/cache/tmp";
 
 # Site language code, should be one of the list in ./languages/data/Names.php
 $wgLanguageCode = "en";
