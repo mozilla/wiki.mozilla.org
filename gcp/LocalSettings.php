@@ -554,8 +554,6 @@ $wgPFEnableStringFunctions = true;
 $wgBugzillaJqueryTable = false;
 
 // 
-if (getenv("UPGRADE_MODE")) {
+if (getenv("UPGRADE_MODE") == "true") {
     $wgReadOnly = ( PHP_SAPI === 'cli' ) ? false : 'This wiki is currently being upgraded to a newer software version. Please check back soon.';
-} else {
-    $wgReadOnly = getenv("wgReadOnly") ? getenv("wgReadOnly") : false;
 }
