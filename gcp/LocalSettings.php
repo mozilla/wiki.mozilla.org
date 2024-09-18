@@ -473,6 +473,7 @@ if (getenv("MWIKI_VER") != "35") {
     $smwgQMaxSize = 40;
     $smwgQMaxDepth = 20;
     $smwgEnabledEditPageHelp = false;
+    $wgDefaultUserOptions['smw-prefs-general-options-show-entity-issue-panel'] = false;
     enableSemantics('localhost');
 
     ##
