@@ -466,31 +466,11 @@ wfLoadExtension( 'MobileFrontend' );
 
 // Disable for 1.35 upgrade
 if (getenv("MWIKI_VER") != "35") {
-    $smwgConfigFileDir = "/data/smw";
-    wfLoadExtension('SemanticResultFormats');
-    wfLoadExtension('SemanticMediaWiki');
-    $smwgNamespaceIndex = 132;
-    $smwgQMaxSize = 40;
-    $smwgQMaxDepth = 20;
-    $smwgEnabledEditPageHelp = false;
-    $wgDefaultUserOptions['smw-prefs-general-options-show-entity-issue-panel'] = false;
-    enableSemantics('localhost');
-
-    ##
-    # ask API feature will be available at api.php?action=<$wgSMWAskAPI_ActionName>
-    # Default it 'ask'
-    ##
-    global $wgSMWAskAPI_ActionName;
-    $wgSMWAskAPI_ActionName = 'ask';
-
-    wfLoadExtension( 'SemanticWatchlist' );
-
     wfLoadExtension('SubPageList');
     wfLoadExtension('UrlGetParameters');
 
     wfLoadSkin( 'MinervaNeue' );
     $wgDefaultMobileSkin = 'minerva';
-
 }
 
 $wgLogos = [
