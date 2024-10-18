@@ -408,18 +408,27 @@ $wgAccountRequestThrottle = 50;
 $wgConfirmAccountSaveInfo = false;
 $wgConfirmAccountCaptchas = true;
 
-wfLoadExtensions( [ 'ConfirmEdit', 'ConfirmEdit/ReCaptchaNoCaptcha' ] );
+wfLoadExtensions( [ 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ] );
 $wgCaptchaTriggers['edit']          = false;
 $wgCaptchaTriggers['create']        = false;
 $wgCaptchaTriggers['addurl']        = false;
 $wgCaptchaTriggers['createaccount'] = true;
 $wgCaptchaTriggers['badlogin']      = true;
-$wgCaptchaClass = 'ReCaptchaNoCaptcha';
-#$wgReCaptchaSiteKey = getenv("wgReCaptchaSiteKey") ? getenv("wgReCaptchaSiteKey") : "";   # NEEDS TO BE ADDED VIA GCP SECRET MANAGER
-#$wgReCaptchaSecretKey = getenv("wgReCaptchaSecretKey") ? getenv("wgReCaptchaSecretKey") : "";
+$wgCaptchaClass = 'QuestyCaptcha';
+
+$question1 = getenv("question1") ? getenv("question1") : random_bytes(30);
+$answer1 = getenv("answer1") ? getenv("answer1") : random_bytes(30);
+$question2 = getenv("question2") ? getenv("question2") : random_bytes(30);
+$answer2 = getenv("answer2") ? getenv("answer2") : random_bytes(30);
+$question3 = getenv("question3") ? getenv("question3") : random_bytes(30);
+$answer3 = getenv("answer3") ? getenv("answer3") : random_bytes(30);
+$wgCaptchaQuestions = [
+    $question1 => $answer1,
+    $question2 => $answer2,
+    $question3 => $answer3,
+];
 
 wfLoadExtension( 'Gadgets' );
-#wfLoadExtension( 'googleAnalytics' );
 wfLoadExtension( 'ImageMap' );
 wfLoadExtension( 'Interwiki' );
 wfLoadExtension( 'LabeledSectionTransclusion' );
