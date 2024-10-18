@@ -13,8 +13,6 @@ To migrate the db dump to the latest version use the following path:
 - switch the version in `Dockerfile` to `mediawiki:1.39` and update MWIKI_VER to match the point release number.
 - Set     "wikimedia/at-ease": "v2.0.0" to     "wikimedia/at-ease": "v2.1.0"
 - Run `docker compose exec mediawiki php maintenance/update.php`
-- Run `docker compose exec mediawiki php extensions/SemanticMediaWiki/maintenance/populateHashField.php`
-- Run `docker compose exec mediawiki php extensions/SemanticMediaWiki/maintenance/rebuildData.php -v --with-maintenance-log` <- this takes a while, may not need? we should clean up spam before doing this
 
 ### Notes
 - switch the version in `Dockerfile` to `mediawiki:1.xx` and update MWIKI_VER to match the point release number.
@@ -34,12 +32,7 @@ compose exec mediawiki php maintenance/removeUnusedAccounts.php --delete
 4. Deploy a 1.35 build to GCP.
 5. Run `php maintenance/update.php` with 1.35.
 6. Deploy a 1.39 build to GCP
-7. Run `php maintenance/update.php` with 1.39
-8. Run `php maintenance/deleteArchivedRevisions.php --delete`.
-9. Run `php maintenance/removeUnusedAccounts.php --delete`.
-10. Run `php maintenance/populateHashField.php`.
-11. Run `php maintenance/rebuildData.php -v --with-maintenance-log`.
-12. Check GCP version of wiki.
-13. Update DNS to point to GCP Wiki.
-14. Remove maintenance mode on GCP Wiki.
-15. Clean up AWS Wiki (and optionally Nubis).
+7. Check GCP version of wiki.
+8. Update DNS to point to GCP Wiki.
+9. Remove maintenance mode on GCP Wiki.
+10. Clean up AWS Wiki (and optionally Nubis).
