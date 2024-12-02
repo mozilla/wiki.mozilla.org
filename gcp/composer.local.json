@@ -11,7 +11,8 @@
     "merge-plugin": {
       "include": [
         "extensions/TimedMediaHandler/composer.json",
-        "extensions/Widgets/composer.json"
+        "extensions/Widgets/composer.json",
+        "extensions/SendGrid/composer.json"
       ]
     }
   }

@@ -45,12 +45,13 @@ $wgEnableEmail = true;
 $wgEnableUserEmail = true; # UPO
 
 $wgEmergencyContact = "infra-webops@mozilla.com";
-$wgPasswordSender = "wiki@mozilla.com";
-$wgAdditionalMailParams = "-f noreply@mozilla.com"; #bug 891341, modified slightly to match already-approved SES domain
+$wgPasswordSender = "noreply@wiki.mozilla.org";
 
 $wgEnotifUserTalk = false; # UPO
 $wgEnotifWatchlist = false; # UPO
 $wgEmailAuthentication = true;
+
+$wgSendGridAPIKey = getenv("wgSendGridAPIKey") ? getenv("wgSendGridAPIKey") : "API_KEY";
 
 ## Database settings
 $wgDBtype = "mysql";
@@ -416,6 +417,7 @@ $wgCaptchaTriggers['createaccount'] = true;
 $wgCaptchaTriggers['badlogin']      = true;
 $wgCaptchaClass = 'QuestyCaptcha';
 
+// If these don't load then fill them with randomness.
 $question1 = getenv("question1") ? getenv("question1") : random_bytes(30);
 $answer1 = getenv("answer1") ? getenv("answer1") : random_bytes(30);
 $question2 = getenv("question2") ? getenv("question2") : random_bytes(30);
@@ -477,6 +479,7 @@ wfLoadExtension( 'MobileFrontend' );
 if (getenv("MWIKI_VER") != "35") {
     wfLoadExtension('SubPageList');
     wfLoadExtension('UrlGetParameters');
+    wfLoadExtension( 'SendGrid' );
 
     wfLoadSkin( 'MinervaNeue' );
     $wgDefaultMobileSkin = 'minerva';

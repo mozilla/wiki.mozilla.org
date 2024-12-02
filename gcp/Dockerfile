@@ -24,6 +24,7 @@ RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerri
 RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerrit.wikimedia.org/r/mediawiki/extensions/NoTitle /var/www/html/extensions/NoTitle
 RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerrit.wikimedia.org/r/mediawiki/extensions/Widgets /var/www/html/extensions/Widgets
 RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerrit.wikimedia.org/r/mediawiki/extensions/MobileFrontend /var/www/html/extensions/MobileFrontend
+RUN git clone --depth 1 --single-branch --branch REL1_${MWIKI_VER} https://gerrit.wikimedia.org/r/mediawiki/extensions/SendGrid /var/www/html/extensions/SendGrid
 RUN git clone --depth 1 --single-branch --branch main https://github.com/mozilla/mediawiki-bugzilla.git /var/www/html/extensions/Bugzilla
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
