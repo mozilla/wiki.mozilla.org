@@ -5,7 +5,7 @@
   "require": {
     "mediawiki/sub-page-list": "~3.0",
     "wikimedia/normalized-exception": "v1.0.1",
-    "wikimedia/at-ease": "v2.0.0"
+    "wikimedia/at-ease": "v2.1.0"
   },
   "extra": {
     "merge-plugin": {
