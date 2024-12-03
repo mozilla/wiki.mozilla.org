@@ -1,6 +1,6 @@
 # Ensure both post 1. numbers match here.
-FROM docker.io/mediawiki:1.39
-ENV MWIKI_VER=39
+FROM docker.io/mediawiki:1.35
+ENV MWIKI_VER=35
 WORKDIR /var/www/html/
 
 ARG UID=10001
