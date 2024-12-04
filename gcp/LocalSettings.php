@@ -474,16 +474,12 @@ wfLoadExtension( 'NoTitle' );
 wfLoadExtension( 'InputBox' );
 wfLoadExtension( 'Widgets' );
 wfLoadExtension( 'MobileFrontend' );
+wfLoadExtension('SubPageList');
+wfLoadExtension('UrlGetParameters');
+wfLoadExtension( 'SendGrid' );
 
-// Disable for 1.35 upgrade
-if (getenv("MWIKI_VER") != "35") {
-    wfLoadExtension('SubPageList');
-    wfLoadExtension('UrlGetParameters');
-    wfLoadExtension( 'SendGrid' );
-
-    wfLoadSkin( 'MinervaNeue' );
-    $wgDefaultMobileSkin = 'minerva';
-}
+wfLoadSkin( 'MinervaNeue' );
+$wgDefaultMobileSkin = 'minerva';
 
 $wgLogos = [
 	'icon' => "$wgUploadPath/mozilla-wiki-logo-alt-135px.png",
