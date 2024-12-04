@@ -6,7 +6,8 @@ WORKDIR /var/www/html/
 ARG UID=10001
 ARG GID=10001
 
-RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg unzip
+RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg unzip zlib1g-dev libpng-dev
+RUN docker-php-ext-install gd
 
 # Prepare for nonroot user
 RUN groupadd -g $GID app; \
