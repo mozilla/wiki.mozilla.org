@@ -36,5 +36,5 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 COPY composer.local.json /var/www/html/composer.local.json
 COPY ports.conf /etc/apache2/ports.conf
 COPY LocalSettings.php /var/www/html/LocalSettings.php
+COPY php.ini /usr/local/etc/php/php.ini
 RUN php composer.phar update --no-dev
-RUN echo "error_reporting = E_ALL & ~E_NOTICE & ~E_WARNING" >> /usr/local/etc/php/php.ini
