@@ -141,7 +141,7 @@ $wgGroupPermissions['*']['viewmywatchlist']   = false;
 $wgGroupPermissions['*']['editmyprivateinfo'] = true;
 $wgGroupPermissions['*']['viewmyprivateinfo'] = true;
 $wgGroupPermissions['*']['editmyoptions']     = false;
-$wgGroupPermissions['*']['writeapi']          = false;
+$wgGroupPermissions['*']['writeapi']          = true;
 
 
 // Logged in users
