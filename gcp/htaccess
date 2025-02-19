@@ -1,5 +1,8 @@
 <IfModule mod_rewrite.c>
+    RewriteEngine On
     RewriteBase /
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
 
     # rule 1: remove multiple leading slashes (directly after the TLD)
     RewriteCond %{THE_REQUEST} \s/{2,}
