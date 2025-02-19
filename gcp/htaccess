@@ -1,3 +1,11 @@
-<IfModule mod_alias.c>
-  RedirectMatch 301 ^///?(.*)$ https://wiki.mozilla.org/$1
+<IfModule mod_rewrite.c>
+    RewriteBase /
+
+    # rule 1: remove multiple leading slashes (directly after the TLD)
+    RewriteCond %{THE_REQUEST} \s/{2,}
+    RewriteRule (.*) $1 [R=301,L]
+
+    # rule 2: remove multiple slashes in the requested path
+    RewriteCond %{REQUEST_URI} ^(.*)/{2,}(.*)$
+    RewriteRule (.*) %1/%2 [R=301,L]
 </IfModule>
