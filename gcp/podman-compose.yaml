@@ -1,0 +1,23 @@
+services:
+  mediawiki:
+    image: docker.io/mediawiki:1.39
+    ports:
+      - 8080:80
+    volumes:
+      - /var/www/html/images
+      - ./LocalSettings.php:/var/www/html/LocalSettings.php
+  db:
+    image: docker.io/mariadb:11
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '127.0.0.1:3306:3306'
+    volumes:
+      - data:/var/lib/mysql
+      - ./wiki.sql:/docker-entrypoint-initdb.d/wiki.sql
+volumes:
+  data:
