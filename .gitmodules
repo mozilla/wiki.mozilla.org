@@ -58,7 +58,7 @@
 	branch = REL1_27
 [submodule "extensions/Sandstone"]
 	path = extensions/Sandstone
-	url = https://github.com/christi3k/mw-sandstone.git
+	url = https://github.com/mozilla/wikimo-sandstone.git
 	branch = master
 [submodule "extensions/PageForms"]
 	path = extensions/PageForms
